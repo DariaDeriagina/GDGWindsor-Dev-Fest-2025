@@ -191,6 +191,72 @@ body {
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ==================== 📱 TABLET FIX FOR NAV + HERO ==================== */
+@media (min-width: 769px) and (max-width: 1200px) {
+	/* ✅ NAVBAR FIX */
+	.navbar {
+		max-width: 98%; /* ✅ make pill navbar wider but not too wide */
+		border-radius: 40px; /* ✅ softer curve for tablet */
+		padding: 14px 20px;
+	}
+
+	.navbar-brand img {
+		height: 40px; /* ✅ slightly smaller logo */
+	}
+
+	.navbar-nav .nav-link {
+		padding: 6px 14px;
+		font-size: 15px;
+	}
+
+	/* ✅ HERO FIX */
+	.hero-section {
+		padding: 140px 30px 40px; /* ✅ more top padding for navbar clearance */
+	}
+
+	.hero-container {
+		flex-direction: row; /* ✅ keep side-by-side layout */
+		align-items: center;
+		gap: 30px;
+		text-align: left;
+	}
+
+	.hero-text {
+		width: 55%; /* ✅ let text breathe */
+	}
+
+	.hero-title {
+		font-size: 36px;
+		line-height: 1.2;
+		margin-bottom: 20px;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.hero-buttons {
+		flex-direction: row; /* ✅ keep buttons horizontal on iPad */
+		gap: 14px;
+	}
+
+	.btn-green,
+	.btn-yellow {
+		padding: 12px 20px;
+		font-size: 16px;
+	}
+
+	.hero-image {
+		width: 45%;
+		text-align: center;
+	}
+
+	.hero-image img {
+		max-width: 95%; /* ✅ shrink just a bit */
+	}
+}
+
 /* ==================== MARK:📱 RESPONSIVE HERO SECTION ==================== */
 @media (max-width: 992px) {
 	.hero-container {
@@ -229,6 +295,91 @@ body {
 	.subtitle {
 		font-size: 20px;
 		text-align: center;
+	}
+}
+/* ==================== MARK:📱 HERO SECTION MOBILE FIX ==================== */
+@media (max-width: 768px) {
+	.hero-section {
+		padding: 120px 10px 0px; /* ✅ smaller padding on mobile */
+	}
+	.hero-container {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 0 20px; /* ✅ add some horizontal breathing room */
+		max-width: 100%; /* ✅ ensure it takes the full width of the screen */
+		width: 100%; /* ✅ stretch container fully */
+	}
+
+	.hero-text {
+		width: 100%; /* ✅ also stretch text block */
+		max-width: 500px; /* ✅ but limit too-wide text */
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		font-size: 22px;
+		line-height: 1.2;
+		text-align: center;
+		margin-bottom: 22px;
+		max-width: 660px; /* ✅ tighter width to force 2 lines */
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		word-break: keep-all;
+		white-space: normal;
+		margin-bottom: 40px;
+	}
+	.gdg-icon1 {
+		height: 18px;
+		vertical-align: middle;
+		margin-bottom: 6px;
+	}
+
+	.gdg-icon2 {
+		height: 17px;
+		vertical-align: middle;
+		margin-bottom: 6px;
+	}
+
+	.subtitle {
+		font-size: 16px; /* 🔽 slightly smaller */
+		line-height: 1.4;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+
+	.event-info p {
+		font-size: 16px; /* 🔽 match subtitle */
+		margin-bottom: 8px;
+		text-align: center;
+	}
+
+	.hero-buttons {
+		flex-direction: column; /* ✅ stack buttons vertically */
+		align-items: stretch; /* ✅ make them fill container width */
+		gap: 10px; /* ✅ small gap between buttons */
+		width: 100%; /* ✅ full width container */
+		margin-top: 40px;
+	}
+
+	.btn-green,
+	.btn-yellow {
+		padding: 10px 20px; /* smaller buttons for mobile */
+		font-size: 16px;
+	}
+
+	.hero-image {
+		flex: unset;
+		text-align: center;
+		width: 100%;
+	}
+
+	.hero-image img {
+		max-width: 85%; /* 🔽 slightly smaller image */
+		height: auto;
+		margin: 0 auto;
+		display: block;
 	}
 }
 
