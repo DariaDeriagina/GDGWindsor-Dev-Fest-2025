@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GDG Windsor DevFest 2025</title>
+
+		<!-- ✅ Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- ✅ Bootstrap only for navbar toggler -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+
+		<!-- ✅ Custom Styles -->
+		<link rel="stylesheet" href="style.css" />
+		<!-- ===== FAVICON  ===== -->
+
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+
+<!-- ✅ Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+
+<!-- ✅ Android / PWA Icons -->
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon/web-app-manifest-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon/web-app-manifest-512x512.png">
+
+<!-- ✅ Microsoft Tiles -->
+<meta name="msapplication-TileImage" content="favicon/web-app-manifest-192x192.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+
+<!-- ✅ Theme Color for Mobile Browsers -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- (Optional for older browsers) -->
+<link rel="shortcut icon" href="favicon/favicon.ico">
+
+
+
+	</head>
+	<body>
+		<!-- ===== MARK: NAVBAR ===== -->
+		<nav class="navbar navbar-expand-lg bg-light shadow-sm mt-2 mx-3 px-3">
+			<div class="container-fluid">
+				<!-- Logo -->
+				<a class="navbar-brand d-flex align-items-center" href="index.html">
+					<img
+						src="images/GDGWindsorLogo.png"
+						alt="GDG Windsor DevFest 2025 Logo"
+					/>
+				</a>
+
+				<!-- Burger Button -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#mainNavbar"
+					aria-controls="mainNavbar"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Nav Links -->
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active rounded-pill px-3" href="#home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-pill px-3" href="#about"
+								>About DevFest</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-pill px-3" href="#speakers"
+								>Speakers & Sessions</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-pill px-3" href="#ai"
+								>Innovate with AI</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link rounded-pill px-3" href="#ctf"
+								>Capture The Flag</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- ===== MARK: HERO SECTION ===== -->
+		<section class="hero-section" id="home">
+			<div class="hero-container">
+				<!-- ✅ Left side content -->
+				<div class="hero-text">
+					<h1 class="hero-title">
+						Google Developer Group <br />
+						<img src="images/GDG1.png" alt="GDG icon left" class="gdg-icon1" />GDG<img src="images/GDG2.png" alt="GDG icon right" class="gdg-icon2" />
+						Windsor DevFest 2025
+					</h1>
+
+					<p class="subtitle">
+						A one-day tech conference powered by Google Developer Groups —
+						featuring talks, workshops, and an AI startup competition.
+					</p>
+
+					<div class="event-info">
+						<p>
+							<img src="icons/Calendar.png" alt="Calendar Icon" />
+							<strong>Date:</strong> Saturday, November 8th, 2025
+						</p>
+						<p>
+							<img src="icons/Map.png" alt="Map Icon" /> Odette School of
+							Business, Windsor, Ontario –
+							<a href="https://maps.app.goo.gl/1izkwARj8NmSYa1h6" target="_blank"
+								>Google Map</a
+							>
+						</p>
+						<p>
+							<img src="icons/Parking.png" alt="Parking Icon" /> Free parking in
+							Lots A & B (first 2 h), Paid in Lot C ($5/day)
+						</p>
+					</div>
+
+					<div class="hero-buttons">
+						<a href="#register" class="btn-green">Register now</a>
+						<a href="#speak" class="btn-yellow">Submit To Speak</a>
+					</div>
+				</div>
+
+				<!-- ✅ Right side image -->
+				<div class="hero-image">
+					<img
+						src="images/RightSideMainImage.png"
+						alt="GDG Speakers and Audience"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== MARK: SPONSORS SECTION ===== -->
+		<section class="sponsors-section py-5 bg-light">
+			<div class="container text-center">
+				<h2 class="fw-bold mb-4">Our Sponsors & Partners</h2>
+				<div class="puzzle-carousel overflow-hidden">
+					<div class="d-flex puzzle-track">
+						<!-- Puzzle items -->
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleBlue.png"
+								alt="Puzzle Blue"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleGreen.png"
+								alt="Puzzle Green"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzlePink.png"
+								alt="Puzzle Pink"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleYellow.png"
+								alt="Puzzle Yellow"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+
+						<!-- Repeat for smooth infinite scroll -->
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleBlue.png"
+								alt="Puzzle Blue"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleGreen.png"
+								alt="Puzzle Green"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzlePink.png"
+								alt="Puzzle Pink"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+						<div class="puzzle-item px-3">
+							<img
+								src="images/PuzzleYellow.png"
+								alt="Puzzle Yellow"
+								class="img-fluid"
+							/><span>Sponsor Partners</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ===== MARK: ABOUT DEVFEST SECTION ===== -->
+		<section class="about-devfest" id="about">
+			<div class="container">
+				<h2 class="section-title">What Is DevFest?</h2>
+
+				<!-- Top Buttons -->
+				<div class="devfest-tags">
+					<span class="tag tag-blue">CONNECT</span>
+					<span class="tag tag-yellow">LEARN</span>
+					<span class="tag tag-pink">GROW</span>
+				</div>
+
+				<!-- Intro Text -->
+				<p class="section-subtitle">
+					DevFest Windsor is a community-led tech conference organized by Google
+					Developer Groups that brings together developers, designers, students,
+					and entrepreneurs. It features expert-led talks and hands-on workshops
+					focused on the latest in artificial intelligence, cloud and web
+					technologies, and startup innovation. A dedicated high-school track
+					offers practical labs—like Arduino robotics—to inspire the next
+					generation of tech talent.
+				</p>
+
+				<section class="tracks-section">
+					<h2 class="tracks-title">Tracks & Themes</h2>
+					<p class="tracks-subtitle">
+						Choose the path that fits your skills and interests — four distinct
+						tracks await.
+					</p>
+
+					<div class="tracks-grid">
+						<!-- 1️⃣ AI & Machine Learning -->
+						<div class="track-card">
+							<img
+								src="images/AI.png"
+								class="track-icon"
+								alt="AI & Machine Learning Icon"
+							/>
+							<img src="images/Image1.png" class="decor-shape" alt="" />
+							<h3>AI & Machine Learning</h3>
+							<p>
+								Explore the latest in generative AI, LLMs and computer vision.
+								Learn how to train models, address ethics & bias, and apply AI
+								responsibly in real projects.
+							</p>
+						</div>
+
+						<!-- 2️⃣ Cloud & Web Technologies -->
+						<div class="track-card">
+							<img
+								src="images/Cloud.png"
+								class="track-icon"
+								alt="Cloud & Web Icon"
+							/>
+							<img src="images/Image2.png" class="decor-shape" alt="" />
+							<h3>Cloud & Web Technologies</h3>
+							<p>
+								Get hands‑on with scalable cloud architectures, serverless
+								patterns and modern web frameworks. Discover best practices for
+								security, performance and CI/CD.
+							</p>
+						</div>
+
+						<!-- 3️⃣ Startup & Innovation -->
+						<div class="track-card">
+							<img
+								src="images/Rocket.png"
+								class="track-icon"
+								alt="Startup & Innovation Icon"
+							/>
+							<img src="images/Image3.png" class="decor-shape" alt="" />
+							<h3>Startup & Innovation</h3>
+							<p>
+								Hear from founders and VCs about ideation, funding and
+								go‑to‑market strategies. Join pitch sessions and design sprints
+								to bring your own innovation to life.
+							</p>
+						</div>
+
+						<!-- 4️⃣ Full-Stack Development -->
+						<div class="track-card">
+							<img
+								src="images/Stack.png"
+								class="track-icon"
+								alt="Full-Stack Development Icon"
+							/>
+							<img src="images/Image4.png" class="decor-shape" alt="" />
+							<h3>Full‑Stack Development</h3>
+							<p>
+								Deep dives into modern web stacks: React/Angular front‑ends,
+								Node/.NET back‑ends, CI/CD.
+							</p>
+						</div>
+
+						<!-- 5️⃣ Cybersecurity -->
+						<div class="track-card">
+							<img
+								src="images/ApplicationShield.png"
+								class="track-icon"
+								alt="Cybersecurity Icon"
+							/>
+							<img src="images/Image5.png" class="decor-shape" alt="" />
+							<h3>Cybersecurity</h3>
+							<p>
+								Get hands‑on with scalable cloud architectures, serverless
+								patterns and modern web frameworks. Discover best practices for
+								security, performance and CI/CD.
+							</p>
+						</div>
+
+						<!-- 6️⃣ High-School Track -->
+						<div class="track-card">
+							<img
+								src="images/School.png"
+								class="track-icon"
+								alt="High-School Track Icon"
+							/>
+							<img src="images/Image6.png" class="decor-shape" alt="" />
+							<h3>High‑School Track</h3>
+							<p>
+								Hear from founders and VCs about ideation, funding and
+								go‑to‑market strategies. Join pitch sessions and design sprints
+								to bring your own innovation to life.
+							</p>
+						</div>
+					</div>
+							<!-- Stats -->
+				<div class="stats">
+					<div class="stat stat-blue">35+ SPEAKERS</div>
+					<div class="stat stat-pink">300+ ATTENDEES</div>
+					<div class="stat stat-yellow">25+ SESSIONS</div>
+				</div>
+			</div>
+		</section>
+				</section>
+				<!-- ===== MARK: NEWS SECTION ===== -->
+				<section class="news-section">
+					<div class="container">
+						<h2 class="news-title">GDG Windsor In The News</h2>
+
+						<div class="news-grid">
+							<!-- 📰 Article 1 -->
+							<div class="news-card">
+								<img
+									src="images/imageWindsorStar.png"
+									alt="Windsor Star Logo"
+									class="news-logo"
+								/>
+								<div class="news-text">
+									<h3>
+										Promise, potential peril — Artificial Intelligence focus of
+										Windsor-Essex DevFest
+									</h3>
+									<a href="#" class="news-link">Read full article →</a>
+								</div>
+							</div>
+
+							<!-- 📰 Article 2 -->
+							<div class="news-card">
+								<img
+									src="images/imageWindsorStar.png"
+									alt="Windsor Star Logo"
+									class="news-logo"
+								/>
+								<div class="news-text">
+									<h3>
+										Artificial Intelligence focus of Windsor-Essex DevFest
+									</h3>
+									<a href="#" class="news-link">Watch the video →</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- ✅ Gallery link -->
+						<div class="gallery-link">
+							<span>📸 <a href="#">GDG Windsor Gallery →</a></span>
+						</div>
+					</div>
+				</section>
+<!-- ===== MARK: SPEAKERS & SESSIONS ===== -->
+<section class="speakers-section" id="speakers">
+  <div class="container">
+    <h2 class="speakers-title">Speakers & Sessions</h2>
+    <p class="speakers-subtitle">
+      We’re bringing together experts from tech, AI, business, and cloud innovation to share insights, demos, and strategies. 
+      <br>Full speaker lineup and session details will be announced closer to the event.
+    </p>
+
+    <!-- Grid -->
+    <div class="speakers-grid">
+      <!-- 1️⃣ AI & ML -->
+      <div class="speaker-card card-blue">
+        <img src="images/AI.png" alt="AI Icon">
+        <h3>AI & ML</h3>
+        <p>Panel Discussions</p>
+      </div>
+
+      <!-- 2️⃣ Cloud & Web Tech -->
+      <div class="speaker-card card-pink">
+        <img src="images/Cloud.png" alt="Cloud Icon">
+        <h3>Cloud & Web Tech</h3>
+        <p>Demo Live</p>
+      </div>
+
+      <!-- 3️⃣ Startup & Innovation -->
+      <div class="speaker-card card-green">
+        <img src="images/Rocket.png" alt="Rocket Icon">
+        <h3>Startup & Innovation</h3>
+        <p>Success Stories</p>
+      </div>
+
+      <!-- 4️⃣ Cybersecurity -->
+      <div class="speaker-card card-yellow">
+        <img src="images/ApplicationShield.png" alt="Cybersecurity Icon">
+        <h3>Cybersecurity</h3>
+        <p>Live Hacking Challenge</p>
+      </div>
+
+      <!-- 5️⃣ Full-Stack Development -->
+      <div class="speaker-card card-lightblue">
+        <img src="images/Stack.png" alt="Stack Icon">
+        <h3>Full-Stack Development</h3>
+        <p>Code Clinics</p>
+      </div>
+
+      <!-- 6️⃣ High-School Track -->
+      <div class="speaker-card card-lightpink">
+        <img src="images/School.png" alt="School Icon">
+        <h3>High-School Track</h3>
+        <p>Arduino Workshop</p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="speakers-buttons">
+      <a href="#" class="btn-outline">See Full Schedule (Coming Soon)</a>
+      <a href="#" class="btn-outline btn-yellowish">View Last Year’s Speakers</a>
+    </div>
+  </div>
+</section>
+
+		<!-- ===== MARK: FOOTER ===== -->
+<footer class="footer-section">
+  <div class="footer-container">
+    
+    <!-- ✅ Left side: text + button -->
+    <div class="footer-left">
+      <h3>Keep in touch with GDG Windsor for <br> the latest announcements</h3>
+      <a href="#" class="footer-btn">Join GDG Windsor</a>
+    </div>
+
+    <!-- ✅ Right side: logo -->
+    <div class="footer-right">
+      <img src="images/GDGWindsorLogo.png" alt="GDG Windsor Logo" class="footer-logo">
+   
+    </div>
+  </div>
+
+  <!-- ✅ Bottom Nav -->
+  <nav class="footer-nav">
+    <a href="#">Home</a>
+    <a href="#">About DevFest</a>
+    <a href="#">Speaker & Sessions</a>
+    <a href="#">Innovate with AI</a>
+    <a href="#">Capture The Flag</a>
+  </nav>
+
+  <!-- ✅ Copyright -->
+  <p class="footer-copy">© 2025 DevFestWindsor</p>
+</footer>
+
+
+		<!-- Bootstrap JS Bundle -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Your custom JS -->
+		<script defer src="script.js"></script>
+	</body>
+</html>
