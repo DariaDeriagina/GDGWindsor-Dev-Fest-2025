@@ -10,6 +10,7 @@ body {
 	background: #fff;
 	color: #222;
 	line-height: 1.6;
+	padding-bottom: 40px;
 }
 section {
 	scroll-margin-top: 80px;
@@ -971,10 +972,14 @@ section {
 
 /* ===== MARK: FOOTER SECTION ===== */
 .footer-section {
-	background: #c3defe;
+	background: #bde9f4;
 	padding: 60px 20px 30px;
 	text-align: center;
-	border-radius: 20px 20px 0 0;
+	border: 2px solid #000000;
+	border-radius: 30px;
+	max-width: 1200px;
+	margin: 60px auto 0;
+	box-shadow: none;
 }
 
 /* ✅ Container */
@@ -1044,16 +1049,71 @@ section {
 	font-size: 14px;
 	color: #555;
 }
+.footer-credit {
+	font-size: 14px;
+	margin-top: 10px;
+	color: #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.dashdev-logo {
+	margin-bottom: 2px;
+	height: 22px;
+	vertical-align: middle;
+	transition: transform 0.3s ease;
+}
+
+.dashdev-link:hover .dashdev-logo {
+	transform: scale(1.1);
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-	.footer-container {
-		flex-direction: column;
+	.footer-section {
+		margin: 40px 16px;
+		padding: 40px 20px 30px;
 		text-align: center;
 	}
-	.footer-right {
+
+	.footer-container {
+		flex-direction: column;
+		align-items: center;
 		text-align: center;
+		gap: 20px;
+	}
+
+	.footer-left h3 {
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.footer-logo {
+		width: 260px;
+		margin: 20px 0;
+	}
+
+	.footer-btn {
+		width: 100%;
+		max-width: 260px;
+		text-align: center;
+	}
+
+	/* ✅ Navigation links in a vertical list */
+	.footer-nav {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
 		margin-top: 20px;
+	}
+
+	.footer-nav a {
+		display: block;
+		margin: 0;
+		font-size: 16px;
 	}
 }
 
