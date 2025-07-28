@@ -385,31 +385,42 @@ body {
 
 /* ==================== MARK: SPONSORS SECTION ==================== */
 .sponsors-section {
-	background: #f8f8f8;
-	padding: 60px 20px;
+	background: #ffffff;
+	padding: 0;
 	text-align: center;
 	overflow: hidden;
 }
 
+/* ==== SPONSORS FRAME ==== */
+.sponsors-frame {
+	background: #ffffff;
+	border: 2px solid #000000;
+	border-radius: 30px;
+	padding: 15px;
+	max-width: 1200px;
+	margin: 0px auto;
+	box-shadow: none;
+}
+
+/* === TITLE === */
 .sponsors-title {
 	font-size: 1.8rem;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	transition: color 0.3s ease;
 }
 
-.sponsors-title:hover {
-	color: #c3dfc4;
-}
-
+/* === PUZZLE CAROUSEL === */
 .puzzle-carousel {
 	width: 100%;
 	overflow: hidden;
 	position: relative;
+	padding: 0px;
+	box-sizing: border-box;
 }
 
 .puzzle-track {
 	display: flex;
-	width: calc(250px * 8);
+	width: max-content;
 	animation: scrollPuzzle 20s linear infinite;
 }
 
@@ -443,12 +454,29 @@ body {
 	pointer-events: none;
 }
 
+/* === ANIMATION === */
 @keyframes scrollPuzzle {
 	0% {
 		transform: translateX(0);
 	}
 	100% {
 		transform: translateX(-50%);
+	}
+}
+
+/* === MOBILE === */
+@media (max-width: 992px) {
+	.puzzle-item {
+		width: 180px;
+	}
+	.puzzle-item img {
+		width: 150px;
+	}
+}
+@media (max-width: 768px) {
+	.sponsors-frame {
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 }
 
