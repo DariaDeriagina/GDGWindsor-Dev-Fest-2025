@@ -738,7 +738,7 @@ section {
 }
 /* =====MARK: NEWS SECTION ===== */
 .news-section {
-	padding: 80px 20px;
+	padding: 0px 20px;
 	background: #fff;
 	text-align: center;
 }
@@ -819,7 +819,7 @@ section {
 
 /* ===== SPEAKERS SECTION ===== */
 .speakers-section {
-	padding: 80px 20px;
+	padding: 40px 20px;
 	text-align: center;
 	background: #fff;
 }
@@ -832,7 +832,7 @@ section {
 
 .speakers-subtitle {
 	font-size: 18px;
-	max-width: 900px;
+	max-width: 1200px;
 	margin: 0 auto 40px;
 	color: #333;
 	line-height: 1.5;
@@ -841,9 +841,9 @@ section {
 /* ===== GRID ===== */
 .speakers-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	gap: 20px;
-	max-width: 1000px;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 12px;
+	max-width: 1600px;
 	margin: 0 auto 40px;
 }
 
@@ -880,7 +880,7 @@ section {
 
 /* ===== COLORS ===== */
 .card-blue {
-	background: #c3defe;
+	background: #bde9f4;
 }
 .card-pink {
 	background: #f7d6e0;
@@ -892,7 +892,7 @@ section {
 	background: #fae8c8;
 }
 .card-lightblue {
-	background: #d9f1ff;
+	background: #bde9f4;
 }
 .card-lightpink {
 	background: #fbe1e1;
@@ -925,6 +925,13 @@ section {
 
 .btn-yellowish {
 	background: #f9edda;
+}
+@media (max-width: 768px) {
+	.btn-outline {
+		width: 100%;
+		max-width: 380px;
+		text-align: center;
+	}
 }
 
 /* ====================MARK:  RESPONSIVE ==================== */
