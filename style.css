@@ -39,7 +39,7 @@ section {
 }
 
 .navbar-brand img {
-	height: 42px;
+	height: 52px;
 	padding-left: 20px;
 	padding-top: 8px;
 }
@@ -154,9 +154,18 @@ section {
 	vertical-align: middle;
 }
 
+/* Style for links in the event-info block */
 .event-info a {
-	color: #007bff;
-	text-decoration: underline;
+	color: #000; /* Make text black */
+	font-size: 20px; /* Match your event-info p size */
+	font-weight: 500; /* Slightly bolder for visibility */
+	text-decoration: none; /* Remove underline */
+	transition: color 0.3s ease;
+}
+
+.event-info a:hover {
+	color: #007bff; /* Subtle blue on hover */
+	text-decoration: underline; /* Underline only when hovered */
 }
 
 /* ✅ Buttons */
@@ -851,7 +860,7 @@ section {
 /* ===== CARDS ===== */
 .speaker-card {
 	border-radius: 12px;
-	padding: 20px;
+	padding: 10px;
 	border: 1px solid #000;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
