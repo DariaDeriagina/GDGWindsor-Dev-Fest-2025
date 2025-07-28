@@ -911,7 +911,7 @@ section {
 	padding: 12px 24px;
 	border: 1px solid #000;
 	border-radius: 40px;
-	background: #e0e8dd;
+	background: #d0e6d1;
 	font-weight: 600;
 	font-size: 16px;
 	text-decoration: none;
@@ -1179,4 +1179,11 @@ section {
 	.speaker-card img {
 		width: 40px;
 	}
+}
+[data-aos] {
+	opacity: 0;
+	transition-property: transform, opacity;
+}
+[data-aos].aos-animate {
+	opacity: 1;
 }
