@@ -1364,52 +1364,54 @@ section {
 [data-aos].aos-animate {
 	opacity: 1;
 }
+/* ==================== MARK: AICOMPETITION (aicompetition.html) ==================== */
+/* Requires: <main class="page-wrap page-aicompetition"> */
 
-/* ==================== MARK: BULLET CHIPS (aicompetition.html) ==================== */
-.bullet-grid {
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-	margin-top: 20px;
+/* --- Compact hero + buttons --- */
+.page-aicompetition .hero-section {
+	padding: 110px 24px 24px;
+}
+.page-aicompetition .hero-container {
+	gap: 28px;
+	align-items: center;
+}
+.page-aicompetition .hero-title {
+	font-size: clamp(28px, 4vw, 42px);
+	line-height: 1.15;
+	margin-bottom: 12px;
+}
+.page-aicompetition .subtitle {
+	font-size: clamp(15px, 2vw, 20px);
+	margin-bottom: 8px;
 }
 
-.bullet-chip {
-	background: #fff;
-	border: 1px solid #000;
-	border-radius: 30px;
-	padding: 12px 18px;
+.page-aicompetition .hero-buttons {
+	gap: 12px;
+	margin-top: 14px;
+	flex-wrap: wrap;
+}
+.page-aicompetition .btn-green,
+.page-aicompetition .btn-yellow {
+	padding: 10px 18px;
 	font-size: 16px;
-	font-weight: 500;
-	line-height: 1.4;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	border-radius: 28px;
+	border-width: 1px;
+	width: auto;
+	min-width: 0;
+	box-shadow: none;
+	transform: none;
+}
+.page-aicompetition .btn-green:hover,
+.page-aicompetition .btn-yellow:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.page-aicompetition .hero-image img {
+	width: 100%;
+	max-width: 320px;
 }
 
-/* Google pastel palette rotation */
-.bullet-chip:nth-child(1) {
-	background: #bde9f4;
-} /* light blue */
-.bullet-chip:nth-child(2) {
-	background: #c3dfc4;
-} /* light green */
-.bullet-chip:nth-child(3) {
-	background: #ffe2a0;
-} /* light yellow */
-.bullet-chip:nth-child(4) {
-	background: #f6d2d2;
-} /* light pink */
-.bullet-chip:nth-child(5) {
-	background: #d0c4f6;
-} /* light purple */
-.bullet-chip:nth-child(6) {
-	background: #fae8c8;
-} /* peach */
-
-/* Hover effect */
-.bullet-chip:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-/* ==================== MARK: CTA CHIPS (aicompetition.html) ==================== */
+/* --- CTA chips (Devpost + Email) --- */
 .page-aicompetition .cta-row {
 	display: flex;
 	gap: 16px;
@@ -1418,7 +1420,6 @@ section {
 	flex-wrap: wrap;
 	margin-top: 18px;
 }
-
 .page-aicompetition .btn-chip {
 	display: inline-flex;
 	align-items: center;
@@ -1438,15 +1439,12 @@ section {
 	white-space: nowrap;
 	letter-spacing: 0.1px;
 }
-
-/* pastel themes to match site */
 .page-aicompetition .btn-chip--green {
 	background: #c3dfc4;
 } /* light green */
 .page-aicompetition .btn-chip--peach {
 	background: #fae8c8;
 } /* peach */
-
 .page-aicompetition .btn-chip:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
@@ -1456,8 +1454,84 @@ section {
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
 }
 
-/* responsive tweaks */
+/* --- Bullet chips --- */
+.page-aicompetition .bullet-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 20px;
+}
+.page-aicompetition .bullet-chip {
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 30px;
+	padding: 12px 18px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.4;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.page-aicompetition .bullet-chip:nth-child(1) {
+	background: #bde9f4;
+}
+.page-aicompetition .bullet-chip:nth-child(2) {
+	background: #c3dfc4;
+}
+.page-aicompetition .bullet-chip:nth-child(3) {
+	background: #ffe2a0;
+}
+.page-aicompetition .bullet-chip:nth-child(4) {
+	background: #f6d2d2;
+}
+.page-aicompetition .bullet-chip:nth-child(5) {
+	background: #d0c4f6;
+}
+.page-aicompetition .bullet-chip:nth-child(6) {
+	background: #fae8c8;
+}
+.page-aicompetition .bullet-chip:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Devpost card --- */
+.page-aicompetition .devpost-card {
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 16px;
+	padding: 22px 18px;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+	.page-aicompetition .hero-image img {
+		max-width: 260px;
+	}
+}
 @media (max-width: 768px) {
+	.page-aicompetition .hero-section {
+		padding: 96px 16px 8px;
+	}
+	.page-aicompetition .hero-title {
+		font-size: 24px;
+	}
+	.page-aicompetition .subtitle {
+		font-size: 14px;
+	}
+	.page-aicompetition .hero-buttons {
+		gap: 10px;
+	}
+	.page-aicompetition .btn-green,
+	.page-aicompetition .btn-yellow {
+		width: 100%;
+		max-width: 280px;
+		padding: 11px 16px;
+	}
+	.page-aicompetition .hero-image {
+		margin-top: 8px;
+	}
 	.page-aicompetition .cta-row {
 		gap: 12px;
 	}
