@@ -1409,3 +1409,63 @@ section {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
+/* ==================== MARK: CTA CHIPS (aicompetition.html) ==================== */
+.page-aicompetition .cta-row {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 18px;
+}
+
+.page-aicompetition .btn-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	padding: 0 20px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	font: 600 16px/1 "Inter", system-ui, sans-serif;
+	text-decoration: none;
+	color: #000;
+	background: #fff;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.page-aicompetition .btn-chip__label {
+	white-space: nowrap;
+	letter-spacing: 0.1px;
+}
+
+/* pastel themes to match site */
+.page-aicompetition .btn-chip--green {
+	background: #c3dfc4;
+} /* light green */
+.page-aicompetition .btn-chip--peach {
+	background: #fae8c8;
+} /* peach */
+
+.page-aicompetition .btn-chip:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.page-aicompetition .btn-chip:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+	.page-aicompetition .cta-row {
+		gap: 12px;
+	}
+	.page-aicompetition .btn-chip {
+		height: 44px;
+		padding: 0 16px;
+		font-size: 15px;
+		width: 100%;
+		max-width: 320px;
+	}
+}
