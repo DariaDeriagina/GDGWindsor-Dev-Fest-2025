@@ -40,3 +40,32 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, 200); // 200ms matches CSS animation speed
 	}
 });
+// Reveal all hidden speaker cards on mobile
+(function () {
+	const btn = document.getElementById("loadMoreSpeakers");
+	if (!btn) return;
+
+	btn.addEventListener("click", function () {
+		const hidden = document.querySelectorAll(
+			".speaker-list-grid .is-hidden-mobile"
+		);
+		hidden.forEach((el) => el.classList.remove("is-hidden-mobile"));
+		btn.style.display = "none"; // hide button after expanding
+	});
+})();
+document.querySelectorAll(".btn-green, .btn-yellow").forEach((button) => {
+	button.addEventListener("click", function (e) {
+		const ripple = this.querySelector("::after"); // pseudo-elements not directly accessible
+		// Instead, dynamically create a span ripple
+		let circle = document.createElement("span");
+		const rect = this.getBoundingClientRect();
+		const size = Math.max(rect.width, rect.height);
+		circle.style.width = circle.style.height = size + "px";
+		circle.style.left = e.clientX - rect.left - size / 2 + "px";
+		circle.style.top = e.clientY - rect.top - size / 2 + "px";
+		circle.classList.add("ripple");
+		this.appendChild(circle);
+
+		setTimeout(() => circle.remove(), 600);
+	});
+});

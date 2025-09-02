@@ -18,8 +18,8 @@ section {
 
 /* ==================== MARK: NAVBAR ==================== */
 .navbar {
-	padding-top: 18px;
-	padding-bottom: 18px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	width: 100%;
 	position: fixed;
 	top: 0;
@@ -32,6 +32,16 @@ section {
 	z-index: 100;
 	transition: all 0.3s ease;
 }
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%); /* centers the pill */
+	width: min(95%, 1200px); /* same visual width as before */
+	margin: 10px 0; /* vertical spacing only */
+	border-radius: 50px;
+}
+
 .navbar-nav .nav-link {
 	color: #000;
 	font-weight: 500;
@@ -133,9 +143,9 @@ section {
 	margin-bottom: 6px;
 }
 .subtitle {
-	font-family: "Roboto", sans-serif;
-	font-weight: 500;
-	font-size: 24px;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 32px;
 	line-height: 1.3;
 	text-align: left;
 	margin-bottom: 24px;
@@ -143,7 +153,7 @@ section {
 
 /* ✅ Event info */
 .event-info p {
-	font-size: 20px;
+	font-size: 18px;
 	margin-bottom: 10px;
 	line-height: 1.2;
 }
@@ -168,328 +178,409 @@ section {
 	text-decoration: underline; /* Underline only when hovered */
 }
 
-/* ✅ Buttons */
+/* 🌟 Google-style action buttons (Hero Section) */
+/* === Hero Buttons (Google style with border) === */
 .hero-buttons {
-	margin-top: 24px;
+	margin-top: 40px;
 	display: flex;
 	gap: 20px;
-	margin-top: 40px;
 }
-
 .btn-green,
 .btn-yellow {
+	width: 220px;
+	text-align: center;
 	padding: 14px 28px;
-	border-radius: 50px;
+	border-radius: 50px; /* pill shape */
 	font-family: "Roboto", sans-serif;
-	font-weight: 500;
+	font-weight: 600;
 	font-size: 18px;
 	text-decoration: none;
-	border: 1px solid #000;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border: 2px solid #000; /* ✅ black outline like navbar */
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
+/* Green button */
 .btn-green {
 	background-color: #c3dfc4;
 	color: #000;
 }
 
+/* Yellow button */
 .btn-yellow {
 	background-color: #fae8c8;
 	color: #000;
 }
 
+/* Hover effect */
 .btn-green:hover,
 .btn-yellow:hover {
 	transform: translateY(-3px);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+	background-color: #fff; /* subtle inversion */
+	color: #000;
 }
 
-/* ==================== 📱 TABLET FIX FOR NAV + HERO ==================== */
+/* Active (click) effect */
+.btn-green:active,
+.btn-yellow:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+/* Add ripple container inside buttons */
+.btn-green,
+.btn-yellow {
+	position: relative;
+	overflow: hidden; /* ✅ hides ripple overflow */
+}
+
+/* Ripple effect */
+.btn-green::after,
+.btn-yellow::after {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background: rgba(0, 0, 0, 0.2); /* translucent ripple */
+	transform: scale(0);
+	opacity: 0;
+	pointer-events: none;
+	transition: transform 0.6s ease, opacity 0.8s ease;
+}
+
+/* Active (click) state */
+.btn-green:active::after,
+.btn-yellow:active::after {
+	transform: scale(20); /* circle expands */
+	opacity: 1; /* fade visible */
+	transition: transform 0.6s ease, opacity 0.8s ease;
+}
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.2);
+	transform: scale(0);
+	animation: ripple-animation 0.6s linear;
+	pointer-events: none;
+}
+
+@keyframes ripple-animation {
+	to {
+		transform: scale(4);
+		opacity: 0;
+	}
+}
+
+/* ==================== 📱 TABLET (769–1200px) ==================== */
 @media (min-width: 769px) and (max-width: 1200px) {
-	/* ✅ NAVBAR FIX */
+	/* Navbar pill centered & comfy */
 	.navbar {
-		max-width: 98%; /* ✅ make pill navbar wider but not too wide */
-		border-radius: 40px; /* ✅ softer curve for tablet */
+		width: min(98%, 1200px);
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 40px;
 		padding: 14px 20px;
 	}
-
 	.navbar-brand img {
-		height: 40px; /* ✅ slightly smaller logo */
+		height: 40px;
 	}
-
 	.navbar-nav .nav-link {
 		padding: 6px 14px;
 		font-size: 15px;
 	}
 
-	/* ✅ HERO FIX */
+	/* Hero layout side-by-side with breathing room */
 	.hero-section {
-		padding: 140px 30px 40px; /* ✅ more top padding for navbar clearance */
+		padding: 140px 30px 40px;
 	}
-
 	.hero-container {
-		flex-direction: row; /* ✅ keep side-by-side layout */
+		flex-direction: row;
 		align-items: center;
 		gap: 30px;
 		text-align: left;
 	}
-
 	.hero-text {
-		width: 55%; /* ✅ let text breathe */
+		width: 55%;
 	}
-
 	.hero-title {
 		font-size: 36px;
 		line-height: 1.2;
 		margin-bottom: 20px;
 	}
-
 	.subtitle {
 		font-size: 18px;
 		margin-bottom: 20px;
 	}
 
+	/* Buttons in a row with a clear gap */
 	.hero-buttons {
-		flex-direction: row; /* ✅ keep buttons horizontal on iPad */
-		gap: 14px;
+		display: flex;
+		gap: 18px;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 20px; /* space between the two buttons */
+		margin-top: 32px;
 	}
 
-	.btn-green,
-	.btn-yellow {
-		padding: 12px 20px;
-		font-size: 16px;
-	}
-
+	/* Right image scaled nicely */
 	.hero-image {
 		width: 45%;
 		text-align: center;
 	}
-
 	.hero-image img {
-		max-width: 95%; /* ✅ shrink just a bit */
+		max-width: 95%;
+		height: auto;
 	}
 }
 
-/* ==================== MARK:📱 RESPONSIVE HERO SECTION ==================== */
-@media (max-width: 992px) {
-	.hero-container {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		gap: 30px;
-	}
-
-	.hero-text {
-		flex: unset;
-		width: 90%;
-	}
-
-	.hero-image {
-		flex: unset;
-		text-align: center;
-		width: 100%;
-	}
-
-	.hero-image img {
-		max-width: 80%;
-	}
-
-	.hero-buttons {
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 16px;
-	}
-
-	.hero-title {
-		font-size: 36px;
-		text-align: center;
-	}
-
-	.subtitle {
-		font-size: 20px;
-		text-align: center;
-	}
-}
-/* ==================== MARK:📱 HERO SECTION MOBILE FIX ==================== */
+/* ==================== 📱 MOBILE (≤768px) ==================== */
 @media (max-width: 768px) {
+	/* Layout & container spacing */
 	.hero-section {
-		padding: 120px 10px 0px; /* ✅ smaller padding on mobile */
+		padding: 120px 20px 2px 2px;
 	}
 	.hero-container {
+		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
-		padding: 0 20px; /* ✅ add some horizontal breathing room */
-		max-width: 100%; /* ✅ ensure it takes the full width of the screen */
-		width: 100%; /* ✅ stretch container fully */
+		padding: 0 18px;
+		width: 100%;
+		max-width: 100%;
 	}
 
+	/* Let hero-text children reorder naturally */
 	.hero-text {
-		width: 100%; /* ✅ also stretch text block */
-		max-width: 500px; /* ✅ but limit too-wide text */
-		margin: 0 auto;
+		display: contents;
 	}
 
+	/* Title */
 	.hero-title {
+		order: 1;
 		font-size: 22px;
 		line-height: 1.2;
 		text-align: center;
-		margin-bottom: 22px;
-		max-width: 660px; /* ✅ tighter width to force 2 lines */
-		margin-left: auto;
-		margin-right: auto;
+		max-width: 660px;
+		margin: 0 auto 12px;
 		display: block;
 		word-break: keep-all;
 		white-space: normal;
-		margin-bottom: 40px;
 	}
-	.gdg-icon1 {
+	.gdg-icon1,
+	.gdg-icon2 {
 		height: 18px;
 		vertical-align: middle;
 		margin-bottom: 6px;
 	}
 
-	.gdg-icon2 {
-		height: 17px;
-		vertical-align: middle;
-		margin-bottom: 6px;
-	}
-
+	/* Subtitle */
 	.subtitle {
-		font-size: 16px; /* 🔽 slightly smaller */
+		order: 2;
+		font-size: 14px;
 		line-height: 1.4;
-		text-align: center;
-		margin-bottom: 16px;
+		text-align: left;
+		margin: 0;
 	}
 
-	.event-info p {
-		font-size: 16px; /* 🔽 match subtitle */
-		margin-bottom: 8px;
-		text-align: center;
-	}
-
-	.hero-buttons {
-		flex-direction: column; /* ✅ stack buttons vertically */
-		align-items: stretch; /* ✅ make them fill container width */
-		gap: 10px; /* ✅ small gap between buttons */
-		width: 100%; /* ✅ full width container */
-		margin-top: 40px;
-	}
-
-	.btn-green,
-	.btn-yellow {
-		padding: 10px 20px; /* smaller buttons for mobile */
-		font-size: 16px;
-	}
-
+	/* Right image */
 	.hero-image {
-		flex: unset;
-		text-align: center;
+		order: 3;
 		width: 100%;
+		text-align: center;
+		margin: 12px 0;
 	}
-
 	.hero-image img {
-		max-width: 85%; /* 🔽 slightly smaller image */
+		max-width: 85%;
 		height: auto;
 		margin: 0 auto;
 		display: block;
 	}
+
+	/* Event info block */
+	.event-info {
+		order: 4;
+		text-align: left;
+		margin-bottom: 16px;
+		--icon-size: 6px;
+		--icon-gap: 8px;
+		--line-font: 15px;
+	}
+	.event-info,
+	.event-info p,
+	.event-info a,
+	.event-info span {
+		font-size: 15px;
+		line-height: 1.4;
+	}
+	.event-info .location-line {
+		display: flex;
+		align-items: center;
+		gap: var(--icon-gap);
+		font-size: var(--line-font);
+		margin: 0 0 6px 0;
+	}
+	.event-info .location-line img {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		flex: 0 0 var(--icon-size);
+	}
+	.event-info .map-line {
+		display: block;
+		padding-left: calc(
+			var(--icon-size) + var(--icon-gap)
+		); /* align with text column */
+		margin: 10px 0;
+		margin-left: -12px; /* matches your current visual */
+	}
+	.event-info .map-line a {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		text-decoration: none;
+	}
+	.event-info .map-line a:hover {
+		text-decoration: underline;
+	}
+	.map-link-icon {
+		width: 26px;
+		height: 26px;
+	}
+
+	/* CTAs: stacked, full width. Register = Google Blue ONLY on mobile */
+	.hero-buttons {
+		order: 5;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 18px; /* spacing between the two buttons */
+		margin-top: 24px;
+		width: 100%;
+	}
+	.hero-buttons a {
+		text-decoration: none;
+	}
+
+	.btn-green,
+	.btn-yellow {
+		width: 100%;
+		max-width: 320px;
+		padding: 12px 0;
+	}
+
+	/* Mobile-only color for Register */
+	.btn-green {
+		background-color: #5383ec; /* Google Blue */
+		color: #fff;
+		border: 2px solid #000; /* ← вернули чёрную рамку */
+	}
+	.btn-green:hover {
+		background-color: #3367d6;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		transform: translateY(-2px);
+	}
+	.btn-green:active {
+		background-color: #2a56c6;
+		transform: translateY(0);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	}
 }
 
-/* ==================== MARK: SPONSORS SECTION ==================== */
+/* ==================== SPONSORS ==================== */
 .sponsors-section {
-	background: #ffffff;
-	padding: 0;
+	background: #fff;
+	padding: 0 20px; /* room from page edge */
 	text-align: center;
-	overflow: hidden;
 }
 
-/* ==== SPONSORS FRAME ==== */
 .sponsors-frame {
-	background: #ffffff;
-	border: 2px solid #000000;
-	border-radius: 30px;
-	padding: 15px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 50px;
+	padding: 20px 24px;
 	max-width: 1200px;
-	margin: 0px auto;
+	width: 100%;
+	margin: 0 auto; /* ✅ center the frame on ultra-wide */
 	box-shadow: none;
 }
 
-/* === TITLE === */
+/* Title */
 .sponsors-title {
-	font-size: 1.8rem;
-	margin-bottom: 20px;
-	transition: color 0.3s ease;
+	font-size: 1.6rem;
+	margin: 8px 0 18px;
 }
 
-/* === PUZZLE CAROUSEL === */
-.puzzle-carousel {
-	width: 100%;
-	overflow: hidden;
-	position: relative;
-	padding: 0px;
-	box-sizing: border-box;
-}
-
+/* Grid container for logos */
 .puzzle-track {
-	display: flex;
-	width: max-content;
-	animation: scrollPuzzle 20s linear infinite;
+	display: grid; /* ✅ no Bootstrap flex */
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 24px; /* even spacing between tiles */
+	justify-items: center;
+	align-items: center;
 }
 
+/* Each tile */
 .puzzle-item {
-	width: 250px;
-	flex-shrink: 0;
-	text-align: center;
-	position: relative;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	width: 100%;
+	max-width: 180px; /* keeps tiles from exploding on huge screens */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Logo image */
 .puzzle-item img {
-	width: 200px;
-	margin: 0 auto;
+	width: 100%;
+	max-width: 150px; /* visual cap */
+	max-height: 110px;
+	height: auto;
+	object-fit: contain;
 	display: block;
 }
 
 .puzzle-item:hover {
-	transform: scale(1.05);
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
-.puzzle-item span {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-weight: 600;
-	color: #333;
-	font-size: 1rem;
-	pointer-events: none;
-}
+/* ---------- Breakpoints ---------- */
 
-/* === ANIMATION === */
-@keyframes scrollPuzzle {
-	0% {
-		transform: translateX(0);
+/* Mobile (≤768px): 2 per row */
+@media (max-width: 768px) {
+	.sponsors-title {
+		font-size: 1.4rem;
 	}
-	100% {
-		transform: translateX(-50%);
+	.sponsors-frame {
+		padding: 16px 16px;
 	}
-}
-
-/* === MOBILE === */
-@media (max-width: 992px) {
+	.puzzle-track {
+		grid-template-columns: repeat(2, minmax(0, 1fr)); /* ✅ exactly 2 */
+		gap: 14px;
+	}
 	.puzzle-item {
-		width: 180px;
+		max-width: none;
+	} /* let grid control width */
+	.puzzle-item img {
+		max-width: 120px;
+		max-height: 95px;
+	}
+}
+
+/* Tablet (769–992px): 3 per row */
+@media (min-width: 769px) and (max-width: 992px) {
+	.puzzle-track {
+		grid-template-columns: repeat(3, 1fr); /* ✅ exactly 3 */
+		gap: 18px;
 	}
 	.puzzle-item img {
-		width: 150px;
+		max-width: 135px;
+		max-height: 100px;
 	}
 }
-@media (max-width: 768px) {
-	.sponsors-frame {
-		margin-left: 15px;
-		margin-right: 15px;
+
+/* Large desktop (≥1400px): allow a little more breathing room */
+@media (min-width: 1400px) {
+	.puzzle-track {
+		gap: 28px;
 	}
 }
 
@@ -827,302 +918,379 @@ section {
 	text-decoration: underline;
 }
 
-/* ===== SPEAKERS SECTION ===== */
+/* ==================== MARK:  SPEAKERS & SESSIONS (scoped) ==================== */
 .speakers-section {
 	padding: 40px 20px;
-	text-align: center;
 	background: #fff;
+}
+
+.speakers-container {
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .speakers-title {
 	font-size: 32px;
 	font-weight: 700;
-	margin-bottom: 16px;
+	margin-bottom: 12px;
+	text-align: center;
 }
 
 .speakers-subtitle {
 	font-size: 18px;
-	max-width: 1200px;
-	margin: 0 auto 40px;
+	max-width: 1100px;
+	margin: 0 auto 24px;
 	color: #333;
 	line-height: 1.5;
+	text-align: center;
 }
 
-/* ===== GRID ===== */
-.speakers-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+/* Session chips (visual only for now) */
+/* ===== SESSION TAG CHIPS ===== */
+.session-tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 12px;
-	max-width: 1600px;
-	margin: 0 auto 40px;
+	margin: 20px 0 30px;
 }
 
-/* ===== CARDS ===== */
-.speaker-card {
-	border-radius: 12px;
-	padding: 10px;
-	border: 1px solid #000;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.speaker-card:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.speaker-card img {
-	width: 50px;
-	margin-bottom: 10px;
-}
-
-.speaker-card h3 {
-	font-size: 18px;
-	font-weight: 700;
-	margin-bottom: 4px;
-}
-
-.speaker-card p {
+.tag-chip {
+	padding: 8px 18px;
+	border-radius: 30px;
 	font-size: 14px;
-	font-weight: 500;
-	color: #333;
+	font-weight: 600;
+	border: 1px solid #000; /* keep consistent with your site style */
+	cursor: default;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ===== COLORS ===== */
-.card-blue {
+/* Google-style pastel colors (matching your site) */
+.tag-chip:nth-child(1) {
 	background: #bde9f4;
-}
-.card-pink {
-	background: #f7d6e0;
-}
-.card-green {
+} /* AI & ML – light blue */
+.tag-chip:nth-child(2) {
 	background: #c3dfc4;
-}
-.card-yellow {
+} /* Cloud & Web – light green */
+.tag-chip:nth-child(3) {
+	background: #ffe2a0;
+} /* Startup & Innovation – light yellow */
+.tag-chip:nth-child(4) {
+	background: #f6d2d2;
+} /* Cybersecurity – light pink */
+.tag-chip:nth-child(5) {
+	background: #d0c4f6;
+} /* Full-Stack – light purple */
+.tag-chip:nth-child(6) {
 	background: #fae8c8;
-}
-.card-lightblue {
-	background: #bde9f4;
-}
-.card-lightpink {
-	background: #fbe1e1;
+} /* High-School – peach */
+
+.tag-chip:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== BUTTONS ===== */
+/* Grid: 4 per row desktop, 3 tablet, 2 mobile */
+.speaker-list-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+	max-width: 1200px;
+	margin: 12px auto 30px;
+}
+
+/* Card */
+.person-card {
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 14px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.person-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Consistent image area */
+.person-photo-wrap {
+	aspect-ratio: 4 / 5; /* keeps uniform height */
+	width: 100%;
+	background: #e9f6ff;
+	display: block;
+}
+.person-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* fills nicely; swap to contain if you prefer letterboxing */
+	display: block;
+}
+
+/* Text area */
+.person-info {
+	padding: 10px 12px 14px;
+	text-align: left;
+}
+.person-name {
+	font-size: 16px;
+	font-weight: 800;
+	margin: 4px 0 2px;
+}
+.person-role {
+	font-size: 13px;
+	font-weight: 700;
+	margin: 0;
+}
+.person-meta {
+	font-size: 13px;
+	color: #333;
+	margin: 4px 0 2px;
+}
+
+/* Buttons row */
 .speakers-buttons {
 	display: flex;
 	justify-content: center;
-	gap: 20px;
+	align-items: center; /* ✅ выравнивание по центру по вертикали */
+	gap: 20px; /* расстояние между кнопками */
 	flex-wrap: wrap;
 }
 
-.btn-outline {
-	padding: 12px 24px;
-	border: 1px solid #000;
-	border-radius: 40px;
-	background: #d0e6d1;
+/* Чтобы ссылка выглядела как кнопка (по стилю ближе к button) */
+.speakers-buttons a.btn-outline {
+	display: inline-flex; /* превращаем ссылку в flex-контейнер */
+	align-items: center; /* текст по центру */
+	justify-content: center; /* выравнивание по горизонтали */
+	height: 48px; /* одинаковая высота с кнопкой */
+	padding: 0 24px; /* внутренние отступы */
+	border-radius: 12px; /* тот же радиус */
+	border: 1px solid #000; /* если нужно, оставляем */
+	text-decoration: none; /* убираем подчёркивание */
 	font-weight: 600;
 	font-size: 16px;
-	text-decoration: none;
-	color: #000;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	color: #000; /* или белый, если хочешь как на button */
 }
 
-.btn-outline:hover {
+/* ===== SPEAKER SOCIAL ICONS ===== */
+.speaker-socials {
+	display: flex;
+	gap: 14px; /* space between LinkedIn and X */
+	margin-top: 10px;
+	margin-bottom: 10px; /* space above the icons */
+	padding-left: 6px; /* push them a little away from the card edge */
+}
+
+.speaker-socials a img {
+	width: 38px; /* larger icons */
+	height: 38px;
+	transition: transform 0.2s ease;
+}
+
+.speaker-socials a img:hover {
+	transform: scale(1.15); /* nice hover grow effect */
+}
+
+/* Mobile behavior: show only first 8 until "Load more" */
+.is-hidden-mobile {
+	display: block;
+}
+.btn-mobile-only {
+	display: none;
+}
+/* ✅ Override only Load More button */
+#loadMoreSpeakers {
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: 12px; /* Material-style rounded */
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	background: #4285f4; /* Google Blue */
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+#loadMoreSpeakers:hover {
+	background: #3367d6; /* darker blue */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	transform: translateY(-2px);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-yellowish {
-	background: #f9edda;
+/* Pressed effect */
+#loadMoreSpeakers:active {
+	background: #2a56c6;
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+/* Tablet */
+@media (max-width: 992px) {
+	.speaker-list-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-	.btn-outline {
+	.speakers-subtitle {
+		font-size: 16px;
+	}
+	.speaker-list-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 14px;
+	}
+	#loadMoreSpeakers {
 		width: 100%;
-		max-width: 380px;
+		max-width: 320px;
+		margin: 20px auto 0;
+		display: block;
+		font-size: 15px;
+	}
+	.speakers-buttons {
+		flex-direction: column; /* кнопки друг под другом */
+		align-items: center;
+		gap: 12px;
+	}
+
+	.speakers-buttons #loadMoreSpeakers,
+	.speakers-buttons a.btn-outline {
+		width: 100%;
+		max-width: 320px; /* чтобы не растягивались слишком широко */
 		text-align: center;
 	}
+	.is-hidden-mobile {
+		display: none !important;
+	} /* hide items 9–24 */
+	.btn-mobile-only {
+		display: inline-block;
+	} /* show the load more button */
 }
 
-/* ====================MARK:  RESPONSIVE ==================== */
-@media (max-width: 992px) {
-	/* Make the mobile dropdown completely transparent */
-	.navbar-collapse {
-		background: none !important;
-		box-shadow: none !important;
-		border: none !important;
-		opacity: 0;
-		transform: translateY(-10px);
-		transition: opacity 0.3s ease, transform 0.3s ease;
-	}
-	/* When menu is shown */
-	.navbar-collapse.show {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	/* Fade-in for each link individually (staggered) */
-	.navbar-nav .nav-link {
-		opacity: 0;
-		transform: translateY(-5px);
-		transition: opacity 0.15s ease, transform 0.15s ease;
-	}
-
-	.navbar-collapse.show .nav-link {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	/* Optionally remove padding to make it cleaner */
-	.navbar-nav {
-		background: none !important;
-	}
-}
-
-/* ===== MARK: FOOTER SECTION ===== */
+/* ===== FOOTER (Google style) ===== */
+/* ===== FOOTER COLUMN STYLE ===== */
 .footer-section {
-	background: #bde9f4;
-	padding: 60px 20px 30px;
+	background: #fff;
+	border-top: 1px solid #ddd;
+	padding: 50px 20px 30px;
 	text-align: center;
-	border: 2px solid #000000;
-	border-radius: 30px;
-	max-width: 1200px;
-	margin: 60px auto 0;
-	box-shadow: none;
+	font-family: "Inter", sans-serif;
+	color: #333;
 }
 
-/* ✅ Container */
-.footer-container {
+/* Top column */
+.footer-top {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
-	max-width: 1100px;
+	gap: 24px;
+	max-width: 800px;
 	margin: 0 auto 30px;
-	flex-wrap: wrap;
-	text-align: left;
 }
 
-/* ✅ Left side */
-.footer-left h3 {
-	font-size: 24px;
-	font-weight: 700;
-	margin-bottom: 20px;
+.footer-top h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0;
 }
 
 .footer-btn {
-	background: #fae8c8;
-	border: 1px solid #000;
-	border-radius: 50px;
-	padding: 12px 24px;
-	font-weight: 600;
-	text-decoration: none;
-	color: #000;
 	display: inline-block;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
+	padding: 10px 22px;
+	border-radius: 50px;
+	font-size: 15px;
+	font-weight: 600;
+	background: #4285f4; /* Google Blue */
+	color: #fff;
+	border: none;
+	text-decoration: none;
+	transition: background 0.25s ease, transform 0.2s ease;
+}
 .footer-btn:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ✅ Right side (logo + title) */
-.footer-right {
-	text-align: right;
+	background: #3367d6;
+	transform: translateY(-2px);
 }
 
 .footer-logo {
-	width: 360px;
-	margin-bottom: 5px;
+	max-width: 220px;
+	height: auto;
+	margin-top: 10px;
 }
 
-/* ✅ Footer nav */
+/* Navigation */
 .footer-nav {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 18px;
 	margin: 20px 0;
 }
-
 .footer-nav a {
-	margin: 0 10px;
-	text-decoration: none;
-	font-weight: 600;
-	color: #000;
-	transition: color 0.3s ease;
-}
-
-.footer-nav a:hover {
 	color: #555;
-}
-
-/* ✅ Copyright */
-.footer-copy {
+	font-weight: 500;
 	font-size: 14px;
-	color: #555;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+.footer-nav a:hover {
+	color: #000;
+}
+
+/* Bottom */
+.footer-bottom {
+	border-top: 1px solid #eee;
+	margin-top: 20px;
+	padding-top: 12px;
+	font-size: 13px;
+	color: #777;
 }
 .footer-credit {
-	font-size: 14px;
-	margin-top: 10px;
-	color: #333;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	gap: 8px;
+	align-items: center;
+	gap: 6px;
+	margin-top: 6px;
 }
-
 .dashdev-logo {
-	margin-bottom: 2px;
-	height: 22px;
+	height: 20px;
 	vertical-align: middle;
-	transition: transform 0.3s ease;
+	transition: transform 0.2s ease;
 }
-
 .dashdev-link:hover .dashdev-logo {
 	transform: scale(1.1);
 }
 
-/* ===== RESPONSIVE ===== */
+/* Mobile */
 @media (max-width: 768px) {
-	.footer-section {
-		margin: 40px 16px;
-		padding: 40px 20px 30px;
-		text-align: center;
-	}
-
-	.footer-container {
+	.footer-top {
 		flex-direction: column;
-		align-items: center;
 		text-align: center;
-		gap: 20px;
 	}
 
 	.footer-left h3 {
-		font-size: 20px;
 		text-align: center;
-	}
-
-	.footer-logo {
-		width: 260px;
-		margin: 20px 0;
+		font-size: 18px;
 	}
 
 	.footer-btn {
 		width: 100%;
 		max-width: 260px;
-		text-align: center;
 	}
 
-	/* ✅ Navigation links in a vertical list */
+	.footer-right img {
+		margin-top: 16px;
+		max-width: 180px;
+	}
+
 	.footer-nav {
-		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 12px;
-		margin-top: 20px;
-	}
-
-	.footer-nav a {
-		display: block;
-		margin: 0;
-		font-size: 16px;
+		gap: 10px;
 	}
 }
 
@@ -1195,4 +1363,49 @@ section {
 }
 [data-aos].aos-animate {
 	opacity: 1;
+}
+
+/* ==================== MARK: BULLET CHIPS (aicompetition.html) ==================== */
+.bullet-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 20px;
+}
+
+.bullet-chip {
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 30px;
+	padding: 12px 18px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.4;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Google pastel palette rotation */
+.bullet-chip:nth-child(1) {
+	background: #bde9f4;
+} /* light blue */
+.bullet-chip:nth-child(2) {
+	background: #c3dfc4;
+} /* light green */
+.bullet-chip:nth-child(3) {
+	background: #ffe2a0;
+} /* light yellow */
+.bullet-chip:nth-child(4) {
+	background: #f6d2d2;
+} /* light pink */
+.bullet-chip:nth-child(5) {
+	background: #d0c4f6;
+} /* light purple */
+.bullet-chip:nth-child(6) {
+	background: #fae8c8;
+} /* peach */
+
+/* Hover effect */
+.bullet-chip:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
