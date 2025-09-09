@@ -177,6 +177,18 @@ section {
 	color: #007bff; /* Subtle blue on hover */
 	text-decoration: underline; /* Underline only when hovered */
 }
+.event-info p {
+	margin: 0 0 8px;
+}
+.event-info .location-line {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.event-info .map-line {
+	margin: 4px 0 8px;
+	padding-left: 34px;
+} /* aligns under the text */
 
 /* 🌟 Google-style action buttons (Hero Section) */
 /* === Hero Buttons (Google style with border) === */
@@ -271,7 +283,7 @@ section {
 	}
 }
 
-/* ==================== 📱 TABLET (769–1200px) ==================== */
+/* ==================== MARK: Responcive📱 TABLET (769–1200px) ==================== */
 @media (min-width: 769px) and (max-width: 1200px) {
 	/* Navbar pill centered & comfy */
 	.navbar {
@@ -440,6 +452,25 @@ section {
 	.event-info .map-line a:hover {
 		text-decoration: underline;
 	}
+	/* location row as a single clickable target */
+	.event-info .location-line {
+		margin: 0 0 8px;
+	}
+	.event-info .location-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		color: inherit; /* or #000 if you prefer */
+	}
+	.event-info .location-link:hover {
+		text-decoration: underline;
+	}
+	.event-info .location-link img {
+		width: 28px;
+		height: 28px;
+	}
+
 	.map-link-icon {
 		width: 26px;
 		height: 26px;
@@ -917,25 +948,346 @@ section {
 .gallery-link a:hover {
 	text-decoration: underline;
 }
+/* ==================== MARK: SCHEDULE ==================== */
+/* --- Schedule --- */
+.schedule-section {
+	padding: 30px 20px;
+	background: #fff;
+}
+.schedule-title {
+	font-size: 32px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 14px;
+}
 
-/* ==================== MARK:  SPEAKERS & SESSIONS (scoped) ==================== */
+.schedule-views {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-bottom: 14px;
+}
+.view-btn {
+	padding: 8px 14px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	background: #fff;
+	font-weight: 600;
+}
+.view-btn.is-active {
+	background: #c3dfc4;
+}
+
+.schedule-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+	margin: 10px 0 18px;
+}
+.track-chip {
+	padding: 8px 14px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	background: #fff;
+	font-weight: 600;
+	font-size: 14px;
+}
+.track-chip.is-active {
+	background: #ffe2a0;
+}
+
+/* Card */
+.slot {
+	border: 1px solid #000;
+	border-radius: 14px;
+	padding: 14px;
+	background: #fff;
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+.slot + .slot {
+	margin-top: 10px;
+}
+.slot-time {
+	font-weight: 800;
+	min-width: 90px;
+	font-size: 14px;
+}
+.slot-body h4 {
+	font-size: 16px;
+	margin: 0 0 4px;
+	font-weight: 800;
+}
+.slot-meta {
+	font-size: 13px;
+	color: #333;
+}
+.slot-badges {
+	display: flex;
+	gap: 6px;
+	margin-top: 6px;
+	flex-wrap: wrap;
+}
+.badge {
+	border: 1px solid #000;
+	border-radius: 999px;
+	padding: 2px 8px;
+	font-size: 12px;
+	background: #ebebeb;
+}
+.add-to-cal {
+	font-size: 13px;
+	text-decoration: none;
+	border-bottom: 1px dashed #000;
+}
+
+/* Timeline group headings */
+.group-heading {
+	margin: 16px 0 8px;
+	font-weight: 800;
+}
+/* ===== Schedule: media + hover card + colored room ===== */
+.schedule-section .slot {
+	position: relative;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 10px 12px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 14px;
+	padding: 12px;
+	overflow: visible;
+	/* track color is injected via inline --track-color */
+}
+.schedule-section .slot::before {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 6px;
+	background: var(--track-color, #ebebeb);
+	border-radius: 14px 0 0 14px;
+}
+.slot-media img {
+	width: 56px;
+	height: 56px;
+	object-fit: cover;
+	border-radius: 10px;
+	border: 1px solid #000;
+	display: block;
+}
+.slot-body h4 {
+	margin: 0 0 4px;
+	font-weight: 700;
+}
+.slot-meta {
+	font-size: 14px;
+	color: #333;
+}
+.slot-badges {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-top: 6px;
+}
+.badge {
+	display: inline-block;
+	padding: 4px 10px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	font-weight: 700;
+	font-size: 12px;
+	background: #ebebeb;
+}
+.room-badge {
+	background: var(--track-color, #ebebeb);
+} /* ← colored by track */
+.add-to-cal,
+.slot-more {
+	font-weight: 700;
+	font-size: 13px;
+	text-decoration: none;
+}
+.add-to-cal:hover,
+.slot-more:hover {
+	text-decoration: underline;
+}
+
+/* Hover / tap card */
+.slot-hover {
+	position: absolute;
+	left: 12px;
+	top: calc(100% + 8px);
+	width: min(360px, 92vw);
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 14px;
+	padding: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	opacity: 0;
+	transform: translateY(6px);
+	visibility: hidden;
+	transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+	z-index: 5;
+}
+.slot:hover .slot-hover,
+.slot.is-open .slot-hover,
+.slot:focus-within .slot-hover {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+.slot-hover .hover-head {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 6px;
+}
+.slot-hover img {
+	width: 48px;
+	height: 48px;
+	border-radius: 10px;
+	border: 1px solid #000;
+	object-fit: cover;
+}
+.slot-hover .hover-title {
+	font-weight: 800;
+}
+.slot-hover .hover-link {
+	font-weight: 700;
+	text-decoration: none;
+}
+.slot-hover .hover-link:hover {
+	text-decoration: underline;
+}
+/* schedule (inline, no popups) */
+.slot {
+	display: grid;
+	grid-template-columns: 64px 1fr;
+	gap: 12px;
+	align-items: start;
+	border: 1px solid #000;
+	border-radius: 12px;
+	padding: 12px;
+	margin: 10px 0;
+	background: #fff;
+	border-left: 8px solid var(--track-color, #ebebeb); /* track tint */
+}
+.slot-media img {
+	width: 64px;
+	height: 64px;
+	object-fit: cover;
+	border-radius: 10px;
+	border: 1px solid #000;
+}
+.slot-time {
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+.slot-meta {
+	margin: 6px 0;
+	color: #333;
+}
+.badge {
+	display: inline-block;
+	padding: 3px 10px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 13px;
+}
+.room-badge {
+	background: var(--track-color, #ebebeb);
+}
+.slot-badges {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.slot-more {
+	text-decoration: none;
+	font-weight: 700;
+}
+.slot-more:hover {
+	text-decoration: underline;
+}
+/* track chips that match schedule colors */
+.track-chip {
+	--chip-color: #fff; /* set from JS per chip */
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 999px;
+	padding: 8px 16px;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.track-chip::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--chip-color);
+	border: 1px solid #000;
+}
+.track-chip.is-active {
+	background: var(--chip-color);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	transform: translateY(-1px);
+}
+.track-chip.is-active::before {
+	background: #fff; /* dot inverts on active */
+}
+
+/* Small screens: one column */
+@media (max-width: 768px) {
+	.schedule-section .slot {
+		grid-template-columns: 1fr;
+	}
+	.slot-media img {
+		width: 64px;
+		height: 64px;
+	}
+}
+
+/* Desktop time grid (optional; keeps vertical on mobile) */
+@media (min-width: 992px) {
+	.time-grid {
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: 12px;
+	}
+	.time-row {
+		display: contents;
+	}
+	.time-row .slot-time {
+		grid-column: 1;
+	}
+	.time-row .slot {
+		grid-column: 2;
+	}
+}
+
+/* ==================== MARK: SPEAKERS ==================== */
+/* Base */
 .speakers-section {
 	padding: 40px 20px;
 	background: #fff;
 }
-
 .speakers-container {
 	max-width: 1200px;
 	margin: 0 auto;
 }
-
 .speakers-title {
 	font-size: 32px;
 	font-weight: 700;
 	margin-bottom: 12px;
 	text-align: center;
 }
-
 .speakers-subtitle {
 	font-size: 18px;
 	max-width: 1100px;
@@ -945,7 +1297,6 @@ section {
 	text-align: center;
 }
 
-/* Session chips (visual only for now) */
 /* ===== SESSION TAG CHIPS ===== */
 .session-tags {
 	display: flex;
@@ -954,18 +1305,15 @@ section {
 	gap: 12px;
 	margin: 20px 0 30px;
 }
-
 .tag-chip {
 	padding: 8px 18px;
 	border-radius: 30px;
 	font-size: 14px;
 	font-weight: 600;
-	border: 1px solid #000; /* keep consistent with your site style */
+	border: 1px solid #000;
 	cursor: default;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* Google-style pastel colors (matching your site) */
 .tag-chip:nth-child(1) {
 	background: #bde9f4;
 } /* AI & ML – light blue */
@@ -974,23 +1322,22 @@ section {
 } /* Cloud & Web – light green */
 .tag-chip:nth-child(3) {
 	background: #ffe2a0;
-} /* Startup & Innovation – light yellow */
+} /* Startup – light yellow */
 .tag-chip:nth-child(4) {
 	background: #f6d2d2;
-} /* Cybersecurity – light pink */
+} /* Cybersec – light pink */
 .tag-chip:nth-child(5) {
 	background: #d0c4f6;
 } /* Full-Stack – light purple */
 .tag-chip:nth-child(6) {
 	background: #fae8c8;
 } /* High-School – peach */
-
 .tag-chip:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Grid: 4 per row desktop, 3 tablet, 2 mobile */
+/* ===== GRID ===== */
 .speaker-list-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -999,11 +1346,11 @@ section {
 	margin: 12px auto 30px;
 }
 
-/* Card */
+/* ===== CARD ===== */
 .person-card {
 	background: #fff;
 	border: 1px solid #000;
-	border-radius: 14px;
+	border-radius: 20px;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
@@ -1011,26 +1358,33 @@ section {
 }
 .person-card:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Consistent image area */
+/* Image wrapper matches the card’s top radius */
 .person-photo-wrap {
-	aspect-ratio: 4 / 5; /* keeps uniform height */
+	position: relative;
+	aspect-ratio: 4/5;
 	width: 100%;
-	background: #e9f6ff;
-	display: block;
+	background: #fff; /* no blue bleed */
+	border-radius: 28px 28px 0 0;
+	overflow: visible; /* let the white pill overlap into text */
 }
+
 .person-photo {
+	display: block;
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* fills nicely; swap to contain if you prefer letterboxing */
-	display: block;
+	object-fit: cover;
+	border-radius: 28px 28px 0 0; /* ← ensures corners match perfectly */
+}
+.person-photo {
+	transform: translateZ(0);
 }
 
 /* Text area */
 .person-info {
-	padding: 10px 12px 14px;
+	padding: 16px 12px 14px;
 	text-align: left;
 }
 .person-name {
@@ -1049,61 +1403,110 @@ section {
 	margin: 4px 0 2px;
 }
 
-/* Buttons row */
+/* ===== BUTTONS ROW ===== */
 .speakers-buttons {
 	display: flex;
 	justify-content: center;
-	align-items: center; /* ✅ выравнивание по центру по вертикали */
-	gap: 20px; /* расстояние между кнопками */
+	align-items: center;
+	gap: 20px;
 	flex-wrap: wrap;
 }
-
-/* Чтобы ссылка выглядела как кнопка (по стилю ближе к button) */
 .speakers-buttons a.btn-outline {
-	display: inline-flex; /* превращаем ссылку в flex-контейнер */
-	align-items: center; /* текст по центру */
-	justify-content: center; /* выравнивание по горизонтали */
-	height: 48px; /* одинаковая высота с кнопкой */
-	padding: 0 24px; /* внутренние отступы */
-	border-radius: 12px; /* тот же радиус */
-	border: 1px solid #000; /* если нужно, оставляем */
-	text-decoration: none; /* убираем подчёркивание */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 48px;
+	padding: 0 24px;
+	border-radius: 12px;
+	border: 1px solid #000;
+	text-decoration: none;
 	font-weight: 600;
 	font-size: 16px;
-	color: #000; /* или белый, если хочешь как на button */
+	color: #000;
 }
 
-/* ===== SPEAKER SOCIAL ICONS ===== */
+/* ===== SOCIAL ICONS ===== */
+/* In-text (fallback style if ever used under text) */
 .speaker-socials {
 	display: flex;
-	gap: 14px; /* space between LinkedIn and X */
-	margin-top: 10px;
-	margin-bottom: 10px; /* space above the icons */
-	padding-left: 6px; /* push them a little away from the card edge */
+	justify-content: center;
+	gap: 14px;
+	margin: 10px 0;
 }
-
 .speaker-socials a img {
-	width: 38px; /* larger icons */
+	width: 38px;
 	height: 38px;
 	transition: transform 0.2s ease;
 }
-
 .speaker-socials a img:hover {
-	transform: scale(1.15); /* nice hover grow effect */
+	transform: scale(1.15);
 }
 
-/* Mobile behavior: show only first 8 until "Load more" */
-.is-hidden-mobile {
+/* Overlay inside photo (centered at bottom) */
+/* White pill overlay stays above the photo edge */
+.speaker-socials--overlay {
+	position: absolute;
+	left: 50%;
+	bottom: -18px; /* sits on the image edge */
+	transform: translateX(-50%);
+	display: inline-flex;
+	gap: 10px;
+	padding: 6px 10px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	z-index: 3;
+}
+/* Icons in their original colours (no backgrounds, no invert) */
+.speaker-socials--overlay a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+/* Give room so the pill doesn’t cover the name */
+.person-info {
+	padding-top: 28px; /* was 16px */
+}
+.speaker-socials--overlay a img {
+	width: 24px;
+	height: 24px;
+	transition: transform 0.2s ease;
+}
+/* photo with rounded top corners */
+.person-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 	display: block;
+	border-radius: 18px 18px 0 0;
 }
-.btn-mobile-only {
-	display: none;
+/* Make sure nothing clips the pill */
+.person-photo-wrap {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	width: 100%;
+	background: #fff; /* ← was #e9f6ff */
+	overflow: visible; /* keep so the pill can overlap */
 }
-/* ✅ Override only Load More button */
+.person-card {
+	overflow: visible;
+}
+
+/* Give room so pill doesn’t cover the name */
+.person-info {
+	padding: 28px 12px 14px;
+}
+
+.speaker-socials--overlay a img:hover {
+	transform: scale(1.12);
+}
+
+/* ===== LOAD MORE BUTTON ===== */
+
 #loadMoreSpeakers {
-	display: inline-block;
 	padding: 12px 24px;
-	border-radius: 12px; /* Material-style rounded */
+	border-radius: 12px;
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	font-weight: 600;
@@ -1114,20 +1517,18 @@ section {
 	cursor: pointer;
 	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
-
-/* Hover effect */
 #loadMoreSpeakers:hover {
-	background: #3367d6; /* darker blue */
+	background: #3367d6;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	transform: translateY(-2px);
 }
-
-/* Pressed effect */
 #loadMoreSpeakers:active {
 	background: #2a56c6;
 	transform: translateY(0);
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
+/* ===== RESPONSIVE ===== */
 /* Tablet */
 @media (max-width: 992px) {
 	.speaker-list-grid {
@@ -1141,10 +1542,12 @@ section {
 	.speakers-subtitle {
 		font-size: 16px;
 	}
+
 	.speaker-list-grid {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 14px;
 	}
+
 	#loadMoreSpeakers {
 		width: 100%;
 		max-width: 320px;
@@ -1152,28 +1555,37 @@ section {
 		display: block;
 		font-size: 15px;
 	}
+
 	.speakers-buttons {
-		flex-direction: column; /* кнопки друг под другом */
+		flex-direction: column;
 		align-items: center;
 		gap: 12px;
 	}
-
 	.speakers-buttons #loadMoreSpeakers,
 	.speakers-buttons a.btn-outline {
 		width: 100%;
-		max-width: 320px; /* чтобы не растягивались слишком широко */
+		max-width: 320px;
 		text-align: center;
 	}
+
+	/* If you hide 9–24 until "Load more" */
 	.is-hidden-mobile {
 		display: none !important;
-	} /* hide items 9–24 */
+	}
 	.btn-mobile-only {
 		display: inline-block;
-	} /* show the load more button */
+	}
 }
 
-/* ===== FOOTER (Google style) ===== */
-/* ===== FOOTER COLUMN STYLE ===== */
+/* Desktop defaults for conditional classes */
+.is-hidden-mobile {
+	display: block;
+}
+.btn-mobile-only {
+	display: none;
+}
+
+/* ===== MARK: FOOTER COLUMN STYLE ===== */
 .footer-section {
 	background: #fff;
 	border-top: 1px solid #ddd;

@@ -136,7 +136,7 @@
 				<!-- ✅ Left side content -->
 				<div class="hero-text">
 					<h1 class="hero-title" data-aos="fade-up">
-						Google Developer Group <br />
+						Google Developer Groups <br />
 						<img
 							src="images/GDG1.png"
 							alt="GDG icon left"
@@ -157,22 +157,31 @@
 					<div class="event-info">
 						<p>
 							<img src="icons/Calendar.png" alt="Calendar Icon" />
-							<strong>Date:</strong> Saturday, November 8th, 2025
-						</p>
-						<p>
-							<img src="icons/googleMap.png" alt="Map Icon" />
-							Odette School of Business, Windsor, Ontario
-							<span class="map-line">
+							<strong>
 								<a
-									href="https://maps.app.goo.gl/1izkwARj8NmSYa1h6"
+									href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=GDG%20Windsor%20DevFest%202025&dates=20251108T090000/20251108T170000&details=A%20one-day%20tech%20conference%20powered%20by%20Google%20Developer%20Groups%20%E2%80%94%20featuring%20talks%2C%20workshops%2C%20and%20an%20AI%20startup%20competition.&location=Odette%20School%20of%20Business%2C%20Windsor%2C%20Ontario"
 									target="_blank"
 									rel="noopener noreferrer"
+									aria-label="Add GDG Windsor DevFest 2025 to Google Calendar"
 								>
+									Saturday, November 8th, 2025
 								</a>
-							</span>
+							</strong>
 						</p>
 
-						<p>
+						<p class="location-line">
+  <a
+    class="location-link"
+    href="https://maps.app.goo.gl/1izkwARj8NmSYa1h6"
+    target="_blank"
+    rel="noopener"
+    aria-label="Open Odette School of Business, Windsor, Ontario in Google Maps"
+  >
+    <img src="icons/googleMap.png" alt="" />
+    <span>Odette School of Business, Windsor, Ontario</span>
+  </a>
+</p>
+
 							<img src="icons/Parking.png" alt="Parking Icon" />
 							<a
 								href="https://www.uwindsor.ca/parking-services/299/visitor-parking"
@@ -298,6 +307,22 @@
 								<img
 									src="images/googleLogo.png"
 									alt="Google Logo"
+									class="img-fluid"
+									loading="lazy"
+								/>
+							</a>
+						</div>
+
+						<!-- Swocts -->
+						<div class="puzzle-item">
+							<a
+								href="https://www.swocts.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<img
+									src="images/SWOCTS_Logo.png"
+									alt="Swocts Cybersecurity  "
 									class="img-fluid"
 									loading="lazy"
 								/>
@@ -496,20 +521,16 @@
 				</div>
 			</div>
 		</section>
-		<!-- ===== MARK: SPEAKERS & SESSIONS ===== -->
+
+
+
+
+		<!-- ===== MARK: SPEAKERS AND SESSIONS   ===== -->
 		<section class="speakers-section" id="speakers">
 			<div class="speakers-container">
 				<h2 class="speakers-title">Speakers & Sessions</h2>
 
-				<!-- Optional chips (not interactive yet; ready for future filters) -->
-				<div class="session-tags" aria-label="Session categories">
-					<button class="tag-chip" type="button">AI & ML</button>
-					<button class="tag-chip" type="button">Cloud & Web</button>
-					<button class="tag-chip" type="button">Startup & Innovation</button>
-					<button class="tag-chip" type="button">Cybersecurity</button>
-					<button class="tag-chip" type="button">Full-Stack</button>
-					<button class="tag-chip" type="button">High-School</button>
-				</div>
+				
 
 				<p class="speakers-subtitle">
 					We’re bringing together experts from tech, AI, business, and cloud
@@ -518,10 +539,37 @@
 					to the event.
 				</p>
 
+					<!-- ===== MARK:  SESSIONS ===== -->
+<section id="schedule" class="schedule-section">
+  <h2 class="schedule-title">Schedule</h2>
+
+  <!-- View toggles -->
+  <div class="schedule-views" role="tablist" aria-label="Schedule view">
+    <button class="view-btn is-active" data-view="time" role="tab" aria-selected="true">By Time</button>
+    <button class="view-btn" data-view="track" role="tab" aria-selected="false">By Track</button>
+  </div>
+
+  <!-- Track filter chips (re-use visual style from your session tags) -->
+  <div class="schedule-filters" aria-label="Filter by track">
+    <button class="track-chip is-active" data-track="All">All</button>
+    <button class="track-chip" data-track="Google Cloud">Google Cloud</button>
+    <button class="track-chip" data-track="Build with AI">Build with AI</button>
+    <button class="track-chip" data-track="Full-Stack">Full-Stack</button>
+    <button class="track-chip" data-track="Cybersecurity">Cybersecurity</button>
+    <button class="track-chip" data-track="Entrepreneurship">Entrepreneurship</button>
+    <button class="track-chip" data-track="High School">High School</button>
+  </div>
+
+  <!-- Mount point -->
+  <div id="scheduleMount" class="schedule-mount" aria-live="polite"></div>
+</section>
+
+
+
 				<!-- GRID: 24 speakers (first 8 visible on mobile, remaining hidden until "Load more") -->
+				   <h2 class="schedule-title">Speakers</h2>
 				<div class="speaker-list-grid" id="speakerGrid" data-aos="fade-up">
-					<!-- 1–8 (visible on mobile) -->
-					<!-- Luis Serrano -->
+					<!-- MARK: Luis Serrano -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
@@ -530,30 +578,31 @@
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/luisgserrano/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Luis Serrano on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Luis Serrano</h4>
 							<p class="person-role">Serrano Academy</p>
 							<p class="person-meta">Founder & CEO</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Don Ward -->
+
+					<!--MARK: Don Ward -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
@@ -562,100 +611,117 @@
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/donwardpeng/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Don Ward on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+								<!-- X -->
+								<a
+									href="https://x.com/donwardpeng"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Don Ward on X"
+								>
+									<img
+										src="./icons/X.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Don Ward</h4>
 							<p class="person-role">Google</p>
 							<p class="person-meta">Customer Engineer Specialist</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/donwardpeng/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Don Ward on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-							<a
-								href="https://x.com/donwardpeng"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on X"
-							>
-								<img
-									src="./icons/X.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
 
-					<!-- Nilesh Patel -->
+					<!--MARK: Nilesh Patel -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_NileshPatel.png"
-								alt="Luis Serrano"
+								alt="Nilesh Patel"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/nilesh-patel/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Nilesh Patel on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+								<a
+									href="https://x.com/Google"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Nilesh Patel on X"
+								>
+									<img
+										src="./icons/X.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Nilesh Patel</h4>
 							<p class="person-role">Google</p>
 							<p class="person-meta">Customer Engineer Specialist</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/donwardpeng/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-							<a
-								href="https://x.com/donwardpeng"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on X"
-							>
-								<img
-									src="./icons/X.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
 
-					<!-- Naresh Jasotani -->
+					<!--MARK: Naresh Jasotani -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_NareshJasotani.png"
-								alt="Luis Serrano"
+								alt="Naresh Jasotani"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/naresh-r-jasotani/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Naresh Jasotani on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Naresh Jasotani</h4>
@@ -664,22 +730,6 @@
 								Principal Technologist | Gen AI Ambassador
 							</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
 
 					<!-- Satish Venugopal -->
@@ -687,58 +737,74 @@
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_SatishVenugopal.png"
-								alt="Luis Serrano"
+								alt="Satish Venugopal"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/satishcv/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Satish Venugopal on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Satish Venugopal</h4>
 							<p class="person-role">Google</p>
 							<p class="person-meta">Senior Cloud Architect</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-							<a
-								href="https://x.com/donwardpeng"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on X"
-							>
-								<img
-									src="./icons/X.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- 9–24 (hidden on mobile initially) -->
-					<!-- Add class .is-hidden-mobile to hide on small screens -->
-					<!-- Mark Johnson -->
+
+					<!-- MARK: Mark Johnson -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_MarkJohnson.png"
-								alt="Luis Serrano"
+								alt="Mark Johnson"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/markjohnsonaicloudsolutions/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Mark Johnson on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+								<!-- X -->
+								<a
+									href="https://x.com/ATechSnob"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Mark Johnson on X"
+								>
+									<img
+										src="./icons/X.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Mark Johnson</h4>
@@ -747,34 +813,33 @@
 								Solutions Architect and Google Cloud Trainer
 							</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
 
-					<!-- duplicate until you have 24 total -->
-					<!-- Glen Yu -->
+					<!-- MARK: Glen Yu -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_GlenYu.png"
-								alt="Luis Serrano"
+								alt="Glen Yu"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/glenyu/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Glen Yu on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Glen Yu</h4>
@@ -783,24 +848,9 @@
 								Google Developer Expert | Cloud and Data
 							</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Ben Morss -->
+
+					<!-- MARK: Ben Morss -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
@@ -809,489 +859,615 @@
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/ben-morss-15bab15/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Ben Morss on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Ben Morss</h4>
 							<p class="person-role">DeepL</p>
 							<p class="person-meta">Developer Evangelist</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/ben-morss-15bab15/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Ben Morss on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Nicholas Schmidt
- -->
+
+					<!-- MARK: Nicholas Schmidt -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_NicholasSchmidt.png"
-								alt="Luis Serrano"
+								alt="Nicholas Schmidt"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/nickpschmidt/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Nicholas Schmidt on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Nicholas Schmidt</h4>
 							<p class="person-role">SolasAI & BLDS, LLC</p>
 							<p class="person-meta">Chief Technology and Innovation Officer</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/nickpschmidt/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Nicholas Schmidt on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Godfrey Nolan -->
+
+					<!-- MARK: Godfrey Nolan -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_GodfreyNolan.png"
-								alt="Luis Serrano"
+								alt="Godfrey Nolan"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/godfrey-nolan/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Godfrey Nolan on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+								<!-- X -->
+								<a
+									href="https://x.com/riisllc"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="RIIS on X"
+								>
+									<img
+										src="./icons/X.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Godfrey Nolan</h4>
 							<p class="person-role">RIIS</p>
 							<p class="person-meta">President</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/godfrey-nolan/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Godfrey Nolan on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Ahmed Abou Gharam -->
+
+					<!--MARK:  Ahmed Abou Gharam -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
 								src="./images/speakersImage/Speaker_AhmedAbouGharam.png"
-								alt="Luis Serrano"
+								alt="Ahmed Abou Gharam"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/ahmed-abou-gharam-phd-b266467b/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Ahmed Abou Gharam on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
 							<h4 class="person-name">Ahmed Abou Gharam</h4>
 							<p class="person-role">Molex</p>
 							<p class="person-meta">Design for Reliability Director</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/ahmed-abou-gharam-phd-b266467b/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
-						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: Mina Girges -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_MinaGirges.png"
+								alt="Mina Girges"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/minagirges/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Mina Girges on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Mina Girges</h4>
+							<p class="person-role">TransForm Shared Service Organization</p>
+							<p class="person-meta">
+								Vice President & Chief Information Officer
+							</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!--MARK:  Andrea Irina Yzeiri -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_AndreaIrinaYzeiri.png"
+								alt="Andrea Irina Yzeiri"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/andrea-yzeiri/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Andrea Irina Yzeiri on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Andrea Irina Yzeiri</h4>
+							<p class="person-role">Picsume</p>
+							<p class="person-meta">
+								Chief Data & Analytics Officer and Lead AI Engineer
+							</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!--MARK:  Frank Abbruzzese-->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_FrankAbbruzzese.png"
+								alt="Frank Abbruzzese"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/frankabbruzzese/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Frank Abbruzzese on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Frank Abbruzzese</h4>
+							<p class="person-role">CEO & President</p>
+							<p class="person-meta">AlphaKOR</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!--MARK:  Adam Castle -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_AdamCastle.png"
+								alt="Adam Castle"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/acinyqg/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Adam Castle on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Adam Castle</h4>
+							<p class="person-role">WEtech Alliance</p>
+							<p class="person-meta">
+								Director of Venture Services & Partnerships
+							</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: John Langlois -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_JohnLanglois.png"
+								alt="John Langlois"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/john-langlois-275448211/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="John Langlois on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">John Langlois</h4>
+							<p class="person-role">Scelta</p>
+							<p class="person-meta">Chief Technology Officer</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: Umair Durrani -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_UmairDurrani.png"
+								alt="Umair Durrani"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/durraniu/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Umair Durrani on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Umair Durrani</h4>
+							<p class="person-role">Presage Group</p>
+							<p class="person-meta">Data Scientist</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!--MARK:  Joseph Youssouf -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_JosephYoussouf.png"
+								alt="Joseph Youssouf"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/joeyoussouf/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Joseph Youssouf on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Joseph Youssouf</h4>
+							<p class="person-role">Oden Technologies</p>
+							<p class="person-meta">Data Scientist</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: Daria Deriagina -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_DashaDeriagina.png"
+								alt="Daria Deriagina"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/daria-web-design/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Daria Deriagina on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Daria Deriagina</h4>
+							<p class="person-role">#DashDev</p>
+							<p class="person-meta">UX/UI & Web Developer</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!--MARK: Raneem Ghalion -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_RaneemGhalion.png"
+								alt="Raneem Ghalion"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/raneem-ghalion/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Raneem Ghalion on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Raneem Ghalion</h4>
+							<p class="person-role">ADOPLI AI</p>
+							<p class="person-meta">Co-Founder and AI Business Strategist</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: Salma Aly -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_SalmaAly.png"
+								alt="Salma Aly"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/salma-aly-92bb09174/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Salma Aly on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
-						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+							<h4 class="person-name">Salma Aly</h4>
+							<p class="person-role">BlinkTech Solutions</p>
+							<p class="person-meta">Founder</p>
 						</div>
 					</article>
-					<!-- Luis Serrano -->
+
+					<!-- MARK: Kiran Puthan -->
 					<article class="person-card">
 						<div class="person-photo-wrap">
 							<img
-								src="./images/speakersImage/Speaker_LuisSerrano.png"
-								alt="Luis Serrano"
+								src="./images/speakersImage/Speaker_KiranPuthan.png"
+								alt="Kiran Puthan"
 								class="person-photo"
 								loading="lazy"
 							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/kiranputhan/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Kiran Puthan on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
 						</div>
 						<div class="person-info">
-							<h4 class="person-name">Luis Serrano</h4>
-							<p class="person-role">Serrano Academy</p>
-							<p class="person-meta">Founder & CEO</p>
+							<h4 class="person-name">Kiran Puthan</h4>
+							<p class="person-role">Bell Canada</p>
+							<p class="person-meta">Solution Consultant</p>
 						</div>
-						<div class="speaker-socials">
-							<a
-								href="https://www.linkedin.com/in/luisgserrano/"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="Luis Serrano on LinkedIn"
-							>
-								<img
-									src="./icons/LinkedIn.png"
-									alt=""
-									width="22"
-									height="22"
-									loading="lazy"
-								/>
-							</a>
+					</article>
+
+					<!--MARK:  Steven Rice -->
+					<article class="person-card">
+						<div class="person-photo-wrap">
+							<img
+								src="./images/speakersImage/Speaker_StevenRice.png"
+								alt="Steven Rice"
+								class="person-photo"
+								loading="lazy"
+							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/stevenrice99/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Steven Rice on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
+						</div>
+						<div class="person-info">
+							<h4 class="person-name">Steven Rice</h4>
+							<p class="person-role">University of Windsor</p>
+							<p class="person-meta">AI Researcher</p>
+						</div>
+					</article>
+
+					<!--MARK:  Safiia Mohammed -->
+					<article class="person-card">
+						<div class="person-photo-wrap">
+							<img
+								src="./images/speakersImage/Speaker_SafiiaMohammed.png"
+								alt="Safiia Mohammed"
+								class="person-photo"
+								loading="lazy"
+							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="http://linkedin.com/in/safiiamohammed/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Safiia Mohammed on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
+						</div>
+						<div class="person-info">
+							<h4 class="person-name">Safiia Mohammed</h4>
+							<p class="person-role">University of Windsor</p>
+							<p class="person-meta">PhD Student</p>
+						</div>
+					</article>
+
+					<!-- MARK: Keval Patel -->
+					<article class="person-card">
+						<div class="person-photo-wrap">
+							<img
+								src="./images/speakersImage/Speaker_KevalPatel.png"
+								alt="Keval Patel"
+								class="person-photo"
+								loading="lazy"
+							/>
+							<div class="speaker-socials speaker-socials--overlay">
+								<a
+									href="https://www.linkedin.com/in/kmpatel100/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Keval Patel on LinkedIn"
+								>
+									<img
+										src="./icons/LinkedIn.png"
+										alt=""
+										width="24"
+										height="24"
+										loading="lazy"
+									/>
+								</a>
+							</div>
+						</div>
+						<div class="person-info">
+							<h4 class="person-name">Keval Patel</h4>
+							<p class="person-role">REALIQ</p>
+							<p class="person-meta">Data Scientist</p>
 						</div>
 					</article>
 				</div>
 
 				<!-- Buttons row -->
 				<div class="speakers-buttons">
-					<button
-						id="loadMoreSpeakers"
-						class="btn-outline btn-mobile-only"
-						type="button"
-					>
-						Load more speakers
-					</button>
 					<a
 						href="https://wedevfest.com/2024/"
 						class="btn-outline btn-yellowish"
