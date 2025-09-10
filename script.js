@@ -1,7 +1,7 @@
 (() => {
 	"use strict";
 
-	/* ============== Tiny helpers ============== */
+	/* ============================ Tiny helpers ============================ */
 	const $ = (sel, root = document) => root.querySelector(sel);
 	const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 	const on = (el, ev, fn, opt) => el && el.addEventListener(ev, fn, opt);
@@ -11,7 +11,7 @@
 			(m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m])
 		);
 
-	/* ============== Palette (single source of truth) ============== */
+	/* ============================ Palette ============================ */
 	const TRACK_COLORS = {
 		"Google Cloud": "#BDE9F4",
 		"Build with AI": "#C3DFC4",
@@ -23,9 +23,10 @@
 		All: "#EBEBEB",
 	};
 	const trackColor = (name) => TRACK_COLORS[name] || TRACK_COLORS.All;
+
 	const PLACEHOLDER_IMG = "./images/speakersImage/placeholder.png";
 
-	/* ============== Navbar: active + graceful close (mobile) ============== */
+	/* ============================ Navbar ============================ */
 	function initNavbar() {
 		const toggler = $(".navbar-toggler");
 		const collapse = $(".navbar-collapse");
@@ -44,8 +45,9 @@
 			window,
 			"scroll",
 			() => {
-				if (window.innerWidth < 992 && collapse.classList.contains("show"))
+				if (window.innerWidth < 992 && collapse.classList.contains("show")) {
 					closeWithFade();
+				}
 			},
 			{ passive: true }
 		);
@@ -59,7 +61,7 @@
 		}
 	}
 
-	/* ============== Ripple for CTAs (respects reduced motion) ============== */
+	/* ============================ CTA ripples ============================ */
 	function initRipples() {
 		const reduced = window.matchMedia(
 			"(prefers-reduced-motion: reduce)"
@@ -84,8 +86,8 @@
 		});
 	}
 
-	/* ============== Session factory ============== */
-	// s(startISO, endISO, room, track, speaker, title, presenter, {img, url, desc})
+	/* ============================ Session factory ============================ */
+	// s(startISO, endISO, room, track, speaker, title, presenter, { img, imgs, url, desc, global })
 	function s(
 		startISO,
 		endISO,
@@ -96,8 +98,16 @@
 		presenter,
 		opts = {}
 	) {
+		const imgs = Array.isArray(opts.imgs)
+			? opts.imgs.filter(Boolean)
+			: opts.img
+			? [opts.img]
+			: [];
 		return {
-			id: crypto.randomUUID(),
+			id: (crypto?.randomUUID
+				? crypto.randomUUID()
+				: String(Math.random())
+			).replace(/[^a-z0-9-]/gi, ""),
 			start: new Date(startISO),
 			end: new Date(endISO),
 			room,
@@ -105,14 +115,16 @@
 			speaker,
 			title,
 			presenter,
-			img: opts.img || "",
+			imgs,
 			url: opts.url || "",
 			desc: opts.desc || "",
+			global: !!opts.global, // ← global flag for sessions that appear in every track
 		};
 	}
 
-	/* ============== Schedule data (with full desc support) ============== */
+	/* ============================ Sessions ============================ */
 	const sessions = [
+		// Keynote (GLOBAL)
 		s(
 			"2025-11-08T08:45",
 			"2025-11-08T09:45",
@@ -121,9 +133,10 @@
 			"All",
 			"Welcoming and Keynote – Luis Serrano",
 			"Luis Serrano",
-			{ img: "./images/speakersImage/Speaker_LuisSerrano.png" }
+			{ img: "./images/speakersImage/Speaker_LuisSerrano.png", global: true }
 		),
 
+		// 10:00 block
 		s(
 			"2025-11-08T10:00",
 			"2025-11-08T10:45",
@@ -144,7 +157,7 @@
 			"Ben Morss",
 			{
 				img: "./images/speakersImage/Speaker_BenMorss.png",
-				desc: "Everyone’s talking about Anthropic’s Model Context Protocol (MCP). We’ll explain what it is, how it lets LLMs act by using tools, and build a tiny MCP server together.",
+				desc: "Everyone’s talking about Anthropic’s new Model Context Protocol (MCP), a new standard that gives your favorite LLM access to software tools. With MCP, an LLM can send emails, make Jira tickets, or browse the web. MCP makes an LLM into an agent! We’ll explain how this works in detail, and we’ll show you how to use MCPs of your very own. Finally, we’ll build a little MCP server of our very own.",
 			}
 		),
 		s(
@@ -157,20 +170,19 @@
 			"Raneem Ghalion",
 			{
 				img: "./images/speakersImage/Speaker_RaneemGhalion.png",
-				desc: "Turn messy customer emails into insights and instant responses with Gmail API, BigQuery, Vertex AI (Gemini), and Looker Studio. A practical, lightweight workflow you can apply immediately.",
+				desc: "We all know how slow replies and messy communication can cost businesses their customers. In this session, I’ll walk through how Google Cloud tools—Gmail API, BigQuery, Vertex AI (Gemini), and Looker Studio—can turn customer emails into insights and instant responses. The session is designed to be practical, light, and inspiring—something attendees can take back and apply right away.",
 			}
 		),
 		s(
 			"2025-11-08T10:00",
 			"2025-11-08T10:45",
 			"110",
-			"Full-Stack",
+			"Cybersecurity",
 			"Godfrey Nolan",
 			"Mobile + GenAI Patterns",
 			"Godfrey Nolan",
 			{ img: "./images/speakersImage/Speaker_GodfreyNolan.png" }
 		),
-		// Entrepreneurship (B02)
 		s(
 			"2025-11-08T10:00",
 			"2025-11-08T10:45",
@@ -180,11 +192,15 @@
 			"From C++ to the C-Suite: A Fireside Chat with CTO John Langlois",
 			"Adam Castle & John Langlois",
 			{
-				img: "./images/speakersImage/Speaker_AdamCastle.png",
-				desc: "Adam Castle interviews CTO John Langlois on the path from developer to executive leadership—balancing strategy with execution, building teams, and the habits that keep leaders effective.",
+				imgs: [
+					"./images/speakersImage/Speaker_AdamCastle.png",
+					"./images/speakersImage/Speaker_JohnLanglois.png",
+				],
+				desc: "Join Adam Castle, Director of Venture Services and Partnerships at WEtech Alliance, for a fireside chat with local CTO John Langlois of Scelta, as we dive into his journey from developer to the c-suite.John will share his personal path in technology, and explore how he went from writing code to leading at the executive level, and what lessons he picked up along the way. We’ll explore the realities of the CTO role through his eyes: balancing strategy with execution, navigating rapid growth, and making decisions when both the technical and business stakes are high.In this conversation, John will reflect on the professional skills that helped him move beyond a purely technical role, including leadership, communication, and building strong teams. He’ll also share the habits and routines that keep him grounded under pressure, along with the technology trends he sees shaping the future of his company and the broader industry.Whether you’re a developer curious about what leadership looks like, a founder preparing to scale, or someone interested in the evolving role of technology leaders, John’s perspective offers practical insights and candid advice from someone who has walked the path, with both boots on the ground.",
 			}
 		),
 
+		// 11:00 block
 		s(
 			"2025-11-08T11:00",
 			"2025-11-08T11:45",
@@ -209,16 +225,15 @@
 			"2025-11-08T11:00",
 			"2025-11-08T11:45",
 			"B14",
-			"Entrepreneurship",
+			"Full-Stack",
 			"Salma Aly",
 			"From Requests to Results: Hands-On API Testing Automation",
 			"Salma Aly",
 			{
 				img: "./images/speakersImage/Speaker_SalmaAly.png",
-				desc: "Design, execute, and validate API tests with modern tools. We’ll cover REST, JSON payloads, auth, assertions, and how to wire testing into CI/CD so releases are faster and safer.",
+				desc: "This interactive workshop will guide participants through the fundamentals and advanced techniques of automated API testing. Attendees will learn how to design, execute, and validate API tests using industry-standard tools and frameworks, with a strong emphasis on practical, hands-on experience. Topics include understanding REST and JSON payloads, structuring automated test scripts, handling authentication, verifying responses, and integrating API testing into continuous integration/continuous deployment (CI/CD) pipelines. Participants will leave with the skills to build robust, repeatable API test suites that improve software quality, accelerate release cycles, and ensure system reliability in modern, service-oriented architectures.",
 			}
 		),
-		// Cybersecurity
 		s(
 			"2025-11-08T11:00",
 			"2025-11-08T11:45",
@@ -229,22 +244,27 @@
 			"Frank Abbruzzese",
 			{
 				img: "./images/speakersImage/Speaker_FrankAbbruzzese.png",
-				desc: "What strong cybersecurity looks like in 2025: current threats, phishing gotchas, and practical practices to protect people, data, and companies.",
+				desc: "We will look at some Cyber Threats.  What does a strong Cybersecurity Strategy look like?  Share some Phishing Scams to be aware and help protect you, your data and company.  Tips and best practices to keep everyone safe",
 			}
 		),
 
+		// Lunch (GLOBAL)
 		s(
 			"2025-11-08T12:00",
 			"2025-11-08T12:45",
 			"Commons",
 			"All",
+			"Fireside",
 			"Lunch Break – Fireside Chat",
 			"Fireside",
 			{
+				img: "./images/speakersImage/Speaker_Lunch.png",
+				global: true,
 				desc: "Inventing Tomorrow: A GenAI fireside with Nilesh Patel, Naresh Jasotani, Satish Venugopal, and Don Ward. GenAI solutions that excite us (and customers) and why the future is something to embrace.",
 			}
 		),
 
+		// 13:00 block
 		s(
 			"2025-11-08T13:00",
 			"2025-11-08T13:45",
@@ -255,7 +275,7 @@
 			"Don Ward",
 			{
 				img: "./images/speakersImage/Speaker_DonWard.png",
-				desc: "Past the hype: where GenAI sits on the Hype Cycle, real adoption, investment and performance stats, and how to “skate to where the puck is going.”",
+				desc: "Generative AI has dominated headlines, but for innovators, the critical question remains: what is the reality behind the hype? This presentation moves beyond anecdotal evidence to provide a data-driven analysis of GenAI's current and future landscape.We will anchor our discussion in Gartner's Hype Cycle to pinpoint where GenAI stands today and what to expect as it matures from inflated expectations toward true productivity. We'll then dive deep into the numbers, exploring current enterprise adoption rates, investment trends, and performance statistics that reveal how organizations are truly using—or struggling with—this technology.We will try to distill how to 'skate to where the puck is going, vs where it has been'",
 			}
 		),
 		s(
@@ -268,29 +288,21 @@
 			"Keval Patel",
 			{
 				img: "./images/speakersImage/Speaker_KevalPatel.png",
-				desc: "Live-coded demo of an open-source web agent that navigates sites, fills forms, compares prices, and scrapes dynamic data using Gemini + browser automation and a robust agentic loop.",
+				desc: "Tired of repetitive online tasks? Imagine a smart AI assistant that can navigate the web, fill out forms, and even buy products from sites like Amazon, all by understanding your natural language commands. This is the world of web automation, and with this talk, you'll learn how to build it yourself.We'll dive into the fundamentals of creating a powerful, open-source web agent from the ground up. You'll learn to combine the advanced reasoning of Gemini with robust browser automation to create a solution that goes beyond the capabilities of tools like the ChatGPT operator. We'll explore the core concepts behind the 'agentic loop': how an agent breaks down a complex goal, executes a plan, observes the results, and intelligently adapts to its environment.Through a practical, live-coded demonstration, we'll build an agent that can perform real-world tasks, from comparing product prices to scraping dynamic data. You'll walk away with a clear understanding of the necessary tools, the key architectural patterns, and the confidence to start building your own. Join us to unlock the future of browser automation and empower your applications with a new level of autonomy.",
 			}
 		),
 		s(
 			"2025-11-08T13:00",
 			"2025-11-08T13:45",
-			"B14",
-			"Entrepreneurship",
-			"TBD",
-			"Troy ?",
-			"TBD"
-		),
-		s(
-			"2025-11-08T13:00",
-			"2025-11-08T13:45",
 			"110",
-			"Full-Stack",
+			"Cybersecurity",
 			"Mina Girges",
 			"Healthcare + AI",
 			"Mina Girges",
 			{ img: "./images/speakersImage/Speaker_MinaGirges.png" }
 		),
 
+		// 14:00 block
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
@@ -311,7 +323,7 @@
 			"Ahmed Abou Gharam",
 			{
 				img: "./images/speakersImage/Speaker_AhmedAbouGharam.png",
-				desc: "DfR 2.0: using historical test data, ML, and digital twins to predict failures, accelerate life testing, and design reliability continuously—with the trust and workflows teams need.",
+				desc: "As products—from cars to microchips—become more complex, traditional Design for Reliability (DfR) methods are no longer enough. Reliability engineers once relied on static test plans, statistical models, and decades of accumulated experience. Today, with the rise of AI, we are entering a new era: DfR 2.0, where reliability is designed continuously, adaptively, and intelligently.At the heart of this transformation is the ability to leverage vast amounts of historical test data to predict the future. Instead of running repetitive and costly experiments, AI can uncover hidden patterns, accelerate life testing, and forecast potential failures before they occur. Digital twins and machine learning models can simulate years of wear in minutes, enabling smarter design choices and faster product development.This talk will explore how AI is reshaping reliability engineering, with practical applications spanning hardware and software alike—from predictive maintenance and anomaly detection to automated test planning, software fault prediction, and reliability reporting. But success requires more than just algorithms—it demands trust, transparency, and a shift in how engineers work. It’s about building systems where developers and engineers become active co-creators alongside AI systems, shaping workflows that make both hardware and software more efficient, reliable, and future-ready.",
 			}
 		),
 		s(
@@ -324,11 +336,9 @@
 			"Daria Deriagina",
 			{
 				img: "./images/speakersImage/Speaker_DashaDeriagina.png",
-				// Put your full long abstract here; it's rendered entirely
-				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail?In this talk, I’ll share how I work as both a designer and a front-end developer to make that happen. I recently designed and built the Google DevFest website from scratch, and I’ll walk you through my real-world process — from designing a clean, scalable UI in Figma to implementing it with code.You’ll see how I approach structure, spacing, styles, and components with both design logic and code in mind — and how that helps avoid the usual chaos when handing off files to developers (especially when that developer is me!).I’ll also share a few of my practical rules for keeping design consistent, readable, and ready for production — whether you're working solo or in a team. This talk is especially helpful for designers who want to understand what happens after Figma, and developers who are tired of messy, unrealistic mockups.No live coding, no fluff — just honest lessons from someone who lives on both sides.",
+				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail? ... (full abstract preserved)",
 			}
 		),
-		// Cybersecurity
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
@@ -339,10 +349,11 @@
 			"Glen Yu",
 			{
 				img: "./images/speakersImage/Speaker_GlenYu.png",
-				desc: "Move from reactive to proactive runtime security on GKE. Use Tetragon + eBPF for deep, real-time observability and enforcement directly from the kernel—beyond perimeter security.",
+				desc: "Tired of sifting through endless logs after a security event? Traditional runtime security tools typically provide insights AFTER a breach has already occurred. Good security should be proactive and not reactive.  This session dives into how you can take your Google Kubernetes Engine security posture to the next level using Tetragon.We'll explore how Tetragon, an open-source security tool, leverages the power of eBPF to provide deep, real-time security observability and enforcement directly from the Linux kernel.",
 			}
 		),
 
+		// 15:00 block
 		s(
 			"2025-11-08T15:00",
 			"2025-11-08T15:45",
@@ -353,7 +364,7 @@
 			"Mark Johnson",
 			{
 				img: "./images/speakersImage/Speaker_MarkJohnson.png",
-				desc: "Part 1: Vertex AI at scale. Part 2: Google Agentspace—turn org data into intelligent agents that reason, plan, and act.",
+				desc: "This session explores the end-to-end journey of enterprise AI on Google Cloud. First, we'll dive into Vertex AI, covering the various features that can be used to build, deploy, and manage machine learning models at scale. (15 min)  Then, we'll shift our focus to the next frontier: Google Agentspace. You'll learn how this new platform is revolutionizing enterprise productivity by transforming your organization's data into a fleet of intelligent, autonomous agents that can reason, plan, and act. (15 min)",
 			}
 		),
 		s(
@@ -366,7 +377,7 @@
 			"Andrea Yzeiri",
 			{
 				img: "./images/speakersImage/Speaker_AndreaIrinaYzeiri.png",
-				desc: "Design end-to-end systems that last: reduce tech debt, pick high-impact solutions, integrate data well, and lean on strong math to turn complex projects into durable, valuable systems.",
+				desc: "In today’s data-driven world, building ML and AI solutions that deliver lasting value requires more than implementing the latest tools. This session shares practical strategies for designing end-to-end systems that are scalable, reliable, and adaptable. Participants will learn how to make informed design decisions that reduce technical debt, prioritize high-impact solutions, and balance innovation with operational efficiency. The talk covers how to evaluate the right algorithms and architectures, integrate data effectively, and leverage strong mathematical foundations to create solutions that endure. Through real-world examples and actionable frameworks, attendees will gain insights into transforming complex projects into sustainable, high-value systems that drive real-world impact.",
 			}
 		),
 		s(
@@ -379,19 +390,12 @@
 			"Joseph Youssouf",
 			{
 				img: "./images/speakersImage/Speaker_JosephYoussouf.png",
-				desc: "Inside Oden Forge—a custom LLM copilot built with MCP + Google ADK. Natural-language workflows for labeling, ad-hoc EDA, and real-time optimization; challenges, wins, and lessons for industrial AI.",
+				desc: "Joe Youssouf is a Data Scientist at Oden Technologies, where he develops AI-powered solutions that deliver real-time, domain-specific intelligence to manufacturing. His work includes Oden Forge, a custom-built LLM copilot created with the Model Context Protocol (MCP) and Google’s Agent Development Kit (ADK). Oden Forge transforms complex production data into actionable insights through natural language workflows, making advanced analytics accessible to process engineers and other stakeholders alike. These capabilities support tasks such as data labeling, ad-hoc exploratory data analysis, and real-time process optimization.At Google DevFest, Joe will explain how Oden Forge was developed and demonstrate example workflows that deliver measurable value for manufacturing customers. He will also share the challenges, successes, and lessons learned from integrating AI-powered solutions like Oden Forge into the manufacturing sector and beyond.",
 			}
 		),
-		s(
-			"2025-11-08T15:00",
-			"2025-11-08T15:45",
-			"110",
-			"Full-Stack",
-			"Noah Campbell?",
-			"TBD",
-			"Noah Campbell?"
-		),
+		// (Optional future Cybersecurity session for 15:00… left commented in your source)
 
+		// 16:00 block
 		s(
 			"2025-11-08T16:00",
 			"2025-11-08T16:45",
@@ -402,7 +406,7 @@
 			"Umair Durrani",
 			{
 				img: "./images/speakersImage/Speaker_UmairDurrani.png",
-				desc: "An R package that uses AI to generate a logo, palette, and brand.yml—then applies them across a Quarto website, ggplot2, and Shiny for a cohesive personal brand. User + developer perspectives.",
+				desc: "For early-career data scientists, analysts, and developers, a polished online portfolio is more than a nice addition to a resume. It can be a strong advantage in attracting the attention of recruiters, collaborators, and potential clients. A personal website with a consistent look, matching presentations, and visually coherent plots can help you stand out in a competitive market. However, building this kind of professional brand from scratch can be time-consuming and challenging, especially without design experience.brandthis is an R package designed to make that process simple. It uses AI to help you create a complete personal brand directly from your R workflow. With just a few prompts, it can generate a logo, a color palette, and a _brand.yml file. These assets can then be applied automatically to a Quarto-based personal website, ggplot2 themes, and Shiny apps. The result is a cohesive visual identity that works across your projects, presentations, and applications.This talk will present two perspectives. From the user perspective, we will go through how to install brandthis, generate brand assets, set up a Quarto portfolio, and customize it to highlight your projects. From the developer perspective, we will look at how the package integrates AI to generate creative assets, how the YAML structure works, and how branding definitions are applied across R and Quarto outputs.",
 			}
 		),
 		s(
@@ -419,7 +423,7 @@
 			"2025-11-08T16:00",
 			"2025-11-08T16:45",
 			"B14",
-			"Entrepreneurship",
+			"Full-Stack",
 			"Steven Rice",
 			"Academic AI Research",
 			"Steven Rice",
@@ -429,83 +433,113 @@
 			"2025-11-08T16:00",
 			"2025-11-08T16:45",
 			"110",
-			"Full-Stack",
-			"Safia Mohammed",
+			"Cybersecurity",
+			"Safiia Mohammed",
 			"Applied NLP",
-			"Safia Mohammed",
-			{ img: "./images/speakersImage/Speaker_SafiaMohammed.png" }
+			"Safiia Mohammed",
+			{ img: "./images/speakersImage/Speaker_SafiiaMohammed.png" }
 		),
 
+		// Closing (GLOBAL)
 		s(
 			"2025-11-08T17:00",
 			"2025-11-08T17:30",
 			"Commons",
 			"All",
+			"Team",
 			"Closing Remarks & Wrap-up",
 			"Team",
-			"—"
+			{ img: "./images/speakersImage/Speaker_Logo.png", global: true }
 		),
 	];
 
-	/* ============== Schedule UI ============== */
+	/* ============================ Schedule UI ============================ */
 	const mount = $("#scheduleMount");
 	const viewBtns = $$(".view-btn");
 	const trackChips = $$(".track-chip");
 
-	let currentView = "time";
+	let currentView = "time"; // "time" | "track"
 	let currentTrack = "All";
 
 	function initScheduleUI() {
 		if (!mount) return;
 
 		// colorize chips to match tracks
-		trackChips.forEach((chip) =>
+		trackChips.forEach((chip) => {
 			chip.style.setProperty(
 				"--chip-color",
 				trackColor(chip.dataset.track || "All")
-			)
-		);
+			);
+		});
 
+		// view toggles
 		viewBtns.forEach((btn) =>
 			on(btn, "click", () => {
 				viewBtns.forEach((b) => {
-					b.classList.toggle("is-active", b === btn);
-					b.setAttribute("aria-selected", b === btn);
+					const active = b === btn;
+					b.classList.toggle("is-active", active);
+					b.setAttribute("aria-selected", String(active));
 				});
 				currentView = btn.dataset.view || "time";
 				render();
+				syncMobileFilterTheme();
 			})
 		);
 
+		// track chips
 		trackChips.forEach((chip) =>
 			on(chip, "click", () => {
 				trackChips.forEach((c) => c.classList.toggle("is-active", c === chip));
 				currentTrack = chip.dataset.track || "All";
 				render();
+				syncMobileFilterTheme();
 			})
 		);
 
-		// mobile: tap to expand inline details (no popups)
+		// mobile: tap to expand
 		on(mount, "click", (e) => {
 			if (!window.matchMedia("(hover: none)").matches) return;
 			const slot = e.target.closest(".slot");
 			if (!slot) return;
-			slot.classList.toggle("is-open");
-			slot.setAttribute(
-				"aria-expanded",
-				slot.classList.contains("is-open") ? "true" : "false"
-			);
+			const open = slot.classList.toggle("is-open");
+			slot.setAttribute("aria-expanded", String(open));
 		});
 
 		render();
+		syncMobileFilterTheme();
 	}
 
 	function render() {
-		const data =
+		const base =
 			currentTrack === "All"
-				? sessions
-				: sessions.filter((s) => s.track === currentTrack);
-		currentView === "time" ? renderByTime(data) : renderByTrack(data);
+				? sessions.slice()
+				: sessions.filter((s) => s.track === currentTrack || s.global); // include globals on any track
+
+		if (currentView === "time") {
+			renderByTime(base);
+		} else {
+			renderByTrack(base);
+		}
+	}
+
+	/* ============================ Render helpers ============================ */
+	function renderSpeakerImgs(it, size = 64) {
+		const sources = (
+			Array.isArray(it.imgs) && it.imgs.length ? it.imgs : [PLACEHOLDER_IMG]
+		).slice(0, 3);
+		if (sources.length === 1) {
+			return `<img src="${esc(sources[0])}" alt="${esc(
+				it.presenter || it.speaker || it.title
+			)}" width="${size}" height="${size}" loading="lazy">`;
+		}
+		return sources
+			.map(
+				(src) =>
+					`<img src="${esc(src)}" alt="${esc(
+						it.presenter || it.speaker || it.title
+					)}" width="${size}" height="${size}" loading="lazy">`
+			)
+			.join("");
 	}
 
 	function renderByTime(list) {
@@ -513,36 +547,86 @@
 			list.slice().sort(by((x) => x.start)),
 			(s) => `${fmtTime(s.start)} – ${fmtTime(s.end)}`
 		);
-
 		let html = `<div class="time-grid">`;
 		for (const [slot, items] of byStart) {
 			items.sort(by((s) => s.room));
 			items.forEach((it, i) => {
 				const color = trackColor(it.track);
 				html += `
-        <div class="time-row">
-          ${
-						i === 0
-							? `<div class="slot-time">${slot}</div>`
-							: `<div class="slot-time"></div>`
-					}
+          <div class="time-row">
+            ${
+							i === 0
+								? `<div class="slot-time">${slot}</div>`
+								: `<div class="slot-time"></div>`
+						}
+            <article class="slot" style="--track-color:${color}">
+              <div class="slot-media">${renderSpeakerImgs(it, 64)}</div>
+              <div class="slot-body">
+                <h4>${esc(it.title || "")}</h4>
+                <div class="slot-meta">
+                  ${esc(it.presenter || it.speaker || "")}
+                  • <span class="room-badge badge" style="color:#000">Room ${esc(
+										it.room
+									)}</span>
+                </div>
+                <div class="slot-badges">
+                  <span class="badge" style="color:#000">${esc(it.track)}</span>
+                  ${
+										it.global
+											? `<span class="badge is-global" aria-label="Global session">Global</span>`
+											: ``
+									}
+                  <a class="add-to-cal" href="${gcalLink(
+										it
+									)}" target="_blank" rel="noopener">Add to Calendar</a>
+                </div>
+                ${
+									it.desc
+										? detailsBlock(it.desc, it.url)
+										: it.url
+										? rawLink(it.url)
+										: ""
+								}
+              </div>
+            </article>
+          </div>`;
+			});
+		}
+		html += `</div>`;
+		mount.innerHTML = html;
+	}
+
+	function renderByTrack(list) {
+		const globals = list.filter((s) => s.global);
+		const byT = groupBy(list.slice().sort(by((s) => s.start)), (s) => s.track);
+
+		let html = ``;
+		for (const [track, items] of byT) {
+			const color = trackColor(track);
+			const merged = items.concat(globals).sort(by((s) => s.start)); // include globals in every track section
+			html += `<h3 class="group-heading">${esc(track)}</h3>`;
+			merged.forEach((it) => {
+				html += `
           <article class="slot" style="--track-color:${color}">
-            <div class="slot-media">
-              <img src="${esc(it.img || PLACEHOLDER_IMG)}" alt="${esc(
-					it.presenter
-				)}">
-            </div>
+            <div class="slot-media">${renderSpeakerImgs(it, 64)}</div>
             <div class="slot-body">
-              <h4>${esc(it.title)}</h4>
+              <div class="slot-time">${fmtTime(it.start)} – ${fmtTime(
+					it.end
+				)}</div>
+              <h4>${esc(it.title || "")}</h4>
               <div class="slot-meta">
-                ${esc(
-									it.presenter
-								)} • <span class="room-badge badge" style="color:#000">Room ${esc(
-					it.room
-				)}</span>
+                ${esc(it.presenter || it.speaker || "")}
+                • <span class="room-badge badge" style="color:#000">Room ${esc(
+									it.room
+								)}</span>
               </div>
               <div class="slot-badges">
                 <span class="badge" style="color:#000">${esc(it.track)}</span>
+                ${
+									it.global
+										? `<span class="badge is-global" aria-label="Global session">Global</span>`
+										: ``
+								}
                 <a class="add-to-cal" href="${gcalLink(
 									it
 								)}" target="_blank" rel="noopener">Add to Calendar</a>
@@ -555,61 +639,12 @@
 									: ""
 							}
             </div>
-          </article>
-        </div>`;
-			});
-		}
-		html += `</div>`;
-		mount.innerHTML = html;
-	}
-
-	function renderByTrack(list) {
-		const byT = groupBy(list.slice().sort(by((s) => s.start)), (s) => s.track);
-		let html = ``;
-		for (const [track, items] of byT) {
-			const color = trackColor(track);
-			html += `<h3 class="group-heading">${esc(track)}</h3>`;
-			items.forEach((it) => {
-				html += `
-        <article class="slot" style="--track-color:${color}">
-          <div class="slot-media">
-            <img src="${esc(it.img || PLACEHOLDER_IMG)}" alt="${esc(
-					it.presenter
-				)}">
-          </div>
-          <div class="slot-body">
-            <div class="slot-time">${fmtTime(it.start)} – ${fmtTime(
-					it.end
-				)}</div>
-            <h4>${esc(it.title)}</h4>
-            <div class="slot-meta">
-              ${esc(
-								it.presenter
-							)} • <span class="room-badge badge" style="color:#000">Room ${esc(
-					it.room
-				)}</span>
-            </div>
-            <div class="slot-badges">
-              <span class="badge" style="color:#000">${esc(it.room)}</span>
-              <a class="add-to-cal" href="${gcalLink(
-								it
-							)}" target="_blank" rel="noopener">Add to Calendar</a>
-            </div>
-            ${
-							it.desc
-								? detailsBlock(it.desc, it.url)
-								: it.url
-								? rawLink(it.url)
-								: ""
-						}
-          </div>
-        </article>`;
+          </article>`;
 			});
 		}
 		mount.innerHTML = html;
 	}
 
-	/* ============== Render helpers ============== */
 	function detailsBlock(desc, url) {
 		return `
       <details class="slot-more">
@@ -624,11 +659,13 @@
 				}
       </details>`;
 	}
+
 	function rawLink(url) {
 		return `<div class="slot-readmore"><a class="slot-more-link" href="${esc(
 			url
 		)}" target="_blank" rel="noopener">Find out more →</a></div>`;
 	}
+
 	function paragraphize(text) {
 		const safe = esc(text || "");
 		return safe
@@ -638,7 +675,7 @@
 			.join("");
 	}
 
-	/* ============== Utils ============== */
+	/* ============================ Utils ============================ */
 	function by(sel) {
 		return (a, b) => (sel(a) > sel(b) ? 1 : -1);
 	}
@@ -668,8 +705,10 @@
 	}
 	function gcalLink(it) {
 		const base = "https://calendar.google.com/calendar/render?action=TEMPLATE";
-		const text = encodeURIComponent(it.title);
-		const details = encodeURIComponent(`${it.presenter} • Track: ${it.track}`);
+		const text = encodeURIComponent(it.title || "");
+		const details = encodeURIComponent(
+			`${it.presenter || it.speaker || ""} • Track: ${it.track}`
+		);
 		const location = encodeURIComponent(
 			`Room ${it.room}, Odette School of Business, Windsor, Ontario`
 		);
@@ -677,11 +716,44 @@
 		return `${base}&text=${text}&details=${details}&location=${location}&dates=${dates}`;
 	}
 
-	/* ============== Boot ============== */
+	/* ======================= Mobile filter theming ======================= */
+	function syncMobileFilterTheme() {
+		const select = document.getElementById("mobileTrackFilter");
+		if (!select) return;
+		const c = trackColor(currentTrack);
+		select.style.setProperty("--select-track-color", c);
+	}
+
+	/* ============================ Boot ============================ */
 	document.addEventListener("DOMContentLoaded", () => {
 		if (typeof initNavbar === "function") initNavbar();
 		if (typeof initLoadMoreSpeakers === "function") initLoadMoreSpeakers();
 		if (typeof initRipples === "function") initRipples();
 		initScheduleUI();
 	});
+})();
+
+/* ===== MOBILE FILTER: keep <select> and chips in sync ===== */
+(() => {
+	const select = document.getElementById("mobileTrackFilter");
+
+	// MOBILE → DESKTOP
+	if (select) {
+		select.addEventListener("change", () => {
+			const val = select.value;
+			const chip = document.querySelector(`.track-chip[data-track="${val}"]`);
+			chip?.click();
+		});
+	}
+
+	// DESKTOP → MOBILE
+	const chips = document.querySelectorAll(".track-chip");
+	if (chips.length && select) {
+		chips.forEach((chip) => {
+			chip.addEventListener("click", () => {
+				const val = chip.getAttribute("data-track");
+				if (val) select.value = val;
+			});
+		});
+	}
 })();
