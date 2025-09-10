@@ -1445,6 +1445,10 @@ section {
 		grid-column: 2;
 	}
 }
+/* hide the "Global" chip on schedule cards */
+.badge.is-global {
+	display: none !important;
+}
 
 /* ==================== MARK: SPEAKERS ==================== */
 /* Base */

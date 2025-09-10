@@ -336,7 +336,7 @@
 			"Daria Deriagina",
 			{
 				img: "./images/speakersImage/Speaker_DashaDeriagina.png",
-				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail? ... (full abstract preserved)",
+				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail?In this talk, I’ll share how I work as both a designer and a front-end developer to make that happen. I recently designed and built the Google DevFest website from scratch, and I’ll walk you through my real-world process — from designing a clean, scalable UI in Figma to implementing it with code.You’ll see how I approach structure, spacing, styles, and components with both design logic and code in mind — and how that helps avoid the usual chaos when handing off files to developers (especially when that developer is me!).I’ll also share a few of my practical rules for keeping design consistent, readable, and ready for production — whether you're working solo or in a team. This talk is especially helpful for designers who want to understand what happens after Figma, and developers who are tired of messy, unrealistic mockups.No live coding, no fluff — just honest lessons from someone who lives on both sides.",
 			}
 		),
 		s(
