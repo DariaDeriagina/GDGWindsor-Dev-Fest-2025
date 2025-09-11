@@ -248,19 +248,42 @@
 			}
 		),
 
-		// Lunch (GLOBAL)
+		// 12:00 block – TWO SLOTS
+
+		// Lunch Break (GLOBAL, no speakers)
 		s(
 			"2025-11-08T12:00",
 			"2025-11-08T12:45",
-			"Commons",
+			"Commons (Lunch)",
 			"All",
-			"Fireside",
-			"Lunch Break – Fireside Chat",
-			"Fireside",
+			"—",
+			"Lunch Break",
+			"—",
 			{
 				img: "./images/speakersImage/Speaker_Lunch.png",
 				global: true,
-				desc: "Inventing Tomorrow: A GenAI fireside with Nilesh Patel, Naresh Jasotani, Satish Venugopal, and Don Ward. GenAI solutions that excite us (and customers) and why the future is something to embrace.",
+				desc: "Grab a bite, meet folks, and recharge for the afternoon sessions.",
+			}
+		),
+
+		// Fireside Chat (GLOBAL, with 4 headshots)
+		s(
+			"2025-11-08T12:00",
+			"2025-11-08T12:45",
+			"Commons (Fireside)",
+			"All",
+			"Panel",
+			"Inventing Tomorrow: A Fireside Chat on the GenAI Revolution and Why You Should Be Excited",
+			"Nilesh Patel · Naresh Jasotani · Satish Venugopal · Don Ward",
+			{
+				imgs: [
+					"./images/speakersImage/Speaker_NileshPatel.png",
+					"./images/speakersImage/Speaker_NareshJasotani.png",
+					"./images/speakersImage/Speaker_SatishVenugopal.png",
+					"./images/speakersImage/Speaker_DonWard.png",
+				],
+				global: true,
+				desc: "GenAI is all the rage these days. Join us as we discuss GenAI solutions that excite us (and our customers) and why the GenAI future is to be embraced.",
 			}
 		),
 
