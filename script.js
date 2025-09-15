@@ -143,9 +143,12 @@
 			"104",
 			"Google Cloud",
 			"Naresh Jasotani",
-			"Google Cloud Foundations",
+			"TBA",
 			"Naresh Jasotani",
-			{ img: "./images/speakersImage/Speaker_NareshJasotani.png" }
+			{
+				img: "./images/speakersImage/Speaker_NareshJasotani.png",
+				desc: "TBA",
+			}
 		),
 		s(
 			"2025-11-08T10:00",
@@ -179,7 +182,7 @@
 			"110",
 			"Cybersecurity",
 			"Godfrey Nolan",
-			"Mobile + GenAI Patterns",
+			"TBA",
 			"Godfrey Nolan",
 			{ img: "./images/speakersImage/Speaker_GodfreyNolan.png" }
 		),
@@ -207,7 +210,7 @@
 			"104",
 			"Google Cloud",
 			"Nilesh Patel",
-			"AI on GCP – Hands on",
+			"TBA",
 			"Nilesh Patel",
 			{ img: "./images/speakersImage/Speaker_NileshPatel.png" }
 		),
@@ -217,7 +220,7 @@
 			"112",
 			"Build with AI",
 			"Nicholas Schmidt",
-			"Responsible AI in the Wild",
+			"TBA",
 			"Nicholas Schmidt",
 			{ img: "./images/speakersImage/Speaker_NicholasSchmidt.png" }
 		),
@@ -320,7 +323,7 @@
 			"110",
 			"Cybersecurity",
 			"Mina Girges",
-			"Healthcare + AI",
+			"TBA",
 			"Mina Girges",
 			{ img: "./images/speakersImage/Speaker_MinaGirges.png" }
 		),
@@ -332,7 +335,7 @@
 			"104",
 			"Google Cloud",
 			"Satish Venugopal",
-			"Modern Cloud Patterns",
+			"TBA",
 			"Satish Venugopal",
 			{ img: "./images/speakersImage/Speaker_SatishVenugopal.png" }
 		),
@@ -438,7 +441,7 @@
 			"112",
 			"Build with AI",
 			"Kiran Puthan",
-			"Solutions at Scale",
+			"TBA",
 			"Kiran Puthan",
 			{ img: "./images/speakersImage/Speaker_KiranPuthan.png" }
 		),
@@ -448,7 +451,7 @@
 			"B14",
 			"Full-Stack",
 			"Steven Rice",
-			"Academic AI Research",
+			"TBA",
 			"Steven Rice",
 			{ img: "./images/speakersImage/Speaker_StevenRice.png" }
 		),
@@ -458,7 +461,7 @@
 			"110",
 			"Cybersecurity",
 			"Safiia Mohammed",
-			"Applied NLP",
+			"TBA",
 			"Safiia Mohammed",
 			{ img: "./images/speakersImage/Speaker_SafiiaMohammed.png" }
 		),
