@@ -136,18 +136,19 @@
 			{ img: "./images/speakersImage/Speaker_LuisSerrano.png", global: true }
 		),
 
-		// 10:00 block
+		// MARK: 10:00 block
+		//Naresh Jasotani
 		s(
 			"2025-11-08T10:00",
 			"2025-11-08T10:45",
 			"104",
 			"Google Cloud",
 			"Naresh Jasotani",
-			"TBA",
+			"To Be Announced",
 			"Naresh Jasotani",
 			{
 				img: "./images/speakersImage/Speaker_NareshJasotani.png",
-				desc: "TBA",
+				desc: "To Be Announced",
 			}
 		),
 		s(
@@ -182,7 +183,7 @@
 			"110",
 			"Cybersecurity",
 			"Godfrey Nolan",
-			"TBA",
+			"To Be Announced",
 			"Godfrey Nolan",
 			{ img: "./images/speakersImage/Speaker_GodfreyNolan.png" }
 		),
@@ -191,26 +192,23 @@
 			"2025-11-08T10:45",
 			"B02",
 			"Entrepreneurship",
-			"Panel",
-			"From C++ to the C-Suite: A Fireside Chat with CTO John Langlois",
-			"Adam Castle & John Langlois",
+			"Wen Teoh",
+			"Hack It, Build It, Launch It: Entrepreneurship for Developers",
+			"Wen Teoh",
 			{
-				imgs: [
-					"./images/speakersImage/Speaker_AdamCastle.png",
-					"./images/speakersImage/Speaker_JohnLanglois.png",
-				],
-				desc: "Join Adam Castle, Director of Venture Services and Partnerships at WEtech Alliance, for a fireside chat with local CTO John Langlois of Scelta, as we dive into his journey from developer to the c-suite.John will share his personal path in technology, and explore how he went from writing code to leading at the executive level, and what lessons he picked up along the way. We’ll explore the realities of the CTO role through his eyes: balancing strategy with execution, navigating rapid growth, and making decisions when both the technical and business stakes are high.In this conversation, John will reflect on the professional skills that helped him move beyond a purely technical role, including leadership, communication, and building strong teams. He’ll also share the habits and routines that keep him grounded under pressure, along with the technology trends he sees shaping the future of his company and the broader industry.Whether you’re a developer curious about what leadership looks like, a founder preparing to scale, or someone interested in the evolving role of technology leaders, John’s perspective offers practical insights and candid advice from someone who has walked the path, with both boots on the ground.",
+				img: "./images/speakersImage/Speaker_WenTeoh.png",
+				desc: "As a developer, you already have an amazing skill: you can turn an idea into something real with just your laptop. But building a cool app or project isn’t always the same as building something people will actually use—or even pay for. In this talk, we’ll explore how developers can turn side projects into startups, the common mistakes to watch out for, and why now is the perfect time to try. You’ll leave with practical tips, real examples, and maybe even the spark for your next big idea.",
 			}
 		),
 
-		// 11:00 block
+		// MARK: 11:00 block
 		s(
 			"2025-11-08T11:00",
 			"2025-11-08T11:45",
 			"104",
 			"Google Cloud",
 			"Nilesh Patel",
-			"TBA",
+			"To Be Announced",
 			"Nilesh Patel",
 			{ img: "./images/speakersImage/Speaker_NileshPatel.png" }
 		),
@@ -220,7 +218,7 @@
 			"112",
 			"Build with AI",
 			"Nicholas Schmidt",
-			"TBA",
+			"To Be Announced",
 			"Nicholas Schmidt",
 			{ img: "./images/speakersImage/Speaker_NicholasSchmidt.png" }
 		),
@@ -250,47 +248,50 @@
 				desc: "We will look at some Cyber Threats.  What does a strong Cybersecurity Strategy look like?  Share some Phishing Scams to be aware and help protect you, your data and company.  Tips and best practices to keep everyone safe",
 			}
 		),
-
-		// 12:00 block – TWO SLOTS
-
-		// Lunch Break (GLOBAL, no speakers)
 		s(
-			"2025-11-08T12:00",
-			"2025-11-08T12:45",
-			"Commons (Lunch)",
-			"All",
-			"—",
-			"Lunch Break",
-			"—",
+			"2025-11-08T11:00",
+			"2025-11-08T11:45",
+			"B02",
+			"Entrepreneurship",
+			"Panel",
+			"From C++ to the C-Suite: A Fireside Chat with CTO John Langlois",
+			"Adam Castle & John Langlois",
 			{
-				img: "./images/speakersImage/Speaker_Lunch.png",
-				global: true,
-				desc: "Grab a bite, meet folks, and recharge for the afternoon sessions.",
+				imgs: [
+					"./images/speakersImage/Speaker_AdamCastle.png",
+					"./images/speakersImage/Speaker_JohnLanglois.png",
+				],
+				desc: "Join Adam Castle, Director of Venture Services and Partnerships at WEtech Alliance, for a fireside chat with local CTO John Langlois of Scelta, as we dive into his journey from developer to the c-suite.John will share his personal path in technology, and explore how he went from writing code to leading at the executive level, and what lessons he picked up along the way. We’ll explore the realities of the CTO role through his eyes: balancing strategy with execution, navigating rapid growth, and making decisions when both the technical and business stakes are high.In this conversation, John will reflect on the professional skills that helped him move beyond a purely technical role, including leadership, communication, and building strong teams. He’ll also share the habits and routines that keep him grounded under pressure, along with the technology trends he sees shaping the future of his company and the broader industry.Whether you’re a developer curious about what leadership looks like, a founder preparing to scale, or someone interested in the evolving role of technology leaders, John’s perspective offers practical insights and candid advice from someone who has walked the path, with both boots on the ground.",
 			}
 		),
 
-		// Fireside Chat (GLOBAL, with 4 headshots)
+		// MARK: 12:00 block – TWO SLOTS
+
+		// 12:00 block — ONE COMBINED SLOT (Lunch + Fireside)
 		s(
 			"2025-11-08T12:00",
 			"2025-11-08T12:45",
-			"Commons (Fireside)",
+			"Commons (Lunch & Fireside)",
 			"All",
 			"Panel",
-			"Inventing Tomorrow: A Fireside Chat on the GenAI Revolution and Why You Should Be Excited",
-			"Nilesh Patel · Naresh Jasotani · Satish Venugopal · Don Ward",
+			"Lunch & Fireside Chat: Inventing Tomorrow — Why GenAI Should Excite You",
+			"Nilesh Patel · Naresh Jasotani · Satish Venugopal · Don Ward · Aasha Khan",
 			{
+				// put the lunch icon first, then the panelists
 				imgs: [
+					"./images/speakersImage/Speaker_Lunch.png",
 					"./images/speakersImage/Speaker_NileshPatel.png",
 					"./images/speakersImage/Speaker_NareshJasotani.png",
 					"./images/speakersImage/Speaker_SatishVenugopal.png",
 					"./images/speakersImage/Speaker_DonWard.png",
+					"./images/speakersImage/Speaker_AashaKhan.jpeg",
 				],
 				global: true,
-				desc: "GenAI is all the rage these days. Join us as we discuss GenAI solutions that excite us (and our customers) and why the GenAI future is to be embraced.",
+				desc: "Happening during lunch in the Commons — grab food and join the fireside chat on GenAI: what excites us (and our customers) and why the future is worth embracing.",
 			}
 		),
 
-		// 13:00 block
+		// MARK: 13:00 block
 		s(
 			"2025-11-08T13:00",
 			"2025-11-08T13:45",
@@ -320,22 +321,51 @@
 		s(
 			"2025-11-08T13:00",
 			"2025-11-08T13:45",
+			"B14",
+			"Full-Stack",
+			"Daria Deriagina",
+			"Pixel Perfect Is Not Dead: How I Build UI That Matches the Figma Design",
+			"Daria Deriagina",
+			{
+				img: "./images/speakersImage/Speaker_DashaDeriagina.png",
+				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail?In this talk, I’ll share how I work as both a designer and a front-end developer to make that happen. I recently designed and built the Google DevFest website from scratch, and I’ll walk you through my real-world process — from designing a clean, scalable UI in Figma to implementing it with code.You’ll see how I approach structure, spacing, styles, and components with both design logic and code in mind — and how that helps avoid the usual chaos when handing off files to developers (especially when that developer is me!).I’ll also share a few of my practical rules for keeping design consistent, readable, and ready for production — whether you're working solo or in a team. This talk is especially helpful for designers who want to understand what happens after Figma, and developers who are tired of messy, unrealistic mockups.No live coding, no fluff — just honest lessons from someone who lives on both sides.",
+			}
+		),
+		s(
+			"2025-11-08T13:00",
+			"2025-11-08T13:45",
 			"110",
 			"Cybersecurity",
 			"Mina Girges",
-			"TBA",
+			"To Be Announced",
 			"Mina Girges",
 			{ img: "./images/speakersImage/Speaker_MinaGirges.png" }
 		),
+		s(
+			"2025-11-08T13:00",
+			"2025-11-08T13:45",
+			"B02",
+			"Entrepreneurship", // ← no trailing space
+			"Richard Nonso & Moshood Saka",
+			"To Be Announced",
+			"Richard Nonso & Moshood Saka",
+			{
+				imgs: [
+					"./images/speakersImage/Speaker_RichardNonso.png",
+					"./images/speakersImage/Speaker_MoshoodSaka.png",
+				],
+				desc: "To Be Announced",
+			}
+		),
 
-		// 14:00 block
+		// MARK:  14:00 block
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
 			"104",
 			"Google Cloud",
 			"Satish Venugopal",
-			"TBA",
+			"To Be Announced",
 			"Satish Venugopal",
 			{ img: "./images/speakersImage/Speaker_SatishVenugopal.png" }
 		),
@@ -357,14 +387,15 @@
 			"2025-11-08T14:45",
 			"B14",
 			"Full-Stack",
-			"Daria Deriagina",
-			"Pixel Perfect Is Not Dead: How I Build UI That Matches the Figma Design",
-			"Daria Deriagina",
+			"Joseph Youssouf",
+			"Oden Forge: Agentic Copilot with MCP + Google ADK for Manufacturing",
+			"Joseph Youssouf",
 			{
-				img: "./images/speakersImage/Speaker_DashaDeriagina.png",
-				desc: "What if your design looked exactly the same in the browser as it did in Figma — every pixel, every spacing, every detail?In this talk, I’ll share how I work as both a designer and a front-end developer to make that happen. I recently designed and built the Google DevFest website from scratch, and I’ll walk you through my real-world process — from designing a clean, scalable UI in Figma to implementing it with code.You’ll see how I approach structure, spacing, styles, and components with both design logic and code in mind — and how that helps avoid the usual chaos when handing off files to developers (especially when that developer is me!).I’ll also share a few of my practical rules for keeping design consistent, readable, and ready for production — whether you're working solo or in a team. This talk is especially helpful for designers who want to understand what happens after Figma, and developers who are tired of messy, unrealistic mockups.No live coding, no fluff — just honest lessons from someone who lives on both sides.",
+				img: "./images/speakersImage/Speaker_JosephYoussouf.png",
+				desc: "Joe Youssouf is a Data Scientist at Oden Technologies, where he develops AI-powered solutions that deliver real-time, domain-specific intelligence to manufacturing. His work includes Oden Forge, a custom-built LLM copilot created with the Model Context Protocol (MCP) and Google’s Agent Development Kit (ADK). Oden Forge transforms complex production data into actionable insights through natural language workflows, making advanced analytics accessible to process engineers and other stakeholders alike. These capabilities support tasks such as data labeling, ad-hoc exploratory data analysis, and real-time process optimization.At Google DevFest, Joe will explain how Oden Forge was developed and demonstrate example workflows that deliver measurable value for manufacturing customers. He will also share the challenges, successes, and lessons learned from integrating AI-powered solutions like Oden Forge into the manufacturing sector and beyond.",
 			}
 		),
+
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
@@ -379,7 +410,11 @@
 			}
 		),
 
-		// 15:00 block
+		// MARK: 15:00 block
+		// Mark Johnson
+		//Andrea Yzeiri
+		//Veronica Reingold
+
 		s(
 			"2025-11-08T15:00",
 			"2025-11-08T15:45",
@@ -411,17 +446,22 @@
 			"2025-11-08T15:45",
 			"B14",
 			"Full-Stack",
-			"Joseph Youssouf",
-			"Oden Forge: Agentic Copilot with MCP + Google ADK for Manufacturing",
-			"Joseph Youssouf",
+			"Veronica Reingold ",
+			"Continuity by Design: Scalable ML/AI Systems for Longevity",
+			"Veronica Reingold ",
 			{
-				img: "./images/speakersImage/Speaker_JosephYoussouf.png",
-				desc: "Joe Youssouf is a Data Scientist at Oden Technologies, where he develops AI-powered solutions that deliver real-time, domain-specific intelligence to manufacturing. His work includes Oden Forge, a custom-built LLM copilot created with the Model Context Protocol (MCP) and Google’s Agent Development Kit (ADK). Oden Forge transforms complex production data into actionable insights through natural language workflows, making advanced analytics accessible to process engineers and other stakeholders alike. These capabilities support tasks such as data labeling, ad-hoc exploratory data analysis, and real-time process optimization.At Google DevFest, Joe will explain how Oden Forge was developed and demonstrate example workflows that deliver measurable value for manufacturing customers. He will also share the challenges, successes, and lessons learned from integrating AI-powered solutions like Oden Forge into the manufacturing sector and beyond.",
+				img: "./images/speakersImage/Speaker_VeronicaNonikaReingold.png",
+				desc: "As video games continue to evolve in complexity and scope, accessibility, approachability, and learnability are no longer niche considerations—they’re essential. In this talk, we will explore the differences between accessibility, approachability, and learnability, as well as the overlap between them. We will discuss the difficulties in developing accessible, approachable, and learnable games, why the industry lacks clear benchmarks, and the best resources and solutions for game developers. We’ll dive into some examples of modern games, the challenges they pose to players, and the current assistive techniques used in industry. Then, we’ll see how various AI techniques (including Utility AI, Goal-Oriented Action Planning, and Large Language Models) can dynamically assist players without compromising gameplay. This presentation will not only explain the concepts of accessibility, approachability, and learnability, but encourage creative thinking about how emerging technologies can make games more inclusive, intuitive, and fun for everyone.",
 			}
 		),
+
 		// (Optional future Cybersecurity session for 15:00… left commented in your source)
 
-		// 16:00 block
+		// MARK: 16:00 block
+		//Umair Durrani
+		//Kiran Puthan
+		//Steven Rice
+		//Safiia Mohammed
 		s(
 			"2025-11-08T16:00",
 			"2025-11-08T16:45",
@@ -441,9 +481,11 @@
 			"112",
 			"Build with AI",
 			"Kiran Puthan",
-			"TBA",
+			"To Be Announced",
 			"Kiran Puthan",
-			{ img: "./images/speakersImage/Speaker_KiranPuthan.png" }
+			{
+				img: "./images/speakersImage/Speaker_KiranPuthan.png",
+			}
 		),
 		s(
 			"2025-11-08T16:00",
@@ -451,9 +493,12 @@
 			"B14",
 			"Full-Stack",
 			"Steven Rice",
-			"TBA",
+			"Bridging AI and Robotics with Python-First Frameworks",
 			"Steven Rice",
-			{ img: "./images/speakersImage/Speaker_StevenRice.png" }
+			{
+				img: "./images/speakersImage/Speaker_StevenRice.png",
+				desc: "For decades, robotics software has been a significant bottleneck, characterized by low-level C++, fragmented tooling, and steep learning curves reminiscent of early machine learning. Just as Python-centric ecosystems revolutionized machine learning by prioritizing accessibility and rapid iteration, a similar paradigm shift is now transforming robotics.This talk will explore the rise of a new generation of Python-first frameworks designed to bridge the gap between AI and robotics systems. These tools are not mere wrappers around legacy codebases; they are fundamentally Pythonic, offering high-level abstractions and modular architectures. We will discuss how features like seamless simulation-to-reality deployment, integrated data collection pipelines, and native Gym-style interfaces are making robotics development more intuitive for the modern ML practitioner. By embracing a development philosophy that favors simplicity and interoperability, this new approach lowers the barrier to entry, accelerates research, and empowers developers to build, test, and deploy complex autonomous systems faster than ever before. Join us to see how the future of robotics is becoming more Pythonic, paving the way for the next wave of innovation.",
+			}
 		),
 		s(
 			"2025-11-08T16:00",
@@ -461,7 +506,7 @@
 			"110",
 			"Cybersecurity",
 			"Safiia Mohammed",
-			"TBA",
+			"To Be Announced",
 			"Safiia Mohammed",
 			{ img: "./images/speakersImage/Speaker_SafiiaMohammed.png" }
 		),
@@ -552,7 +597,7 @@
 	function renderSpeakerImgs(it, size = 64) {
 		const sources = (
 			Array.isArray(it.imgs) && it.imgs.length ? it.imgs : [PLACEHOLDER_IMG]
-		).slice(0, 3);
+		).slice(0, 6);
 		if (sources.length === 1) {
 			return `<img src="${esc(sources[0])}" alt="${esc(
 				it.presenter || it.speaker || it.title
