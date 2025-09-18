@@ -131,9 +131,13 @@
 			"B14",
 			"Keynote",
 			"All",
-			"Welcoming and Keynote – Luis Serrano",
+			"The Celestial Mechanics of Attention Mechanisms",
 			"Luis Serrano",
-			{ img: "./images/speakersImage/Speaker_LuisSerrano.png", global: true }
+			{
+				img: "./images/speakersImage/Speaker_LuisSerrano.png",
+				desc: "The attention mechanism is the secret sauce behind the success of transformer models like ChatGPT and DeepSeek. It enables these models to dynamically focus on the most relevant parts of a text, determining which words or phrases are most important based on their contextual relationships. In this talk, we’ll explore language models through a geometric lens, imagining words as celestial bodies floating in space. The attention mechanism acts as a gravitational force, pulling these words together to form 'context galaxies' where meaning emerges. We’ll also dive into the roles of the Key, Query, and Value matrices, which serve as the cosmic tools that help extract and organize information from the text. No advanced mathematical background is required, just a willingness to think creatively about addition, subtraction, and the occasional multiplication. Join us for a journey through the universe of transformers, where words, gravity, and context collide!",
+				global: true,
+			}
 		),
 
 		// MARK: 10:00 block
@@ -218,9 +222,12 @@
 			"112",
 			"Build with AI",
 			"Nicholas Schmidt",
-			"To Be Announced",
+			"Equity, Equality, and Equations: Using Philosophy and Ethics to Guide Algorithmic Design",
 			"Nicholas Schmidt",
-			{ img: "./images/speakersImage/Speaker_NicholasSchmidt.png" }
+			{
+				img: "./images/speakersImage/Speaker_NicholasSchmidt.png",
+				desc: "What does it mean for an algorithm to be “fair”? If you build an algorithm that affects others in society, you alone do not get to decide…or do you?  This talk explores how concepts of equity and equality map onto the technical world of algorithmic decisioning. We discuss how you can tie these concepts to your domain expertise and your knowledge of the world to build an algorithm that not only solves your business problem but does so in the most beneficial way possible. Attendees will gain a deeper understanding of the trade-offs between equity and equality, and how to defend their metric choices — and their models — in both technical and regulatory settings.",
+			}
 		),
 		s(
 			"2025-11-08T11:00",
@@ -274,7 +281,7 @@
 			"Commons (Lunch & Fireside)",
 			"All",
 			"Panel",
-			"Lunch & Fireside Chat: Inventing Tomorrow — Why GenAI Should Excite You",
+			"Lunch & Fireside Chat Inventing Tomorrow: A Fireside Chat on the GenAI Revolution and Why You Should Be Excited",
 			"Nilesh Patel · Naresh Jasotani · Satish Venugopal · Don Ward · Aasha Khan",
 			{
 				// put the lunch icon first, then the panelists
@@ -287,7 +294,7 @@
 					"./images/speakersImage/Speaker_AashaKhan.jpeg",
 				],
 				global: true,
-				desc: "Happening during lunch in the Commons — grab food and join the fireside chat on GenAI: what excites us (and our customers) and why the future is worth embracing.",
+				desc: "Happening during lunch in the Commons — grab food and join the fireside chat: GenAI is all the rage these days. Join us as we discuss GenAI solutions that excite us (and our customers) and why the GenAI future is to be embraced.",
 			}
 		),
 
@@ -447,7 +454,7 @@
 			"B14",
 			"Full-Stack",
 			"Veronica Reingold ",
-			"Continuity by Design: Scalable ML/AI Systems for Longevity",
+			"Press A for Assistance: Making Games Accessible with AI",
 			"Veronica Reingold ",
 			{
 				img: "./images/speakersImage/Speaker_VeronicaNonikaReingold.png",
@@ -506,9 +513,12 @@
 			"110",
 			"Cybersecurity",
 			"Safiia Mohammed",
-			"To Be Announced",
+			"LLM Supply Chain Security: Threats, Opportunities, and Business Resilience",
 			"Safiia Mohammed",
-			{ img: "./images/speakersImage/Speaker_SafiiaMohammed.png" }
+			{
+				img: "./images/speakersImage/Speaker_SafiiaMohammed.png",
+				desc: "As Large Language Models (LLMs) become intensely integrated in business operations, their supply chains have emerged as a critical security frontier. Unlike traditional software, LLMs rely on massive training datasets, third-party APIs, fine-tuning providers, open-source model hubs, and deployment infrastructures. Each stage introduces potential vulnerabilities. Malicious behaviours can bias outputs, compromised pre-trained models may contain hidden backdoors, and insecure API integrations expose organizations to data leakage or manipulation.However, within these threats lie opportunities. Businesses that secure their LLM supply chains can differentiate themselves by offering trustworthy, compliance-ready AI services. This aligns with regulations like the EU AI Act and Canada’s AIDA, which demand transparency in AI decision-making.Resilient organizations will view LLM supply chain security as more than risk mitigation; it is a strategic enabler. By embedding security, privacy, and accountability into AI pipelines, businesses protect customer trust, reduce liability, and unlock competitive advantage. Enterprises that can validate what their models do,and transparently explain the how, why, and origin of their intelligence,will lead the future of AI.",
+			}
 		),
 
 		// Closing (GLOBAL)
@@ -719,7 +729,7 @@
 	function detailsBlock(desc, url) {
 		return `
       <details class="slot-more">
-        <summary>Find out more →</summary>
+        <summary>Read the abstract →</summary>
         <div class="slot-desc">${paragraphize(desc)}</div>
         ${
 					url
@@ -734,7 +744,7 @@
 	function rawLink(url) {
 		return `<div class="slot-readmore"><a class="slot-more-link" href="${esc(
 			url
-		)}" target="_blank" rel="noopener">Find out more →</a></div>`;
+		)}" target="_blank" rel="noopener">Read the abstract →</a></div>`;
 	}
 
 	function paragraphize(text) {
