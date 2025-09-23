@@ -187,9 +187,12 @@
 			"110",
 			"Cybersecurity",
 			"Godfrey Nolan",
-			"To Be Announced",
+			"Taming Agentic AI: Securing Deployments in the Real World",
 			"Godfrey Nolan",
-			{ img: "./images/speakersImage/Speaker_GodfreyNolan.png" }
+			{
+				img: "./images/speakersImage/Speaker_GodfreyNolan.png",
+				desc: "Agentic AI systems—autonomous agents capable of making decisions and taking actions—are moving rapidly from prototypes into production environments. While their potential to transform industries is enormous, they also introduce new layers of cybersecurity risk that go beyond traditional AI deployments. How do we ensure that these agents remain trustworthy, resilient, and aligned when operating in complex, real-world conditions? ƒThis talk explores the most pressing cybersecurity risks associated with deploying Agentic AI, including data poisoning, prompt injection, supply chain vulnerabilities, and adversarial manipulation of autonomous workflows. We will also examine real-world scenarios where attackers could exploit these systems, and the consequences organizations may face if safeguards are not in place.Most importantly, the session will highlight practical mitigations and best practices that teams can adopt today. Topics will include secure model lifecycle management, monitoring and auditing autonomous behaviors, implementing guardrails and fallback mechanisms, and designing defense-in-depth strategies tailored for Agentic AI systems.Attendees will leave with a clear understanding of the evolving threat landscape, as well as actionable steps to reduce risks and increase confidence when bringing Agentic AI into production.",
+			}
 		),
 		s(
 			"2025-11-08T10:00",
@@ -344,9 +347,12 @@
 			"110",
 			"Cybersecurity",
 			"Mina Girges",
-			"To Be Announced",
+			"AI Meets Security: Defending Against AI-Powered Threats",
 			"Mina Girges",
-			{ img: "./images/speakersImage/Speaker_MinaGirges.png" }
+			{
+				img: "./images/speakersImage/Speaker_MinaGirges.png",
+				desc: "Artificial Intelligence is transforming how we build, scale, and secure digital systems — but it’s also redefining how attackers operate. From AI-generated phishing campaigns to deepfake-driven fraud and automated exploit discovery, the threat landscape is evolving faster than ever. For developers and organizations, the challenge isn’t just adopting AI — it’s building with resilience, trust, and responsibility at the core.In this session, Mina Girges will explore the intersection of AI and cybersecurity through the lens of enterprise leadership and developer responsibility. We’ll look at how AI is being weaponized, what this means for application security and identity-first design, and how organizations can adapt their security posture without slowing down innovation. Using real-world examples and lessons drawn from global industries, Mina will share actionable strategies for securing applications, APIs, and software supply chains in an AI-driven world.Attendees will walk away with a clearer understanding of:How AI is changing the attack surface — and the mindset required to defend it.Practical steps developers can take to integrate responsible AI security practices into their workflows.The leadership perspective: aligning AI adoption, Zero Trust, and governance to protect both code and business outcomes.Whether you’re a developer, architect, or leader, this talk will equip you with the insights needed to secure the next generation of digital systems — and stay one step ahead in the age of AI-powered threats.",
+			}
 		),
 		s(
 			"2025-11-08T13:00",
@@ -354,14 +360,14 @@
 			"B02",
 			"Entrepreneurship", // ← no trailing space
 			"Richard Nonso & Moshood Saka",
-			"To Be Announced",
+			"Choice Between Career and Entrepreneurship",
 			"Richard Nonso & Moshood Saka",
 			{
 				imgs: [
 					"./images/speakersImage/Speaker_RichardNonso.png",
 					"./images/speakersImage/Speaker_MoshoodSaka.png",
 				],
-				desc: "To Be Announced",
+				desc: "Most of us face the big question at some point: Should I get a career or start a business? We didn’t so much choose as learn to live in the messy middle, holding day jobs while building a youth-focused tech initiative that’s raised over $200,000 through grants and partnerships. In this candid co-founder talk, we’ll share how two complementary lanes, one product/ops, one strategy/partnerships guided real decisions on money, timelines, and scope; how we protected momentum and trust without sacrificing the friendship; and the moments we resized ambition, said no to distractions, and kept promises to the people we serve. No playbooks, just honest lessons, failures, and receipts from balancing a paycheck and a purpose in today’s fast-changing world.",
 			}
 		),
 
@@ -488,10 +494,11 @@
 			"112",
 			"Build with AI",
 			"Kiran Puthan",
-			"To Be Announced",
+			"The Agentic Leap: The New Era of AI Collaboration",
 			"Kiran Puthan",
 			{
 				img: "./images/speakersImage/Speaker_KiranPuthan.png",
+				desc: "In this talk, we'll discover what AI agents are, exploring how they are fundamentally different from traditional AI by acting as **autonomous, goal-oriented systems**. We'll also examine the future of automation and how these agents will transform the way we work by automating complex workflows and processes.",
 			}
 		),
 		s(
@@ -684,7 +691,11 @@
 		let html = ``;
 		for (const [track, items] of byT) {
 			const color = trackColor(track);
-			const merged = items.concat(globals).sort(by((s) => s.start)); // include globals in every track section
+			// avoid duplicates when a session is both in this track and marked global
+			const merged = items
+				.concat(globals.filter((g) => !items.some((i) => i.id === g.id)))
+				.sort(by((s) => s.start));
+
 			html += `<h3 class="group-heading">${esc(track)}</h3>`;
 			merged.forEach((it) => {
 				html += `
@@ -729,7 +740,7 @@
 	function detailsBlock(desc, url) {
 		return `
       <details class="slot-more">
-        <summary>Read the abstract →</summary>
+        <summary>Read the abstract</summary>
         <div class="slot-desc">${paragraphize(desc)}</div>
         ${
 					url

@@ -13,7 +13,7 @@ body {
 	padding-bottom: 40px;
 }
 section {
-	scroll-margin-top: 80px;
+	scroll-margin-top: 20px;
 }
 
 /* ==================== MARK: NAVBAR ==================== */
@@ -515,10 +515,10 @@ section {
 	}
 }
 
-/* ==================== SPONSORS ==================== */
+/* ==================== MARK: SPONSORS (clean rewrite) ==================== */
 .sponsors-section {
 	background: #fff;
-	padding: 0 20px; /* room from page edge */
+	padding: 0 20px;
 	text-align: center;
 }
 
@@ -526,92 +526,108 @@ section {
 	background: #fff;
 	border: 1px solid #000;
 	border-radius: 50px;
-	padding: 20px 24px;
+	/* plenty of room at the bottom so the last row never kisses the curve */
+	padding: 28px 28px 72px;
 	max-width: 1200px;
 	width: 100%;
-	margin: 0 auto; /* ✅ center the frame on ultra-wide */
+	margin: 0 auto;
 	box-shadow: none;
 }
 
-/* Title */
 .sponsors-title {
 	font-size: 1.6rem;
-	margin: 8px 0 18px;
+	margin: 8px 0 22px;
 }
 
-/* Grid container for logos */
+/* Grid */
 .puzzle-track {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* was 160px */
-	gap: 32px; /* more space between bigger logos */
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 0px;
 	justify-items: center;
-	align-items: center;
+	align-items: start; /* 🔥 no more huge vertical gaps */
 }
 
-/* Each tile */
+/* Each tile gets a fixed logo box height so rows are even. */
 .puzzle-item {
-	width: 100%; /* keep inside grid cell */
-	max-width: 240px; /* was 180px */
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100%;
+	max-width: 240px;
+	display: grid;
+	place-items: center;
+	min-height: 140px;
+}
+
+.puzzle-item img {
+	display: block;
+	width: auto;
+	height: clamp(70px, 9vw, 120px); /* responsive cap */
+	max-width: 100%;
+	object-fit: contain;
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Logo image */
-.puzzle-item img {
-	width: 100%;
-	max-width: 240px; /* was 200px */
-	max-height: 240px; /* was 200px */
-	object-fit: contain;
-	display: block;
-}
-
-.puzzle-item:hover {
+.puzzle-item:hover img {
 	transform: translateY(-2px);
 	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* ---------- Breakpoints ---------- */
 
-/* Mobile (≤768px): 2 per row */
+/* Mobile (≤768px): 2 columns, tighter rows */
 @media (max-width: 768px) {
 	.sponsors-title {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
+		margin-bottom: 16px;
 	}
+
 	.sponsors-frame {
-		padding: 16px 16px;
+		padding: 16px 12px 20px; /* reduce bottom padding */
+		border-radius: 28px;
 	}
+
 	.puzzle-track {
-		grid-template-columns: repeat(2, minmax(0, 1fr)); /* ✅ exactly 2 */
-		gap: 14px;
+		grid-template-columns: repeat(2, 1fr); /* exactly 2 per row */
+		column-gap: 0px; /* smaller sideways gap */
+		row-gap: 24px; /* tighter vertical spacing */
 	}
+
 	.puzzle-item {
 		max-width: none;
-	} /* let grid control width */
+		min-height: auto; /* remove forced height */
+	}
+
 	.puzzle-item img {
-		max-width: 120px;
-		max-height: 95px;
+		height: clamp(52px, 16vw, 80px); /* scale with screen */
+		max-width: 100px;
 	}
 }
 
-/* Tablet (769–992px): 3 per row */
+/* Tablet (769–992px): 3 columns */
 @media (min-width: 769px) and (max-width: 992px) {
 	.puzzle-track {
-		grid-template-columns: repeat(3, 1fr); /* ✅ exactly 3 */
-		gap: 18px;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 28px;
+		row-gap: 56px;
+	}
+	.puzzle-item {
+		min-height: 130px;
 	}
 	.puzzle-item img {
-		max-width: 135px;
-		max-height: 100px;
+		height: clamp(72px, 8vw, 110px);
 	}
 }
 
-/* Large desktop (≥1400px): allow a little more breathing room */
+/* Large desktop (≥1400px): a touch more air */
 @media (min-width: 1400px) {
 	.puzzle-track {
-		gap: 28px;
+		column-gap: 40px;
+		row-gap: 72px;
 	}
+}
+/* FINAL override — keeps rows tight on all screens */
+.puzzle-track {
+	row-gap: 0 !important;
+	column-gap: 12px !important;
 }
 
 /* ===== MARK: ABOUT DEVFEST SECTION ===== */
@@ -1214,15 +1230,50 @@ section {
 .room-badge {
 	background: var(--track-color, #ebebeb);
 } /* ← colored by track */
-.add-to-cal,
-.slot-more {
+/* Keep Add to Calendar as-is */
+.add-to-cal {
 	font-weight: 700;
 	font-size: 13px;
 	text-decoration: none;
+	border-bottom: 1px dashed #000;
 }
-.add-to-cal:hover,
-.slot-more:hover {
-	text-decoration: underline;
+.add-to-cal:hover {
+	text-decoration: none;
+}
+
+/* Read the abstract trigger (details/summary) — NO underline */
+.slot-more summary,
+.slot-more-trigger {
+	font-weight: 700;
+	font-size: 13px;
+	text-decoration: none; /* ← no underline */
+	cursor: pointer;
+	color: #000;
+	list-style: none; /* remove default marker space */
+}
+.slot-more summary::-webkit-details-marker {
+	display: none;
+} /* Safari/Chrome */
+
+/* Optional: custom chevron instead of underline */
+.slot-more summary::after,
+.slot-more-trigger::after {
+	content: " →";
+	transition: transform 0.2s ease;
+}
+.slot-more[open] summary::after {
+	transform: translateX(2px);
+}
+
+/* Fallback anchor (used by rawLink) — NO underline */
+.slot-more-link {
+	font-weight: 700;
+	font-size: 13px;
+	text-decoration: none; /* ← no underline */
+	color: #000;
+}
+.slot-more-link:hover {
+	text-decoration: none;
 }
 
 /* Hover / tap card */
@@ -1269,9 +1320,7 @@ section {
 	font-weight: 700;
 	text-decoration: none;
 }
-.slot-hover .hover-link:hover {
-	text-decoration: underline;
-}
+
 /* schedule (inline, no popups) */
 .slot {
 	display: grid;
@@ -1324,6 +1373,22 @@ section {
 .slot-more:hover {
 	text-decoration: underline;
 }
+/* no underline on the expandable trigger */
+.slot-more {
+	text-decoration: none;
+}
+.slot-more:hover {
+	text-decoration: none;
+} /* override */
+.slot-more summary {
+	text-decoration: none;
+} /* belt & suspenders */
+.slot-desc p {
+	font-size: 11.5px;
+	line-height: 1.5;
+	color: #555;
+}
+
 /* track chips that match schedule colors */
 .track-chip {
 	--chip-color: #fff; /* set from JS per chip */
@@ -1874,7 +1939,7 @@ section {
 .footer-section {
 	background: #fff;
 	border-top: 1px solid #ddd;
-	padding: 50px 20px 30px;
+	padding: 28px 16px 18px;
 	text-align: center;
 	font-family: "Inter", sans-serif;
 	color: #333;
@@ -1885,9 +1950,9 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 24px;
+	gap: 16px;
 	max-width: 800px;
-	margin: 0 auto 30px;
+	margin: 0 auto 12px;
 }
 
 .footer-top h3 {
@@ -1968,6 +2033,9 @@ section {
 	transform: scale(1.06);
 }
 
+.footer-bottom .footer-copy {
+	margin-bottom: -10px;
+}
 /* Mobile */
 @media (max-width: 768px) {
 	.footer-top {
