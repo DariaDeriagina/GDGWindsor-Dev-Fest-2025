@@ -91,7 +91,7 @@ section {
 
 /* ==================== MARK: HERO SECTION ==================== */
 .hero-section {
-	padding: 150px 60px 60px;
+	padding: 150px 0px 60px;
 }
 
 /* ✅ Flexbox container for text + image */
@@ -280,6 +280,37 @@ section {
 	to {
 		transform: scale(4);
 		opacity: 0;
+	}
+}
+
+/* === Hero Code of Conduct Notice === */
+.hero-coc {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.hero-coc p {
+	font-size: 14px;
+	color: #555;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.hero-coc a {
+	font-weight: 600;
+	color: #3367d6;
+	text-decoration: underline; /* underline for accessibility */
+	transition: color 0.2s ease;
+}
+
+.hero-coc a:hover {
+	color: #3367d6; /* Google blue hover */
+}
+@media (max-width: 768px) {
+	.hero-coc {
+		order: 6; /* put it after the buttons */
+		text-align: center; /* optional: center on mobile */
+		margin-top: 10px;
 	}
 }
 
