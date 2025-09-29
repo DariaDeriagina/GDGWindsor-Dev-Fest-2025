@@ -194,17 +194,21 @@
 				desc: "Agentic AI systems—autonomous agents capable of making decisions and taking actions—are moving rapidly from prototypes into production environments. While their potential to transform industries is enormous, they also introduce new layers of cybersecurity risk that go beyond traditional AI deployments. How do we ensure that these agents remain trustworthy, resilient, and aligned when operating in complex, real-world conditions? ƒThis talk explores the most pressing cybersecurity risks associated with deploying Agentic AI, including data poisoning, prompt injection, supply chain vulnerabilities, and adversarial manipulation of autonomous workflows. We will also examine real-world scenarios where attackers could exploit these systems, and the consequences organizations may face if safeguards are not in place.Most importantly, the session will highlight practical mitigations and best practices that teams can adopt today. Topics will include secure model lifecycle management, monitoring and auditing autonomous behaviors, implementing guardrails and fallback mechanisms, and designing defense-in-depth strategies tailored for Agentic AI systems.Attendees will leave with a clear understanding of the evolving threat landscape, as well as actionable steps to reduce risks and increase confidence when bringing Agentic AI into production.",
 			}
 		),
+
 		s(
 			"2025-11-08T10:00",
 			"2025-11-08T10:45",
 			"B02",
 			"Entrepreneurship",
-			"Wen Teoh",
-			"Hack It, Build It, Launch It: Entrepreneurship for Developers",
-			"Wen Teoh",
+			"Panel",
+			"From C++ to the C-Suite: A Fireside Chat with CTO John Langlois",
+			"Adam Castle & John Langlois",
 			{
-				img: "./images/speakersImage/Speaker_WenTeoh.png",
-				desc: "As a developer, you already have an amazing skill: you can turn an idea into something real with just your laptop. But building a cool app or project isn’t always the same as building something people will actually use—or even pay for. In this talk, we’ll explore how developers can turn side projects into startups, the common mistakes to watch out for, and why now is the perfect time to try. You’ll leave with practical tips, real examples, and maybe even the spark for your next big idea.",
+				imgs: [
+					"./images/speakersImage/Speaker_AdamCastle.png",
+					"./images/speakersImage/Speaker_JohnLanglois.png",
+				],
+				desc: "Join Adam Castle, Director of Venture Services and Partnerships at WEtech Alliance, for a fireside chat with local CTO John Langlois of Scelta, as we dive into his journey from developer to the c-suite.John will share his personal path in technology, and explore how he went from writing code to leading at the executive level, and what lessons he picked up along the way. We’ll explore the realities of the CTO role through his eyes: balancing strategy with execution, navigating rapid growth, and making decisions when both the technical and business stakes are high.In this conversation, John will reflect on the professional skills that helped him move beyond a purely technical role, including leadership, communication, and building strong teams. He’ll also share the habits and routines that keep him grounded under pressure, along with the technology trends he sees shaping the future of his company and the broader industry.Whether you’re a developer curious about what leadership looks like, a founder preparing to scale, or someone interested in the evolving role of technology leaders, John’s perspective offers practical insights and candid advice from someone who has walked the path, with both boots on the ground.",
 			}
 		),
 
@@ -256,22 +260,6 @@
 			{
 				img: "./images/speakersImage/Speaker_FrankAbbruzzese.png",
 				desc: "We will look at some Cyber Threats.  What does a strong Cybersecurity Strategy look like?  Share some Phishing Scams to be aware and help protect you, your data and company.  Tips and best practices to keep everyone safe",
-			}
-		),
-		s(
-			"2025-11-08T11:00",
-			"2025-11-08T11:45",
-			"B02",
-			"Entrepreneurship",
-			"Panel",
-			"From C++ to the C-Suite: A Fireside Chat with CTO John Langlois",
-			"Adam Castle & John Langlois",
-			{
-				imgs: [
-					"./images/speakersImage/Speaker_AdamCastle.png",
-					"./images/speakersImage/Speaker_JohnLanglois.png",
-				],
-				desc: "Join Adam Castle, Director of Venture Services and Partnerships at WEtech Alliance, for a fireside chat with local CTO John Langlois of Scelta, as we dive into his journey from developer to the c-suite.John will share his personal path in technology, and explore how he went from writing code to leading at the executive level, and what lessons he picked up along the way. We’ll explore the realities of the CTO role through his eyes: balancing strategy with execution, navigating rapid growth, and making decisions when both the technical and business stakes are high.In this conversation, John will reflect on the professional skills that helped him move beyond a purely technical role, including leadership, communication, and building strong teams. He’ll also share the habits and routines that keep him grounded under pressure, along with the technology trends he sees shaping the future of his company and the broader industry.Whether you’re a developer curious about what leadership looks like, a founder preparing to scale, or someone interested in the evolving role of technology leaders, John’s perspective offers practical insights and candid advice from someone who has walked the path, with both boots on the ground.",
 			}
 		),
 
@@ -358,16 +346,13 @@
 			"2025-11-08T13:00",
 			"2025-11-08T13:45",
 			"B02",
-			"Entrepreneurship", // ← no trailing space
-			"Richard Nonso & Moshood Saka",
-			"Choice Between Career and Entrepreneurship",
-			"Richard Nonso & Moshood Saka",
+			"Entrepreneurship",
+			"Faris Alami",
+			"Start Where You Are: Utilizing the Resilient Canvas",
+			"Faris Alami",
 			{
-				imgs: [
-					"./images/speakersImage/Speaker_RichardNonso.png",
-					"./images/speakersImage/Speaker_MoshoodSaka.png",
-				],
-				desc: "Most of us face the big question at some point: Should I get a career or start a business? We didn’t so much choose as learn to live in the messy middle, holding day jobs while building a youth-focused tech initiative that’s raised over $200,000 through grants and partnerships. In this candid co-founder talk, we’ll share how two complementary lanes, one product/ops, one strategy/partnerships guided real decisions on money, timelines, and scope; how we protected momentum and trust without sacrificing the friendship; and the moments we resized ambition, said no to distractions, and kept promises to the people we serve. No playbooks, just honest lessons, failures, and receipts from balancing a paycheck and a purpose in today’s fast-changing world.",
+				img: "./images/speakersImage/Speaker_FarisAlami.jpeg",
+				desc: "Adversity is inevitable—but failure doesn’t have to be. The businesses that not only survive but thrive in uncertain times are those that know how to assess their strengths, identify vulnerabilities, and adapt with confidence.Join us for a dynamic session designed to help you enhance your business’s resilience and prepare for whatever challenges lie ahead. Through a mix of interactive activities, expert guidance, and collaborative discussions, you’ll uncover key areas where your business may be at risk and develop practical strategies to pivot, innovate, and grow — even in the face of disruption.Leave with a comprehensive, ready-to-implement action plan that equips you to navigate uncertainty with confidence. Don’t let the unknown hold you back—invest in your business’s future and gain the tools, strategies, and mindset needed to weather any storm and seize new opportunities.Are you ready to redefine resilience?",
 			}
 		),
 
@@ -377,10 +362,13 @@
 			"2025-11-08T14:45",
 			"104",
 			"Google Cloud",
-			"Satish Venugopal",
-			"To Be Announced",
-			"Satish Venugopal",
-			{ img: "./images/speakersImage/Speaker_SatishVenugopal.png" }
+			"Glen Yu",
+			"Secure your GKE cluster using eBPF tools (Tetragon)",
+			"Glen Yu",
+			{
+				img: "./images/speakersImage/Speaker_GlenYu.png",
+				desc: "Tired of sifting through endless logs after a security event? Traditional runtime security tools typically provide insights AFTER a breach has already occurred. Good security should be proactive and not reactive.  This session dives into how you can take your Google Kubernetes Engine security posture to the next level using Tetragon.We'll explore how Tetragon, an open-source security tool, leverages the power of eBPF to provide deep, real-time security observability and enforcement directly from the Linux kernel.",
+			}
 		),
 		s(
 			"2025-11-08T14:00",
@@ -408,18 +396,30 @@
 				desc: "Joe Youssouf is a Data Scientist at Oden Technologies, where he develops AI-powered solutions that deliver real-time, domain-specific intelligence to manufacturing. His work includes Oden Forge, a custom-built LLM copilot created with the Model Context Protocol (MCP) and Google’s Agent Development Kit (ADK). Oden Forge transforms complex production data into actionable insights through natural language workflows, making advanced analytics accessible to process engineers and other stakeholders alike. These capabilities support tasks such as data labeling, ad-hoc exploratory data analysis, and real-time process optimization.At Google DevFest, Joe will explain how Oden Forge was developed and demonstrate example workflows that deliver measurable value for manufacturing customers. He will also share the challenges, successes, and lessons learned from integrating AI-powered solutions like Oden Forge into the manufacturing sector and beyond.",
 			}
 		),
-
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
-			"110",
+			"B14",
 			"Cybersecurity",
-			"Glen Yu",
-			"Secure your GKE cluster using eBPF tools (Tetragon)",
-			"Glen Yu",
+			"Troy Hector",
+			"To Be Announced",
+			"Troy Hector",
 			{
-				img: "./images/speakersImage/Speaker_GlenYu.png",
-				desc: "Tired of sifting through endless logs after a security event? Traditional runtime security tools typically provide insights AFTER a breach has already occurred. Good security should be proactive and not reactive.  This session dives into how you can take your Google Kubernetes Engine security posture to the next level using Tetragon.We'll explore how Tetragon, an open-source security tool, leverages the power of eBPF to provide deep, real-time security observability and enforcement directly from the Linux kernel.",
+				img: "./images/organizers/Organizer_TroyHector.png",
+				desc: "To Be Announced",
+			}
+		),
+		s(
+			"2025-11-08T14:00",
+			"2025-11-08T14:45",
+			"B02",
+			"Entrepreneurship",
+			"Wen Teoh",
+			"Hack It, Build It, Launch It: Entrepreneurship for Developers",
+			"Wen Teoh",
+			{
+				img: "./images/speakersImage/Speaker_WenTeoh.png",
+				desc: "As a developer, you already have an amazing skill: you can turn an idea into something real with just your laptop. But building a cool app or project isn’t always the same as building something people will actually use—or even pay for. In this talk, we’ll explore how developers can turn side projects into startups, the common mistakes to watch out for, and why now is the perfect time to try. You’ll leave with practical tips, real examples, and maybe even the spark for your next big idea.",
 			}
 		),
 
@@ -467,7 +467,22 @@
 				desc: "As video games continue to evolve in complexity and scope, accessibility, approachability, and learnability are no longer niche considerations—they’re essential. In this talk, we will explore the differences between accessibility, approachability, and learnability, as well as the overlap between them. We will discuss the difficulties in developing accessible, approachable, and learnable games, why the industry lacks clear benchmarks, and the best resources and solutions for game developers. We’ll dive into some examples of modern games, the challenges they pose to players, and the current assistive techniques used in industry. Then, we’ll see how various AI techniques (including Utility AI, Goal-Oriented Action Planning, and Large Language Models) can dynamically assist players without compromising gameplay. This presentation will not only explain the concepts of accessibility, approachability, and learnability, but encourage creative thinking about how emerging technologies can make games more inclusive, intuitive, and fun for everyone.",
 			}
 		),
-
+		s(
+			"2025-11-08T15:00",
+			"2025-11-08T15:45",
+			"B02",
+			"Entrepreneurship", // ← no trailing space
+			"Richard Nonso & Moshood Saka",
+			"Choice Between Career and Entrepreneurship",
+			"Richard Nonso & Moshood Saka",
+			{
+				imgs: [
+					"./images/speakersImage/Speaker_RichardNonso.png",
+					"./images/speakersImage/Speaker_MoshoodSaka.png",
+				],
+				desc: "Most of us face the big question at some point: Should I get a career or start a business? We didn’t so much choose as learn to live in the messy middle, holding day jobs while building a youth-focused tech initiative that’s raised over $200,000 through grants and partnerships. In this candid co-founder talk, we’ll share how two complementary lanes, one product/ops, one strategy/partnerships guided real decisions on money, timelines, and scope; how we protected momentum and trust without sacrificing the friendship; and the moments we resized ambition, said no to distractions, and kept promises to the people we serve. No playbooks, just honest lessons, failures, and receipts from balancing a paycheck and a purpose in today’s fast-changing world.",
+			}
+		),
 		// (Optional future Cybersecurity session for 15:00… left commented in your source)
 
 		// MARK: 16:00 block
