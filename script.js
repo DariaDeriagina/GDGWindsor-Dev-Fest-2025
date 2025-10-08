@@ -262,6 +262,19 @@
 				desc: "We will look at some Cyber Threats.  What does a strong Cybersecurity Strategy look like?  Share some Phishing Scams to be aware and help protect you, your data and company.  Tips and best practices to keep everyone safe",
 			}
 		),
+		s(
+			"2025-11-08T11:00",
+			"2025-11-08T11:45",
+			"B02",
+			"Entrepreneurship",
+			"Amrit Mehta",
+			"Connecting Technology to Customer and Business Outcomes - Lessons from Managing Innovation in Large Corporations",
+			"Amrit Mehta",
+			{
+				img: "./images/speakersImage/AmritMehta.jpeg",
+				desc: "Successful implementation of technology requires an enterprise mindset. Leaders need to harness innovation at the intersection of customer needs, cutting edge technologies and business results. Throughout Amrit’s career at large multinationals and now within consulting, he has led R&D, technology, software product, operations and P&L teams to successfully drive transformation and innovation at start up speed. The breakout session will focus on lessons learned and key takeaways for entrepreneurs and innovators.",
+			}
+		),
 
 		// MARK: 12:00 block – TWO SLOTS
 
@@ -402,11 +415,11 @@
 			"B14",
 			"Cybersecurity",
 			"Troy Hector",
-			"To Be Announced",
+			"Secure your code with Scratch powered by Gemini AI",
 			"Troy Hector",
 			{
 				img: "./images/organizers/Organizer_TroyHector.png",
-				desc: "To Be Announced",
+				desc: "In this hands-on session, we’ll explore how to use Scratch powered by Gemini AI to spot and fix vulnerabilities in your code. Together, we’ll build a small project with intentional security issues, then walk through setting up Scratch AI, including installing the tool and generating an API key through Gemini API Studio.From there, we’ll resolve three common security issues step by step, giving you practical experience with how AI can strengthen your development workflow. Whether you’re new to security or looking to enhance your existing practices, this workshop will equip you with the knowledge and tools to write safer code with the help of AI.",
 			}
 		),
 		s(
@@ -542,19 +555,26 @@
 				desc: "As Large Language Models (LLMs) become intensely integrated in business operations, their supply chains have emerged as a critical security frontier. Unlike traditional software, LLMs rely on massive training datasets, third-party APIs, fine-tuning providers, open-source model hubs, and deployment infrastructures. Each stage introduces potential vulnerabilities. Malicious behaviours can bias outputs, compromised pre-trained models may contain hidden backdoors, and insecure API integrations expose organizations to data leakage or manipulation.However, within these threats lie opportunities. Businesses that secure their LLM supply chains can differentiate themselves by offering trustworthy, compliance-ready AI services. This aligns with regulations like the EU AI Act and Canada’s AIDA, which demand transparency in AI decision-making.Resilient organizations will view LLM supply chain security as more than risk mitigation; it is a strategic enabler. By embedding security, privacy, and accountability into AI pipelines, businesses protect customer trust, reduce liability, and unlock competitive advantage. Enterprises that can validate what their models do,and transparently explain the how, why, and origin of their intelligence,will lead the future of AI.",
 			}
 		),
-
-		// Closing (GLOBAL)
+		//Closing Celebration + Live Performance by RKease
 		s(
 			"2025-11-08T17:00",
 			"2025-11-08T17:30",
-			"Commons",
+			"104",
 			"All",
-			"Team",
-			"Closing Remarks & Wrap-up",
-			"Team",
-			{ img: "./images/speakersImage/Speaker_Logo.png", global: true }
+			"Rashidi Kabamba",
+			"Closing Celebration + Live Performance by RKease",
+			"Rashidi Kabamba (RKease)",
+			{
+				// celebration icon first, then Rashidi’s photo
+				imgs: [
+					"./images/speakersImage/Speaker_Celebration.png", //
+					"./images/speakersImage/Speaker_RashidiKabamba.jpg",
+				],
+				desc: "Join us for an epic end-of-the-day celebration.We announce the winners of the “Innovate with AI” competition.We will give away cool raffle prizes. We will close with a live performance by the one and only Rkease!", // no abstract (per your note)
+				global: true, // ✅ appears in every section
+			}
 		),
-	];
+	]; // ✅ close the sessions array
 
 	/* ============================ Schedule UI ============================ */
 	const mount = $("#scheduleMount");
@@ -863,4 +883,136 @@
 			});
 		});
 	}
+})();
+
+//MARK: Modal window
+document.querySelectorAll(".btn-bio").forEach((btn) => {
+	btn.addEventListener("click", (e) => {
+		const card = e.target.closest(".person-card");
+		const name = card.querySelector(".person-name").textContent;
+		const role = card.querySelector(".person-role").textContent;
+		const meta = card.querySelector(".person-meta").textContent;
+		const img = card.querySelector(".person-photo").src;
+		const bio = card.dataset.bio;
+
+		// fill modal
+		document.querySelector("#modal-name").textContent = name;
+		document.querySelector("#modal-role").textContent = role;
+		document.querySelector("#modal-meta").textContent = meta;
+		document.querySelector("#modal-img").src = img;
+		document.querySelector("#modal-bio").textContent = bio;
+
+		document.querySelector("#speakerModal").classList.add("open");
+	});
+});
+// Close modal on X or backdrop click
+document.querySelector(".modal-close").addEventListener("click", () => {
+	document.querySelector("#speakerModal").classList.remove("open");
+});
+
+document.querySelector("#speakerModal").addEventListener("click", (e) => {
+	if (e.target.classList.contains("modal")) {
+		e.target.classList.remove("open");
+	}
+});
+let __scrollY = 0;
+
+function openModal() {
+	const modal = document.getElementById("speakerModal");
+	if (!modal) return;
+	__scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+	document.body.style.top = `-${__scrollY}px`;
+	document.body.classList.add("modal-open"); // CSS below uses this
+	modal.classList.add("open");
+}
+
+function closeModal() {
+	const modal = document.getElementById("speakerModal");
+	if (!modal) return;
+	modal.classList.remove("open");
+	document.body.classList.remove("modal-open");
+	document.body.style.top = "";
+	window.scrollTo(0, __scrollY);
+}
+
+//  MARK: One modal handler for all cards that have .btn-bio
+document.addEventListener("click", (e) => {
+	const btn = e.target.closest(".btn-bio");
+	if (!btn) return;
+
+	const card = btn.closest(".person-card, .org-card"); // works for both
+	if (!card) return;
+
+	// Pull data
+	const name =
+		card.querySelector(".person-name, .org-name")?.textContent?.trim() || "";
+	const role =
+		card.querySelector(".person-role, .org-affil")?.textContent?.trim() || "";
+	const img = card.querySelector("img")?.getAttribute("src") || "";
+	const bio = card.getAttribute("data-bio") || "Bio coming soon.";
+
+	// Fill your existing modal elements
+	const modal = document.querySelector(".bio-modal");
+	modal.querySelector(".bio-modal__name").textContent = name;
+	modal.querySelector(".bio-modal__role").textContent = role;
+	modal.querySelector(".bio-modal__photo").src = img;
+
+	const body = modal.querySelector(".bio-modal__body");
+	body.innerHTML = `<p>${bio}</p>`;
+
+	modal.classList.add("is-open");
+});
+
+// Close modal actions (if not already present)
+document.addEventListener("click", (e) => {
+	if (e.target.matches(".bio-modal__close, .bio-modal__backdrop")) {
+		document.querySelector(".bio-modal")?.classList.remove("is-open");
+	}
+});
+// ========== MARK: ONE modal handler for ALL cards ==========
+(() => {
+	// Open on any "See bio" click
+	document.addEventListener("click", (e) => {
+		const btn = e.target.closest(".btn-bio");
+		if (!btn) return;
+
+		// Works for speakers (.person-card), organizers (.org-card), facilitators (.facilitator-card)
+		const card = btn.closest(".person-card, .org-card, .facilitator-card");
+		if (!card) return;
+
+		// Pull data safely across variants
+		const name =
+			card.querySelector(".person-name, .org-name")?.textContent?.trim() || "";
+		const role =
+			card.querySelector(".person-role, .org-affil")?.textContent?.trim() || "";
+		const meta =
+			card.querySelector(".person-meta, .org-meta")?.textContent?.trim() || "";
+		const imgEl = card.querySelector(".person-photo, .org-avatar-large, img");
+		const img = imgEl?.getAttribute("src") || "";
+		const bio = card.getAttribute("data-bio") || "Bio coming soon.";
+
+		// Fill your existing #speakerModal
+		const modal = document.getElementById("speakerModal");
+		if (!modal) return;
+
+		modal.querySelector("#modal-name").textContent = name;
+		modal.querySelector("#modal-role").textContent = role;
+		modal.querySelector("#modal-meta").textContent = meta;
+		modal.querySelector("#modal-img").src = img;
+		modal.querySelector("#modal-bio").textContent = bio;
+
+		modal.classList.add("open");
+	});
+
+	// Close on X
+	document.querySelector(".modal-close")?.addEventListener("click", () => {
+		document.getElementById("speakerModal")?.classList.remove("open");
+	});
+
+	// Close on backdrop click
+	document.getElementById("speakerModal")?.addEventListener("click", (e) => {
+		if (e.target.id === "speakerModal") {
+			e.target.classList.remove("open");
+		}
+	});
 })();

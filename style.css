@@ -595,6 +595,13 @@ section {
 	place-items: center;
 	min-height: 140px;
 }
+.puzzle-item_3 {
+	width: 100%;
+	max-width: 180px;
+	display: grid;
+	place-items: center;
+	min-height: 140px;
+}
 
 .puzzle-item img {
 	display: block;
@@ -2291,4 +2298,480 @@ section {
 		width: 56px;
 		height: 56px;
 	}
+}
+
+/* ===== MARK:  Speaker Bio Modal ===== */
+.bio-modal {
+	position: fixed;
+	inset: 0;
+	display: none;
+	z-index: 1000;
+}
+.bio-modal.is-open {
+	display: block;
+}
+
+.bio-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.35);
+	backdrop-filter: blur(2px);
+}
+
+.bio-modal__dialog {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: min(720px, 92vw);
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 20px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+	padding: 16px;
+	font-family: "Inter", sans-serif;
+}
+
+.bio-modal__close {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	width: 36px;
+	height: 36px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	background: #fff;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.bio-modal__header {
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	gap: 14px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.bio-modal__photo {
+	width: 96px;
+	height: 96px;
+	object-fit: cover;
+	border: 1px solid #000;
+	border-radius: 14px;
+	background: #fff;
+}
+.bio-modal__name {
+	font-size: 22px;
+	margin: 0 0 2px;
+	font-weight: 800;
+}
+.bio-modal__role {
+	margin: 0;
+	font-weight: 700;
+	font-size: 14px;
+}
+.bio-modal__meta {
+	margin: 2px 0 0;
+	font-size: 14px;
+	color: #333;
+}
+
+.bio-modal__body {
+	margin: 10px 0 6px;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #222;
+}
+.bio-modal__body p {
+	margin: 0 0 10px;
+}
+
+.bio-modal__socials {
+	display: inline-flex;
+	gap: 10px;
+	padding: 6px 8px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 999px;
+}
+.bio-modal__socials a img {
+	width: 24px;
+	height: 24px;
+	display: block;
+}
+
+/* Bio button (match pills) */
+.btn-bio {
+	margin-top: 8px;
+	padding: 8px 14px;
+	border: 1px solid #000;
+	border-radius: 999px;
+	background: #ebebeb;
+	font-weight: 700;
+	font-size: 13px;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-bio:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+.btn-bio:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+	.bio-modal__dialog {
+		padding: 14px;
+	}
+	.bio-modal__header {
+		grid-template-columns: 72px 1fr;
+	}
+	.bio-modal__photo {
+		width: 72px;
+		height: 72px;
+	}
+}
+
+/* MARK: MODAL backdrop */
+.modal {
+	display: none; /* hidden by default */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 9999;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Show when open */
+.modal.open {
+	display: flex;
+}
+
+/* Modal box */
+.modal-content {
+	background: #fff;
+	border-radius: 16px;
+	max-width: 700px;
+	width: 90%;
+	padding: 24px;
+	color: #222;
+	position: relative;
+}
+
+/* Close button */
+.modal-close {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	font-size: 28px;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+/* Speaker header */
+.modal-header {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.modal-photo {
+	width: 120px;
+	height: 120px;
+	border-radius: 12px;
+	object-fit: cover;
+}
+
+.modal-header-text h3 {
+	font-size: 22px;
+	margin: 0;
+}
+
+.modal-header-text p {
+	margin: 2px 0;
+	color: #555;
+	font-size: 14px;
+}
+
+.modal-body {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+}
+/* Container for action buttons inside card */
+.person-actions {
+	display: flex;
+	justify-content: center; /* centers horizontally */
+	margin-top: 10px;
+}
+
+/* Optional: make button wider */
+.btn-bio {
+	padding: 8px 20px;
+	min-width: 120px;
+	text-align: center;
+}
+/* Speaker cards: equal height */
+.person-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* spread content */
+	height: 100%; /* fills grid cell */
+	min-height: 380px; /* 🔥 pick a size that fits all */
+}
+
+/* Info section grows naturally */
+.person-info {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: center; /* keeps everything aligned */
+}
+
+/* Actions row (button) pushed to bottom */
+.person-actions {
+	margin-top: auto; /* push down */
+	display: flex;
+	justify-content: center;
+}
+
+.speaker-list-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 18px;
+	align-items: stretch; /* 🔥 force equal height */
+}
+/* ===== MARK: EQUAL HEIGHT: Organizers & Facilitators ===== */
+/* 1) make grid cells stretch */
+.org-grid {
+	align-items: stretch;
+	grid-auto-rows: 1fr; /* helps even out implicit rows */
+}
+
+/* 2) make the cards fill their grid cell and use flex layout */
+.org-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-height: 380px; /* 🔁 matches .person-card min-height */
+}
+
+/* 3) lock avatar space so text/links don’t shift heights */
+.org-avatar-large {
+	flex: 0 0 180px; /* same visual size as before */
+	width: 180px;
+	height: 180px;
+	align-self: center; /* keep centered regardless of text length */
+}
+
+/* 4) clamp text so long names/affils don’t grow the card */
+.org-name,
+.org-affil {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.org-name {
+	-webkit-line-clamp: 2;
+	min-height: 2.6em;
+} /* ~2 lines */
+.org-affil {
+	-webkit-line-clamp: 2;
+	min-height: 2.6em;
+} /* ~2 lines */
+
+/* 5) keep socials (or any actions) pinned to the bottom if present */
+.org-links,
+.org-actions {
+	margin-top: auto;
+}
+
+/* 6) mobile tweak: keep the same logic with slightly smaller min-height */
+@media (max-width: 768px) {
+	.org-card {
+		min-height: 340px;
+	}
+	.org-avatar-large {
+		flex-basis: 160px;
+		width: 160px;
+		height: 160px;
+	}
+}
+/* MOBILE: keep 2 cards per row */
+@media (max-width: 768px) {
+	.speaker-list-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 14px;
+	}
+}
+/* Fix spacing inside organizer/facilitator cards */
+.org-name {
+	margin: 6px 0 2px !important; /* kill default h3 margin */
+	font-size: 16px;
+	font-weight: 800;
+	line-height: 1.2; /* tighter vertical rhythm */
+}
+
+.org-affil {
+	margin: 0 0 6px !important;
+	font-size: 13px;
+	line-height: 1.3;
+	color: #444;
+}
+
+.org-card {
+	padding: 16px 12px; /* reduce inside padding */
+}
+/* === Make long bios scrollable (works for BOTH modal systems) === */
+
+/* 1) Flex dialog + capped height */
+.bio-modal__dialog,
+#speakerModal .modal-content {
+	display: flex;
+	flex-direction: column;
+	max-height: min(88vh, 88dvh); /* handles mobile address bar */
+	overflow: hidden; /* contain scroll to body area */
+}
+
+/* 2) The scrolling area */
+.bio-modal__body,
+#speakerModal #modal-bio {
+	overflow: auto;
+	-webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+	flex: 1 1 auto;
+	min-height: 0; /* 🔑 lets flex child actually scroll */
+}
+
+/* 3) Keep header/footer fixed if present */
+.bio-modal__header,
+#speakerModal .modal-header {
+	flex: 0 0 auto;
+}
+
+/* 4) Give the body some breathing room for the close button */
+.bio-modal__body,
+#speakerModal #modal-bio {
+	padding-right: 4px; /* avoids hidden scrollbar overlap */
+	max-height: none; /* the flex + max-height on dialog controls it */
+}
+body.modal-open {
+	overflow: hidden;
+}
+/* modal container centers, blocks page scroll propagation */
+.modal {
+	position: fixed;
+	inset: 0;
+	display: none;
+	z-index: 9999;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.8);
+	overscroll-behavior: contain; /* ✅ prevent pull-to-refresh poking through */
+}
+.modal.open {
+	display: flex;
+}
+
+/* make the dialog a flex column with a capped height */
+#speakerModal .modal-content {
+	display: flex;
+	flex-direction: column;
+	max-height: min(88vh, 88dvh);
+	overflow: hidden; /* container holds the scroller */
+}
+
+/* the ONLY scroller */
+#speakerModal .modal-body,
+#speakerModal #modal-bio {
+	flex: 1 1 auto;
+	min-height: 0; /* ✅ allows child to actually scroll */
+	overflow: auto;
+	-webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+	padding-right: 4px;
+}
+
+/* lock background when open (pairs with the JS above) */
+body.modal-open {
+	position: fixed; /* iOS-safe page lock */
+	width: 100%;
+	overflow: hidden;
+}
+/* High-School page tweaks */
+header .display-5 {
+	letter-spacing: 0.2px;
+}
+/* ==================== UNIFIED BUTTON BASE ==================== */
+.btn-base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px; /* same height for all */
+	padding: 0 22px; /* horizontal padding */
+	border-radius: 999px; /* pill shape */
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover/active effect shared */
+.btn-base:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.btn-base:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+/* Green button */
+.btn-green,
+.footer-btn {
+	@extend .btn-base; /* (if using SCSS) or just add both classes in HTML */
+	background: #c3dfc4;
+	color: #000;
+	border: 2px solid #000;
+}
+.btn-green:hover,
+.footer-btn:hover {
+	background: #fff;
+	color: #000;
+}
+
+/* Yellow button */
+.btn-yellow {
+	@extend .btn-base;
+	background: #fae8c8;
+	color: #000;
+	border: 2px solid #000;
+}
+
+/* Google Blue button */
+.btn-google {
+	@extend .btn-base;
+	background: #4285f4;
+	color: #fff;
+	border: 2px solid #000;
+}
+
+/* Bio button */
+.btn-bio {
+	@extend .btn-base;
+	background: #ebebeb;
+	color: #000;
+	border: 1px solid #000;
+	font-size: 14px; /* slightly smaller */
 }

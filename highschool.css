@@ -1,0 +1,174 @@
+/* ========== High-School page (buttons + footer) ========== */
+
+:root {
+	--hs-green: #c3dfc4; /* index green pill */
+	--hs-yellow: #fae8c8; /* index yellow pill */
+	--hs-blue: #4285f4; /* footer CTA */
+}
+
+/* Title spacing */
+.hs-hero-title {
+	margin-top: 4.5rem;
+	margin-bottom: 1.75rem;
+}
+
+/* ---------- Button + caption layout ---------- */
+
+/* Container holding one or more button stacks */
+.btn-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px 20px;
+	align-items: flex-start;
+}
+
+/* Stack: keeps button and the caption together */
+.btn-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+/* Caption under a button */
+.btn-note {
+	margin-top: 6px;
+	font-size: 13px;
+	line-height: 1.3;
+	color: #333;
+	max-width: 420px; /* keeps lines comfortable on desktop */
+}
+
+/* Optional variant for dark backgrounds */
+.btn-note--on-dark {
+	color: #eaeaea;
+}
+
+/* Mobile: center rows & give buttons a comfy width */
+@media (max-width: 768px) {
+	.btn-row {
+		justify-content: center;
+	}
+	.btn-row .btn {
+		width: 100%;
+		max-width: 320px;
+	}
+	.btn-note {
+		max-width: 320px;
+	}
+}
+
+/* ---------- Base pill style for all .btn on this page ---------- */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 0 22px;
+	border-radius: 999px; /* pill */
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1;
+	text-decoration: none;
+	border: 2px solid #000; /* black outline like index */
+	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease,
+		color 0.2s ease;
+	box-shadow: none;
+}
+
+.btn.btn-lg {
+	min-height: 52px;
+	padding: 0 26px;
+}
+
+/* ---------- Variants to match index.html ---------- */
+
+/* Primary (index green pill) */
+.btn-success {
+	background: var(--hs-green);
+	color: #000 !important; /* black label */
+	border-color: #000;
+}
+.btn-success:hover {
+	background: #fff;
+	color: #000 !important;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.btn-success:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary (index yellow pill) */
+.btn-outline-secondary {
+	background: var(--hs-yellow);
+	color: #000 !important;
+	border-color: #000;
+}
+.btn-outline-secondary:hover {
+	background: #fff;
+	color: #000 !important;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.btn-outline-secondary:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional light Google blue */
+.btn-google-light {
+	background: #aecbfa;
+	color: #000 !important;
+	border-color: #000;
+}
+.btn-google-light:hover {
+	background: #d2e3fc;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Footer theme (blue CTA like index) ---------- */
+.highschool-footer {
+	background: #f6f9ff;
+	color: #141313;
+}
+.highschool-footer .footer-nav a,
+.highschool-footer .footer-top h3 {
+	color: #141313;
+}
+
+/* Footer button (blue with white text) */
+.highschool-footer .footer-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 0 22px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 16px;
+	background: var(--hs-blue);
+	color: #fff !important; /* only footer button is white text */
+	border: 2px solid #000;
+	text-decoration: none;
+	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+.highschool-footer .footer-btn:hover {
+	background: #3367d6;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.highschool-footer .footer-btn:active {
+	background: #2a56c6;
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Focus visibility (accessibility) ---------- */
+.btn:focus-visible,
+.highschool-footer .footer-btn:focus-visible {
+	outline: 3px dashed #000;
+	outline-offset: 3px;
+}
