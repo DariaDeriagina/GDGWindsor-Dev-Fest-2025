@@ -586,7 +586,6 @@ section {
 	justify-items: center;
 	align-items: start; /* 🔥 no more huge vertical gaps */
 }
-
 /* Each tile gets a fixed logo box height so rows are even. */
 .puzzle-item {
 	width: 100%;
@@ -658,7 +657,13 @@ section {
 	.puzzle-item {
 		min-height: 130px;
 	}
+	.puzzle-item_3 {
+		min-height: 130px;
+	}
 	.puzzle-item img {
+		height: clamp(72px, 8vw, 110px);
+	}
+	.puzzle-item_3 img {
 		height: clamp(72px, 8vw, 110px);
 	}
 }
@@ -675,7 +680,11 @@ section {
 	row-gap: 0 !important;
 	column-gap: 12px !important;
 }
-
+@media (max-width: 768px) {
+	.school-logo {
+		max-width: 80px !important; /* smaller on mobile */
+	}
+}
 /* ===== MARK: ABOUT DEVFEST SECTION ===== */
 .about-devfest {
 	padding: 40px 20px;
@@ -753,6 +762,96 @@ section {
 		width: 100px;
 		font-size: 14px;
 		height: 44px;
+	}
+}
+
+/* === DevFest "pills" — make TAGS and STATS the same height === */
+:root {
+	--devfest-pill-h: 80px; /* desktop pill height for BOTH rows */
+	--devfest-pill-h-m: 56px; /* mobile pill height */
+}
+
+/* Base pill alignment for both rows */
+.devfest-tags .tag,
+.stats .stat {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--devfest-pill-h);
+	line-height: 1.2;
+	padding: 0 24px; /* comfy side padding */
+	font-weight: 700;
+	border: 1px solid #000; /* match existing style */
+}
+
+/* Keep your widths (adjust if you want wider/narrower) */
+.devfest-tags .tag {
+	width: 236px;
+}
+.stats .stat {
+	width: 236px;
+}
+
+/* Preserve your existing colors & end radii */
+.tag-connect {
+	border-radius: 30px 0 0 30px;
+}
+.tag-learn {
+	border-radius: 0;
+}
+.tag-grow {
+	border-radius: 0 30px 30px 0;
+}
+
+.stat-blue {
+	border-radius: 30px 0 0 30px;
+}
+.stat-pink {
+	border-radius: 0;
+}
+.stat-yellow {
+	border-radius: 0 30px 30px 0;
+}
+
+/* Mobile: shrink both rows together */
+@media (max-width: 768px) {
+	.devfest-tags .tag,
+	.stats .stat {
+		height: var(--devfest-pill-h-m);
+		width: 120px; /* same width feel as your current mobile tags */
+		font-size: 12px;
+		padding: 0 12px;
+		text-align: center;
+	}
+}
+/* === MOBILE FIX: keep CONNECT / LEARN / GROW in one row === */
+@media (max-width: 768px) {
+	.about-devfest .devfest-tags {
+		display: flex;
+		flex-wrap: nowrap; /* ✅ force one row */
+		justify-content: center;
+		align-items: center;
+		gap: 6px; /* tighter spacing for 390px width */
+	}
+
+	.about-devfest .tag {
+		flex: 1 1 auto; /* allow proportional shrink */
+		min-width: 0; /* prevent overflow */
+		height: 56px; /* match your variable height */
+		font-size: 12px;
+		padding: 0 12px;
+		text-align: center;
+	}
+}
+
+/* For very small screens (≤360px) */
+@media (max-width: 360px) {
+	.about-devfest .devfest-tags {
+		gap: 4px;
+	}
+	.about-devfest .tag {
+		font-size: 11px;
+		padding: 0 8px;
 	}
 }
 
@@ -2147,8 +2246,14 @@ section {
 	.puzzle-item img {
 		width: 140px;
 	}
+	.puzzle-item_3 img {
+		width: 140px;
+	}
 
 	.puzzle-item span {
+		font-size: 0.85rem;
+	}
+	.puzzle-item_3 span {
 		font-size: 0.85rem;
 	}
 
