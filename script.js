@@ -219,9 +219,12 @@
 			"104",
 			"Google Cloud",
 			"Nilesh Patel",
-			"To Be Announced",
+			"The Agentic Shift: From Prompt to Action",
 			"Nilesh Patel",
-			{ img: "./images/speakersImage/Speaker_NileshPatel.png" }
+			{
+				img: "./images/speakersImage/Speaker_NileshPatel.png",
+				desc: "Welcome to The Agentic Shift—the evolution of AI from passive tools into active partners. In this new reality, we move From Prompt to Action, creating systems that don't just answer questions but get things done. This session is your practical guide to building Agentic AI with Google's powerful agentic platform and Google Cloud’s latest GenAI ecosystem. We will demystify what makes an AI Agent truly \"agentic\"—its ability to reason, use tools, and work autonomously to help users. Through a live, hands-on demonstration, you will learn how to construct a smart agent from the ground up, proving that you have the power to build the next generation of AI.",
+			}
 		),
 		s(
 			"2025-11-08T11:00",
@@ -638,10 +641,16 @@
 				? sessions.slice()
 				: sessions.filter((s) => s.track === currentTrack || s.global); // include globals on any track
 
+		// ⬇️ When viewing BY TRACK, exclude Keynote entirely (so it won't be grouped or merged as a global)
+		const list =
+			currentView === "track"
+				? base.filter((s) => s.track !== "Keynote")
+				: base;
+
 		if (currentView === "time") {
-			renderByTime(base);
+			renderByTime(list);
 		} else {
-			renderByTrack(base);
+			renderByTrack(list);
 		}
 	}
 
@@ -720,13 +729,23 @@
 	}
 
 	function renderByTrack(list) {
-		const globals = list.filter((s) => s.global);
-		const byT = groupBy(list.slice().sort(by((s) => s.start)), (s) => s.track);
+		// Take globals from the master list so they exist even if filtered out above,
+		// but never bring back Keynote.
+		const globals = sessions.filter((s) => s.global && s.track !== "Keynote");
+
+		// IMPORTANT: do not create a group for "All"
+		const trackItems = list.filter((s) => s.track !== "All");
+
+		const byT = groupBy(
+			trackItems.slice().sort(by((s) => s.start)),
+			(s) => s.track
+		);
 
 		let html = ``;
 		for (const [track, items] of byT) {
 			const color = trackColor(track);
-			// avoid duplicates when a session is both in this track and marked global
+
+			// merge globals once per track, no dupes
 			const merged = items
 				.concat(globals.filter((g) => !items.some((i) => i.id === g.id)))
 				.sort(by((s) => s.start));
@@ -734,39 +753,39 @@
 			html += `<h3 class="group-heading">${esc(track)}</h3>`;
 			merged.forEach((it) => {
 				html += `
-          <article class="slot" style="--track-color:${color}">
-            <div class="slot-media">${renderSpeakerImgs(it, 64)}</div>
-            <div class="slot-body">
-              <div class="slot-time">${fmtTime(it.start)} – ${fmtTime(
+        <article class="slot" style="--track-color:${color}">
+          <div class="slot-media">${renderSpeakerImgs(it, 64)}</div>
+          <div class="slot-body">
+            <div class="slot-time">${fmtTime(it.start)} – ${fmtTime(
 					it.end
 				)}</div>
-              <h4>${esc(it.title || "")}</h4>
-              <div class="slot-meta">
-                ${esc(it.presenter || it.speaker || "")}
-                • <span class="room-badge badge" style="color:#000">Room ${esc(
-									it.room
-								)}</span>
-              </div>
-              <div class="slot-badges">
-                <span class="badge" style="color:#000">${esc(it.track)}</span>
-                ${
-									it.global
-										? `<span class="badge is-global" aria-label="Global session">Global</span>`
-										: ``
-								}
-                <a class="add-to-cal" href="${gcalLink(
-									it
-								)}" target="_blank" rel="noopener">Add to Calendar</a>
-              </div>
-              ${
-								it.desc
-									? detailsBlock(it.desc, it.url)
-									: it.url
-									? rawLink(it.url)
-									: ""
-							}
+            <h4>${esc(it.title || "")}</h4>
+            <div class="slot-meta">
+              ${esc(it.presenter || it.speaker || "")}
+              • <span class="room-badge badge" style="color:#000">Room ${esc(
+								it.room
+							)}</span>
             </div>
-          </article>`;
+            <div class="slot-badges">
+              <span class="badge" style="color:#000">${esc(it.track)}</span>
+              ${
+								it.global
+									? `<span class="badge is-global" aria-label="Global session">Global</span>`
+									: ``
+							}
+              <a class="add-to-cal" href="${gcalLink(
+								it
+							)}" target="_blank" rel="noopener">Add to Calendar</a>
+            </div>
+            ${
+							it.desc
+								? detailsBlock(it.desc, it.url)
+								: it.url
+								? rawLink(it.url)
+								: ""
+						}
+          </div>
+        </article>`;
 			});
 		}
 		mount.innerHTML = html;
