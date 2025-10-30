@@ -173,12 +173,12 @@
 			"2025-11-08T10:45",
 			"B14",
 			"Full-Stack",
-			"Raneem Ghalion",
-			"From Emails to Insights: Automating Customer Service with Google Cloud & AI",
-			"Raneem Ghalion",
+			"Maciej Konkolowicz",
+			"Beyond the Hype: Demystifying AI for Testers and Quality Champions",
+			"Maciej Konkolowicz",
 			{
-				img: "./images/speakersImage/Speaker_RaneemGhalion.png",
-				desc: "We all know how slow replies and messy communication can cost businesses their customers. In this session, I’ll walk through how Google Cloud tools—Gmail API, BigQuery, Vertex AI (Gemini), and Looker Studio—can turn customer emails into insights and instant responses. The session is designed to be practical, light, and inspiring—something attendees can take back and apply right away.",
+				img: "./images/speakersImage/Speaker_MaciejKonkolowicz.jpg",
+				desc: "Will AI steal your testing job? While the headlines might scream disruption, the reality is more nuanced. This session empowers Quality Champions to navigate the evolving landscape of artificial intelligence in software testing and leverage its true potential. Maciek, a Senior DevOps Manager at Functionize, an agentic test automation company, will share a practical framework to help you identify the right AI tools to enhance, not replace, your expertise.",
 			}
 		),
 		s(
@@ -402,7 +402,7 @@
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
-			"104",
+			"110",
 			"Cybersecurity",
 			"Troy Hector",
 			"Secure your code with Scratch powered by Gemini AI",
@@ -468,6 +468,20 @@
 			{
 				img: "./images/speakersImage/Speaker_VeronicaNonikaReingold.png",
 				desc: "As video games continue to evolve in complexity and scope, accessibility, approachability, and learnability are no longer niche considerations—they’re essential. In this talk, we will explore the differences between accessibility, approachability, and learnability, as well as the overlap between them. We will discuss the difficulties in developing accessible, approachable, and learnable games, why the industry lacks clear benchmarks, and the best resources and solutions for game developers. We’ll dive into some examples of modern games, the challenges they pose to players, and the current assistive techniques used in industry. Then, we’ll see how various AI techniques (including Utility AI, Goal-Oriented Action Planning, and Large Language Models) can dynamically assist players without compromising gameplay. This presentation will not only explain the concepts of accessibility, approachability, and learnability, but encourage creative thinking about how emerging technologies can make games more inclusive, intuitive, and fun for everyone.",
+			}
+		),
+
+		s(
+			"2025-11-08T15:00",
+			"2025-11-08T15:45",
+			"110",
+			"Cybersecurity", // ← no trailing space
+			"Rob Chaykoski",
+			"Capture the Flag - Build your Cybersecurity Skills by Hacking",
+			"Rob Chaykoski",
+			{
+				imgs: ["./images/speakersImage/Speaker_RobChaykoski.png"],
+				desc: "TBA",
 			}
 		),
 		s(
