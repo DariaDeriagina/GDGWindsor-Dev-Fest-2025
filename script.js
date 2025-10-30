@@ -15,12 +15,12 @@
 	const TRACK_COLORS = {
 		"Google Cloud": "#BDE9F4",
 		"Build with AI": "#C3DFC4",
-		"Full-Stack": "#D0C4F6",
+		"Full-Stack": "#FFE2A0",
 		Cybersecurity: "#F6D2D2",
 		Entrepreneurship: "#FFE2A0",
 		"High School": "#FAE8C8",
-		Keynote: "#FAE8C8",
-		All: "#EBEBEB",
+		Keynote: "#BDE9F4",
+		All: "#BDE9F4",
 	};
 	const trackColor = (name) => TRACK_COLORS[name] || TRACK_COLORS.All;
 
@@ -128,7 +128,7 @@
 		s(
 			"2025-11-08T08:45",
 			"2025-11-08T09:45",
-			"B14",
+			"104",
 			"Keynote",
 			"All",
 			"The Celestial Mechanics of Attention Mechanisms",
@@ -148,11 +148,11 @@
 			"104",
 			"Google Cloud",
 			"Naresh Jasotani",
-			"To Be Announced",
+			"The Agentic Shift: How Autonomous AI is Revolutionizing Data Management",
 			"Naresh Jasotani",
 			{
 				img: "./images/speakersImage/Speaker_NareshJasotani.png",
-				desc: "To Be Announced",
+				desc: 'Data ecosystems are more complex than ever. Manual processes for data quality, governance, and integration are failing to scale, leaving data teams overwhelmed and insights locked in silos. It\'s time to move from automation to autonomy. This session explores "Agentic Data Management," a new paradigm where intelligent agents, powered by LLMs and sophisticated planning, autonomously manage your entire data lifecycle. We’ll cover how these agents can understand natural language goals, independently profile and clean datasets, enforce governance policies 24/7, and even self-heal broken data pipelines.',
 			}
 		),
 		s(
@@ -242,19 +242,6 @@
 		s(
 			"2025-11-08T11:00",
 			"2025-11-08T11:45",
-			"B14",
-			"Full-Stack",
-			"Salma Aly",
-			"From Requests to Results: Hands-On API Testing Automation",
-			"Salma Aly",
-			{
-				img: "./images/speakersImage/Speaker_SalmaAly.png",
-				desc: "This interactive workshop will guide participants through the fundamentals and advanced techniques of automated API testing. Attendees will learn how to design, execute, and validate API tests using industry-standard tools and frameworks, with a strong emphasis on practical, hands-on experience. Topics include understanding REST and JSON payloads, structuring automated test scripts, handling authentication, verifying responses, and integrating API testing into continuous integration/continuous deployment (CI/CD) pipelines. Participants will leave with the skills to build robust, repeatable API test suites that improve software quality, accelerate release cycles, and ensure system reliability in modern, service-oriented architectures.",
-			}
-		),
-		s(
-			"2025-11-08T11:00",
-			"2025-11-08T11:45",
 			"110",
 			"Cybersecurity",
 			"Frank Abbruzzese",
@@ -285,7 +272,7 @@
 		s(
 			"2025-11-08T12:00",
 			"2025-11-08T12:45",
-			"Commons (Lunch & Fireside)",
+			"104",
 			"All",
 			"Panel",
 			"Lunch & Fireside Chat Inventing Tomorrow: A Fireside Chat on the GenAI Revolution and Why You Should Be Excited",
@@ -415,7 +402,7 @@
 		s(
 			"2025-11-08T14:00",
 			"2025-11-08T14:45",
-			"B14",
+			"104",
 			"Cybersecurity",
 			"Troy Hector",
 			"Secure your code with Scratch powered by Gemini AI",
@@ -654,6 +641,27 @@
 		}
 	}
 
+	/* ============================ Rooms ============================ */
+	const ROOM_URLS = {
+		104: "https://ctl2.uwindsor.ca/classrooms/OB/104/",
+		108: "https://ctl2.uwindsor.ca/classrooms/OB/108/",
+		110: "https://ctl2.uwindsor.ca/classrooms/OB/110/",
+		112: "https://ctl2.uwindsor.ca/classrooms/OB/112/",
+		B02: "https://ctl2.uwindsor.ca/classrooms/OB/B02/",
+		B14: "https://ctl2.uwindsor.ca/classrooms/OB/B14/", // ← add this
+	};
+
+	function roomBadge(room) {
+		const url = ROOM_URLS[String(room).trim()];
+		const label = `Room ${esc(room)}`;
+		return url
+			? `<a class="room-badge badge" style="color:#000" href="${esc(url)}"
+         target="_blank" rel="noopener" aria-label="${label} (opens UW room page)">
+         ${label}
+       </a>`
+			: `<span class="room-badge badge" style="color:#000">${label}</span>`;
+	}
+
 	/* ============================ Render helpers ============================ */
 	function renderSpeakerImgs(it, size = 64) {
 		const sources = (
@@ -697,9 +705,8 @@
                 <h4>${esc(it.title || "")}</h4>
                 <div class="slot-meta">
                   ${esc(it.presenter || it.speaker || "")}
-                  • <span class="room-badge badge" style="color:#000">Room ${esc(
-										it.room
-									)}</span>
+                  • • ${roomBadge(it.room)}
+
                 </div>
                 <div class="slot-badges">
                   <span class="badge" style="color:#000">${esc(it.track)}</span>
@@ -762,9 +769,8 @@
             <h4>${esc(it.title || "")}</h4>
             <div class="slot-meta">
               ${esc(it.presenter || it.speaker || "")}
-              • <span class="room-badge badge" style="color:#000">Room ${esc(
-								it.room
-							)}</span>
+              • ${roomBadge(it.room)}
+
             </div>
             <div class="slot-badges">
               <span class="badge" style="color:#000">${esc(it.track)}</span>

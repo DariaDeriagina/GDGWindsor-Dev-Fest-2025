@@ -1659,6 +1659,15 @@ section {
 .badge.is-global {
 	display: none !important;
 }
+.badge.has-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+.badge.has-icon svg {
+	flex: 0 0 auto;
+	opacity: 0.85;
+}
 
 /* ==================== MARK: SPEAKERS ==================== */
 /* Base */
