@@ -507,6 +507,7 @@
 		//Kiran Puthan
 		//Steven Rice
 		//Safiia Mohammed
+		//Atif Khan
 		s(
 			"2025-11-08T16:00",
 			"2025-11-08T16:45",
@@ -557,6 +558,19 @@
 			{
 				img: "./images/speakersImage/Speaker_SafiiaMohammed.png",
 				desc: "As Large Language Models (LLMs) become intensely integrated in business operations, their supply chains have emerged as a critical security frontier. Unlike traditional software, LLMs rely on massive training datasets, third-party APIs, fine-tuning providers, open-source model hubs, and deployment infrastructures. Each stage introduces potential vulnerabilities. Malicious behaviours can bias outputs, compromised pre-trained models may contain hidden backdoors, and insecure API integrations expose organizations to data leakage or manipulation.However, within these threats lie opportunities. Businesses that secure their LLM supply chains can differentiate themselves by offering trustworthy, compliance-ready AI services. This aligns with regulations like the EU AI Act and Canada’s AIDA, which demand transparency in AI decision-making.Resilient organizations will view LLM supply chain security as more than risk mitigation; it is a strategic enabler. By embedding security, privacy, and accountability into AI pipelines, businesses protect customer trust, reduce liability, and unlock competitive advantage. Enterprises that can validate what their models do,and transparently explain the how, why, and origin of their intelligence,will lead the future of AI.",
+			}
+		),
+		s(
+			"2025-11-08T16:00",
+			"2025-11-08T16:45",
+			"B02",
+			"Entrepreneurship",
+			"Atif Khan",
+			"AI The Great Equalizer",
+			"Atif Khan",
+			{
+				img: "./images/speakersImage/Speaker_AtifKhan.png",
+				desc: "Generative AI is changing how we work, create, and compete. It gives individuals and small teams access to tools that once required large budgets and specialized talent. This talk explores how AI reduces the cost of information, content creation, and even thinking itself. Atif Khan will show practical examples of how AI acts as a cognitive partner. It helps developers, entrepreneurs, and innovators save time, improve customer engagement, and spark creativity. The session will also cover key challenges such as bias, hallucinations, and responsible adoption. Whether you are a developer, founder, or tech enthusiast, you will walk away with clear, actionable insights on how to use AI to amplify human potential. This session is about curiosity, leadership, and innovation — and how AI can be the great equalizer for everyone.",
 			}
 		),
 		//Closing Celebration + Live Performance by RKease

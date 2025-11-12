@@ -2889,3 +2889,14 @@ header .display-5 {
 	border: 1px solid #000;
 	font-size: 14px; /* slightly smaller */
 }
+
+/* Only disable clicks when the mobile menu is hidden */
+@media (max-width: 991.98px) {
+	.navbar-collapse {
+		pointer-events: auto;
+	}
+	.navbar-collapse.fade-out,
+	.navbar-collapse:not(.show) {
+		pointer-events: none;
+	}
+}
