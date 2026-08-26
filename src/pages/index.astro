@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Hero from "@components/Hero.astro";
+import { EVENT_2026 } from "@config/event.config";
+
+const title = `${EVENT_2026.name} | ${EVENT_2026.location.city}, ${EVENT_2026.location.province}`;
+const description = EVENT_2026.seo.metaDescription;
+---
+
+<BaseLayout title={title} description={description} ogImage={EVENT_2026.seo.ogImage}>
+  <Header logoSrc="/logo.svg" />
+  <main class="pt-20">
+    <Hero event={EVENT_2026} />
+  </main>
+</BaseLayout>
